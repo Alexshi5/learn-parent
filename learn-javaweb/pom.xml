@@ -11,6 +11,7 @@
     <packaging>pom</packaging>
     <modules>
         <module>javaweb-g2</module>
+        <module>javaweb-f1</module>
     </modules>
 
     <distributionManagement>
