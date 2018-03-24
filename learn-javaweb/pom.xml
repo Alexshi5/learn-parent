@@ -9,6 +9,9 @@
 
     <artifactId>learn-javaweb</artifactId>
     <packaging>pom</packaging>
+    <modules>
+        <module>javaweb-g2</module>
+    </modules>
 
     <distributionManagement>
         <site>

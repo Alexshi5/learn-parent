@@ -7,7 +7,6 @@
     <version>1.0-SNAPSHOT</version>
     <modules>
         <module>learn-javaweb</module>
-        <module>learn-test</module>
     </modules>
     <packaging>pom</packaging>
 
