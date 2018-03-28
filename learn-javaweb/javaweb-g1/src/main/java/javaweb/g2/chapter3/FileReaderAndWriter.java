@@ -1,4 +1,6 @@
-package javaweb.g2.chapter.three;
+package javaweb.g2.chapter3;
+
+import org.junit.Test;
 
 import java.io.*;
 
@@ -8,6 +10,11 @@ import java.io.*;
  * @description
  */
 public class FileReaderAndWriter {
+    @Test
+    public void test(){
+        FileReaderAndWriter writer=new FileReaderAndWriter();
+        System.out.println(writer);
+    }
     public static void main(String[] args) {
         String file = "D:\\GitRepositories\\learn-parent\\learn-javaweb\\javaweb-g2\\test.txt";
         String charset = "utf-8";

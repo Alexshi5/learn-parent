@@ -7,22 +7,20 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>learn-javaweb</artifactId>
-    <packaging>pom</packaging>
-    <modules>
-        <module>javaweb-g2</module>
-        <module>javaweb-f1</module>
-        <module>javaweb-svndeploy</module>
-    </modules>
+    <artifactId>learn-javaf1</artifactId>
+    <packaging>jar</packaging>
 
-    <distributionManagement>
-        <site>
-            <id>website</id>
-            <url>scp://webhost.company.com/www/website</url>
-        </site>
-    </distributionManagement>
+    <name>learn-javaf1</name>
+    <url>http://maven.apache.org</url>
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
+
+    <dependencies>
+        <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+        </dependency>
+    </dependencies>
 </project>
