@@ -13,6 +13,7 @@
         <module>javaweb-g2</module>
         <module>javaweb-f1</module>
         <module>javaweb-svndeploy</module>
+        <module>f1chapter3-helloservlet</module>
     </modules>
 
     <distributionManagement>

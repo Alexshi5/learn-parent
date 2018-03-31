@@ -1,4 +1,4 @@
-package javaweb.f1.chapter.one;
+package javaweb.f1.chapter1;
 
 import java.io.FileOutputStream;
 import java.io.IOException;
