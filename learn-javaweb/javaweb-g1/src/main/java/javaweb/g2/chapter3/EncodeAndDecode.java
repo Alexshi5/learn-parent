@@ -3,6 +3,8 @@ package javaweb.g2.chapter3;
 import java.nio.ByteBuffer;
 import java.nio.CharBuffer;
 import java.nio.charset.Charset;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * 编码与解码
@@ -27,5 +29,9 @@ public class EncodeAndDecode {
         char c = 'a';
         ByteBuffer buffer = ByteBuffer.allocate(1024);
         ByteBuffer byteBuffer = buffer.putChar(c);
+    }
+
+    public void test2() {
+        List<String> list = new ArrayList<>();
     }
 }
