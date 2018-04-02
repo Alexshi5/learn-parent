@@ -28,3 +28,7 @@ target/
 .DS_Store
 Thumbs.db
 
+# Eclipse for C
+*.exe
+*.cproject
+
