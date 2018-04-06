@@ -5,8 +5,13 @@
     <title>Title</title>
     <link rel="stylesheet" href="layui/css/layui.css" >
     <script type="text/javascript" src="layui/layui.js"></script>
+    <script type="text/javascript" src="js/jquery-3.2.1.js"></script>
 </head>
 <body>
+<input id="test" type="button" value="test">
+<input id="showDiv" type="button" value="显示div" onclick="showDiv()">
+<div id="div1" style="width: 100px;height: 100px;border: solid red"></div>
+<div id="div2" style="width: 100px;height: 100px;border: solid black"></div>
 <script>
     //一般直接写在一个js文件中
     /*layui.use(['layer', 'form'], function(){
@@ -19,6 +24,16 @@
     layui.config({
         base:'js/'
     }).use('index');
+
+    function test() {
+        window.document.getElementById('test').value='TEST';
+    }
+    function showDiv() {
+        /*layer.open({
+            type: 1,
+            content: "<div style='float: left'>"+$('#div1').prop('outerHTML')+"</div>"+"<div style='float: left'>"+$('#div2').prop('outerHTML')+"</div>"
+        });*/
+    }
 </script>
 
 <!--<script>
@@ -30,5 +45,6 @@
         layer.msg('Hello World');
     }();
 </script>-->
+
 </body>
 </html>

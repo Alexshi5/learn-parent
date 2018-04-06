@@ -4,13 +4,32 @@
 
 <web-app>
     <display-name>Archetype Created Web Application</display-name>
-    <servlet>
+   <!-- <servlet>
         <servlet-name>hello</servlet-name>
-        <servlet-class>f1.chapter3.servlet.HelloServlet</servlet-class>
-        <load-on-startup>1</load-on-startup><!--让servlet在Web应用程序启动之后立即启动-->
+        <servlet-class>f1.chapter3.pojolloServlet</servlet-class>
+        <load-on-startup>1</load-on-startup>&lt;!&ndash;让servlet在Web应用程序启动之后立即启动&ndash;&gt;
     </servlet>
     <servlet-mapping>
         <servlet-name>hello</servlet-name>
         <url-pattern>/getting</url-pattern>
-    </servlet-mapping>
+    </servlet-mapping>-->
+
+    <!--配置上下文初始化参数-->
+   <!-- <context-param>
+        <param-name>username</param-name>
+        <param-value>Tom</param-value>
+    </context-param>-->
+    <!--配置当前servlet的初始化参数-->
+    <!--<servlet>
+        <servlet-name>servletParamServlet</servlet-name>
+        <servlet-class>f1.chapter3.pojorvletParamServlet</servlet-class>
+        <init-param>
+            <param-name>password</param-name>
+            <param-value>Tom123</param-value>
+        </init-param>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>servletParamServlet</servlet-name>
+        <url-pattern>/servletParam</url-pattern>
+    </servlet-mapping>-->
 </web-app>

@@ -4,3 +4,9 @@ layui.define(['layer','form'], function (exports) {
 
     exports('index', {});
 });
+
+$(function () {
+    window.test();
+    var v=window.document.getElementById('test').value;
+    alert(v);
+});
