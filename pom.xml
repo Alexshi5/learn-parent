@@ -8,6 +8,7 @@
     <modules>
         <module>learn-javaweb</module>
         <module>learn-javaf1</module>
+        <module>learn-demo</module>
     </modules>
     <packaging>pom</packaging>
 
