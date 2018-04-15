@@ -1,17 +1,57 @@
 #include <stdio.h>
+void example8();
+void example7();
+void example6();
+void example5();
 void example4();
 void example3();
 void example2();
 void example1();
 int main(void) {
-	example4();
+	example8();
 	return 0;
+}
+//举例方法七
+void example8() {
+	printf("%u\n", sizeof(int)); //4 bytes
+	printf("%u\n", sizeof(char)); //1 byte
+	printf("%u\n", sizeof(float)); //4 bytes
+	printf("%u\n", sizeof(double)); //8 bytes
+	printf("%u\n", sizeof(_Bool)); //1 byte
+	printf("%u\n", sizeof(long double));//12 bytes
+}
+//举例方法七
+void example7() {
+	float f = 1.2e3;
+	double d = 2.5e2;
+	float t = 30.15f;
+	printf("%f\n", f * 10); //12000.000000至少6个有效数位
+	printf("%.2f\n", d * 10); //2500.00，.2表示保留两位有效数位
+	printf("%.1e\n", d * 10); //2.5e+003，使用指数记数法表示，并保留一位有效数位
+	printf("%e", t); //3.015000e+001
+}
+//举例方法六
+void example6() {
+	int i = 5;
+	_Bool b = i > 3;
+	if (b) {
+		printf("%d", b); //1
+	} else {
+		printf("test");
+	}
+}
+//举例方法五
+void example5() {
+	char c;
+	scanf("%d", &c); //使用%d时输入整数，使用%c时输入字符
+	printf("use d is：%d\n", c); //use d is：65
+	printf("use c is：%c\n", c); //use c is：A
 }
 //举例方法四
 void example4() {
-	int num = 10;//10在十六进制中是a
-	printf("十进制：%d 八进制：%o 十六进制：%x\n", num, num, num);//十进制：10 八进制：12 十六进制：a
-	printf("十进制：%d 八进制：%#o 十六进制：%#x", num, num, num);//十进制：10 八进制：012 十六进制：0xa
+	int num = 10; //10在十六进制中是a
+	printf("十进制：%d 八进制：%o 十六进制：%x\n", num, num, num); //十进制：10 八进制：12 十六进制：a
+	printf("十进制：%d 八进制：%#o 十六进制：%#x", num, num, num); //十进制：10 八进制：012 十六进制：0xa
 }
 //举例方法三
 void example3() {

@@ -8,3 +8,4 @@ package javaf1.chapter3;
 class Number {
     int a;
 }
+
