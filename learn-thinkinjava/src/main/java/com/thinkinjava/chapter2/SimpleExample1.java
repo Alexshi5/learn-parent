@@ -1,4 +1,4 @@
-package javaf1.chapter2;
+package com.thinkinjava.chapter2;
 
 import org.junit.Test;
 

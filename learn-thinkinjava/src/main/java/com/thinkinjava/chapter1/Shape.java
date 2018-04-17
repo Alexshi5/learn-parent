@@ -1,4 +1,4 @@
-package javaf1.chapter1;
+package com.thinkinjava.chapter1;
 
 /**
  * 父类

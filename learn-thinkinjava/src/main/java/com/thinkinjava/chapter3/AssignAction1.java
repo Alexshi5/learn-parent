@@ -1,9 +1,9 @@
-package javaf1.chapter3;
+package com.thinkinjava.chapter3;
 
 public class AssignAction1 {
     public static void main(String[] args) {
-        Number num1 = new Number();
-        Number num2 = new Number();
+        com.thinkinjava.chapter3.Number num1 = new com.thinkinjava.chapter3.Number();
+        com.thinkinjava.chapter3.Number num2 = new com.thinkinjava.chapter3.Number();
         num1.a = 10;
         num2.a = 20;
         System.out.println(num1.a + "==" + num2.a);//10==20

@@ -1,4 +1,4 @@
-package javaf1.chapter3;
+package com.thinkinjava.chapter3;
 
 /**
  * author Alex
