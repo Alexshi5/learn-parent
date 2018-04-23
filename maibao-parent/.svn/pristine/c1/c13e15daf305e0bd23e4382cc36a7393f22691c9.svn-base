@@ -1,0 +1,26 @@
+---------linux主机start-------------
+关机：shutdown -h now
+重启：reboot
+linux主机IP地址：192.168.188.132
+linux账号：root 密码：123
+查看防火墙状态：systemctl status firewalld
+启用防火墙：systemctl start firewalld
+停止防火墙：systemctl stop firewalld
+禁用防火墙：systemctl disable firewalld
+
+---------linux主机end-------------
+
+---------数据库start----------------
+mysql数据库账号：alex 密码：123
+
+---------数据库end----------------
+
+---------svn start------------------
+svn的工作目录：/usr/local/svn
+svn服务启动命令：svnserve -d -r /usr/local/svn/maibao
+svn服务停止命令：kill 进程号
+查看svn进程号：ps aux|grep svn
+svn项目地址：svn://192.168.188.132/maibao
+svn账号：alex 密码：123
+
+---------svn end------------------

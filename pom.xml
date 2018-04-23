@@ -7,8 +7,9 @@
     <version>1.0-SNAPSHOT</version>
     <modules>
         <module>learn-javaweb</module>
-        <module>learn-javaf1</module>
+        <module>learn-thinkinjava</module>
         <module>learn-demo</module>
+        <module>maibao-parent</module>
     </modules>
     <packaging>pom</packaging>
 
