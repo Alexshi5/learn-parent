@@ -32,3 +32,6 @@ Thumbs.db
 *.exe
 *.cproject
 
+# maibao-parent
+*.svn
+
