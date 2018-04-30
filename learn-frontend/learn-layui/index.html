@@ -6,12 +6,10 @@
     <link rel="stylesheet" href="layui/css/layui.css" >
     <script type="text/javascript" src="layui/layui.js"></script>
     <script type="text/javascript" src="js/jquery-3.2.1.js"></script>
+    <script type="text/javascript" src="js/index.js"></script>
 </head>
 <body>
-<input id="test" type="button" value="test">
-<input id="showDiv" type="button" value="显示div" onclick="showDiv()">
-<div id="div1" style="width: 100px;height: 100px;border: solid red"></div>
-<div id="div2" style="width: 100px;height: 100px;border: solid black"></div>
+<input id="test" type="button" value="测试" onclick="test2()"/>
 <script>
     //一般直接写在一个js文件中
     /*layui.use(['layer', 'form'], function(){
@@ -21,30 +19,29 @@
         layer.msg('Hello World');
     });*/
 
-    layui.config({
+    /*layui.config({
         base:'js/'
-    }).use('index');
+    }).use('index');*/
 
-    function test() {
-        window.document.getElementById('test').value='TEST';
-    }
-    function showDiv() {
-        /*layer.open({
-            type: 1,
-            content: "<div style='float: left'>"+$('#div1').prop('outerHTML')+"</div>"+"<div style='float: left'>"+$('#div2').prop('outerHTML')+"</div>"
-        });*/
-    }
 </script>
-
-<!--<script>
-    //由于模块都一次性加载，因此不用执行 layui.use() 来加载对应模块，直接使用即可：
-    !function(){
-        var layer = layui.layer
-            ,form = layui.form;
-
-        layer.msg('Hello World');
-    }();
-</script>-->
+<!-- 弹出层需要的html -->
+<table class="layui-table" style="margin:0px;background:rgb(244,248,249)" id="certCardTr2">
+    <tr>
+        <td>从业资格证号</td>
+        <td>证件有效期开始</td>
+        <td>证件有效期结束</td>
+        <td>从业资格类别</td>
+        <td>姓名</td>
+        <td>住址</td>
+        <td>准驾车型</td>
+        <td>核发机关</td>
+        <td>核发日期</td>
+        <td>有效状态</td>
+        <td>操作</td>
+    </tr>
+    <!--<tr id="certCardTr"></tr>-->
+</table>
 
 </body>
+
 </html>

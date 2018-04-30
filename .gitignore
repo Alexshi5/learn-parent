@@ -33,5 +33,6 @@ Thumbs.db
 *.cproject
 
 # maibao-parent
-*.svn
 
+*.svn
+maibao-parent/package/
