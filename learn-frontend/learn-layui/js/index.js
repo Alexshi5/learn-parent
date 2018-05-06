@@ -15,6 +15,6 @@ function test2() {
 }
 
 $(function () {
-    var admin=null;//如果为空，则!admin为true，如果不为空为false
-    alert(!admin);
+    var milliseconds = new Date().getTime();
+    alert(milliseconds);
 });
