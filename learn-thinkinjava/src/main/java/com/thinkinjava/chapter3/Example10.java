@@ -21,4 +21,10 @@ public class Example10 {
             System.out.println("no");
         }
     }
+
+    @Test
+    public void example3() {
+        System.out.println(Byte.MAX_VALUE);
+        System.out.println((1 << 7) - 1);
+    }
 }
