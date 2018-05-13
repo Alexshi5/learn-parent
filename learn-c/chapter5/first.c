@@ -6,13 +6,40 @@ void example4();
 void example5();
 void example6();
 void example7();
+void example8();
+void example9();
 int main(void) { //使用void关键字表明此函数不接受任何参数
-	example7(10);//函数调用传递的值为实际参数，这里函数调用把实际值10传递给函数
+	//example7(10);//函数调用传递的值为实际参数，这里函数调用把实际值10传递给函数
+	example9();
 	return 0;
 }
 
-void example7(int n) {//声明参数，创建形式参数的变量，表明此函数接受一个int类型的参数
-	printf("%d", n + 10);//20
+void example9() {
+	_Bool b;
+	b = 3;
+	printf("%d\n", b);	//1
+	b = -1;
+	printf("%d\n", b);	//1
+	b = 0;
+	printf("%d\n", b);	//0
+
+	int i = 5, j = 0;
+	while (i -= 1) {//i=i-1，当i为0时终止循环
+		j += i;//j=j+i
+	}
+	printf("%d", j);//4+3+2+1=10
+}
+
+void example8() {
+	int a, b;
+	a = (10 > 2);
+	printf("%d\n", a);	//1
+	b = (10 < 2);
+	printf("%d\n", b);	//0
+}
+
+void example7(int n) {	//声明参数，创建形式参数的变量，表明此函数接受一个int类型的参数
+	printf("%d", n + 10);	//20
 }
 
 void example6() {

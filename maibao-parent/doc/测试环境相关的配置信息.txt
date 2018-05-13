@@ -33,10 +33,13 @@ svn账号：alex 密码：123
 ---------svn end------------------
 
 --------nexus begin---------------
-此服务器在windows中
-nexus的访问地址：localhost:8081/nexus
+此服务器在linux中
+安装目录：/usr/local/nexus
+启动nexus：/usr/local/nexus/nexus-2.9.0-04/bin/nexus start
+停止nexus：/usr/local/nexus/nexus-2.9.0-04/bin/nexus stop
+nexus的访问地址：192.168.188.132:8081/nexus
 nexus的管理员账号：admin 密码：admin123
-nexus的公共仓库地址：http://localhost:8081/nexus/content/groups/public
+nexus的公共仓库地址：http://192.168.188.132:8081/nexus/content/groups/public
 
 --------nexus end-----------------
 
