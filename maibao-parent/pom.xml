@@ -14,6 +14,9 @@
 
     <!-- FIXME change it to the project's website -->
     <url>http://www.example.com</url>
+    <modules>
+        <module>maimao-usermanage</module>
+    </modules>
 
     <distributionManagement>
         <site>
@@ -31,10 +34,14 @@
         <spring.version>5.0.0.RELEASE</spring.version>
         <!-- spring的切面依赖jar包 -->
         <aspectj.version>1.8.11</aspectj.version>
-        <!-- mybatis-->
-        <mybatis.version>3.4.5</mybatis.version>
+        <!-- mybatis 如果版本太高，使用pagehelper3.4.2-fix时会出现参数不匹配的问题-->
+        <mybatis.version>3.2.8</mybatis.version>
         <!-- spring和mybatis的整合包 -->
         <mybatis.spring.version>1.3.1</mybatis.spring.version>
+        <!-- mybatis分页处理jar包-->
+        <mybatis.paginator.version>1.2.15</mybatis.paginator.version>
+        <!-- mybatis物理分页插件jar包，官方的分页对逆向工程的支持不好，需要进行修改 -->
+        <pagehelper.version>3.4.2-fix</pagehelper.version>
         <!-- mysql -->
         <mysql.version>5.1.43</mysql.version>
         <!-- 日志处理 -->
@@ -51,10 +58,22 @@
         <commons-lang3.version>3.6</commons-lang3.version>
         <!-- 输入输出流 -->
         <commons-io.version>2.6</commons-io.version>
+        <!-- 封装了各种网络协议的jar包 -->
+        <commons-net.version>3.6</commons-net.version>
         <!-- 文件上传 -->
         <commons-fileupload.version>1.3.3</commons-fileupload.version>
         <!-- jackson工具 -->
         <jackson.version>2.9.2</jackson.version>
+        <!-- 应用程序之间的通信jar包-->
+        <httpclient.version>4.3.5</httpclient.version>
+        <!-- 时间格式化组件-->
+        <joda-time.version>2.9.9</joda-time.version>
+        <!-- redis客户端 -->
+        <jedis.version>2.9.0</jedis.version>
+        <!-- solr客户端 -->
+        <solrj.version>4.10.3</solrj.version>
+        <!--mapper报表图形组件-->
+        <mapper.version>3.0.0</mapper.version>
     </properties>
 
     <dependencyManagement>
@@ -97,6 +116,17 @@
                 <artifactId>mybatis-spring</artifactId>
                 <version>${mybatis.spring.version}</version>
             </dependency>
+            <!-- 分页 -->
+            <dependency>
+                <groupId>com.github.miemiedev</groupId>
+                <artifactId>mybatis-paginator</artifactId>
+                <version>${mybatis.paginator.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.github.pagehelper</groupId>
+                <artifactId>pagehelper</artifactId>
+                <version>${pagehelper.version}</version>
+            </dependency>
             <!-- mysql -->
             <dependency>
                 <groupId>mysql</groupId>
@@ -121,6 +151,12 @@
                 <artifactId>druid</artifactId>
                 <version>${druid.version}</version>
             </dependency>
+            <!-- httpclient -->
+            <dependency>
+                <groupId>org.apache.httpcomponents</groupId>
+                <artifactId>httpclient</artifactId>
+                <version>${httpclient.version}</version>
+            </dependency>
             <!-- jsp相关 -->
             <dependency>
                 <groupId>jstl</groupId>
@@ -132,6 +168,12 @@
                 <artifactId>javax.servlet-api</artifactId>
                 <version>${servlet-api.version}</version>
                 <scope>provided</scope>
+            </dependency>
+            <!-- 时间操作组件 -->
+            <dependency>
+                <groupId>joda-time</groupId>
+                <artifactId>joda-time</artifactId>
+                <version>${joda-time.version}</version>
             </dependency>
             <!-- commons相关 -->
             <dependency>
@@ -149,39 +191,139 @@
                 <artifactId>commons-fileupload</artifactId>
                 <version>${commons-fileupload.version}</version>
             </dependency>
+            <dependency>
+                <groupId>commons-net</groupId>
+                <artifactId>commons-net</artifactId>
+                <version>${commons-net.version}</version>
+            </dependency>
             <!-- Jackson Json处理工具包 -->
             <dependency>
                 <groupId>com.fasterxml.jackson.core</groupId>
                 <artifactId>jackson-databind</artifactId>
                 <version>${jackson.version}</version>
             </dependency>
+            <!-- redis -->
+            <dependency>
+                <groupId>redis.clients</groupId>
+                <artifactId>jedis</artifactId>
+                <version>${jedis.version}</version>
+            </dependency>
+            <!-- solr -->
+            <dependency>
+                <groupId>org.apache.solr</groupId>
+                <artifactId>solr-solrj</artifactId>
+                <version>${solrj.version}</version>
+            </dependency>
+            <!-- 通用mapper -->
+            <dependency>
+                <groupId>com.github.abel533</groupId>
+                <artifactId>mapper</artifactId>
+                <version>${mapper.version}</version>
+            </dependency>
+
         </dependencies>
     </dependencyManagement>
 
     <build>
+        <finalName>${project.artifactId}</finalName>
+
+        <!-- 如果不添加此节点mybatis的mapper.xml文件都会被漏掉。 -->
+        <!--<resources>
+            <resource>
+                <directory>src/main/java</directory>
+                <includes>
+                    <include>**/*.properties</include>
+                    <include>**/*.xml</include>
+                </includes>
+                <filtering>false</filtering>
+            </resource>
+            <resource>
+                <directory>src/main/resources</directory>
+                <includes>
+                    <include>**/*.properties</include>
+                    <include>**/*.xml</include>
+                </includes>
+                <filtering>false</filtering>
+            </resource>
+        </resources>-->
+        <plugins>
+            <!--配置jdk版本，加载项目时自动使用配置版本，还有一种方法修改配置文件settings.xml-->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>3.7.0</version>
+                <configuration>
+                    <source>1.8</source>
+                    <target>1.8</target>
+                    <encoding>UTF-8</encoding>
+                </configuration>
+            </plugin>
+
+            <!-- 资源文件拷贝插件 -->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-resources-plugin</artifactId>
+                <version>2.7</version>
+                <configuration>
+                    <encoding>UTF-8</encoding>
+                </configuration>
+            </plugin>
+
+            <!--配置tomcat插件，可以使用此插件来运行项目-->
+            <!--<plugin>
+                <groupId>org.apache.tomcat.maven</groupId>
+                <artifactId>tomcat7-maven-plugin</artifactId>
+                <version>2.2</version>
+                <configuration>
+                    <port>8080</port>
+                    <path>/</path>
+                </configuration>
+            </plugin>-->
+
+            <!-- maven项目启动时略过测试类的插件，如果没有配置会在启动时先进行测试 -->
+            <!--<plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-surefire-plugin</artifactId>
+                <version>2.18.1</version>
+                <configuration>
+                    <skipTests>true</skipTests>
+                </configuration>
+            </plugin>-->
+        </plugins>
+
         <pluginManagement><!-- lock down plugins versions to avoid using Maven defaults (may be moved to parent pom) -->
             <plugins>
                 <plugin>
                     <artifactId>maven-clean-plugin</artifactId>
                     <version>3.0.0</version>
                 </plugin>
+                <!-- see http://maven.apache.org/ref/current/maven-core/default-bindings.html#Plugin_bindings_for_war_packaging -->
                 <plugin>
-                    <artifactId>maven-site-plugin</artifactId>
-                    <version>3.7</version>
+                    <artifactId>maven-resources-plugin</artifactId>
+                    <version>3.0.2</version>
                 </plugin>
                 <plugin>
-                    <artifactId>maven-project-info-reports-plugin</artifactId>
-                    <version>2.9</version>
+                    <artifactId>maven-compiler-plugin</artifactId>
+                    <version>3.7.0</version>
+                </plugin>
+                <plugin>
+                    <artifactId>maven-surefire-plugin</artifactId>
+                    <version>2.20.1</version>
+                </plugin>
+                <plugin>
+                    <artifactId>maven-war-plugin</artifactId>
+                    <version>3.2.0</version>
+                </plugin>
+                <plugin>
+                    <artifactId>maven-install-plugin</artifactId>
+                    <version>2.5.2</version>
+                </plugin>
+                <plugin>
+                    <artifactId>maven-deploy-plugin</artifactId>
+                    <version>2.8.2</version>
                 </plugin>
             </plugins>
         </pluginManagement>
-    </build>
 
-    <reporting>
-        <plugins>
-            <plugin>
-                <artifactId>maven-project-info-reports-plugin</artifactId>
-            </plugin>
-        </plugins>
-    </reporting>
+    </build>
 </project>

@@ -13,7 +13,7 @@ linux账号：root 密码：123
 ---------mysql数据库 begin----------------（开机自动启动）
 此服务器在linux中，ip：192.168.188.132:3306
 连接名：maibao
-连接账号：alex 密码：123
+连接账号：root 密码：123
 数据库maibao：
 数据库mybatis：
 启动mysql数据库：systemctl start mysqld
