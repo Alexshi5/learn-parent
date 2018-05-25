@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="layui/css/layui.css">
+    <script type="text/javascript" src="layui/layui.js"></script>
+    <script type="text/javascript" src="js/jquery-3.2.1.js"></script>
+</head>
+<body>
+
+<form class="layui-form" action="">
+    <input type="radio" name="orgMain" value="测试" title="测试">
+</form>
+
+</body>
+</html>
+<script>
+    /*layui.config({
+        base: 'js/'
+    }).use(['layer', 'form'], function () {
+        layer = layui.layer;
+        /!*exports('index', {});*!/
+    });*/
+
+    layui.use(['layer', 'form']);
+
+    $(function () {
+        alert(456);
+    });
+    function test123() {
+        alert(123);
+    }
+</script>

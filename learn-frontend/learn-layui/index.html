@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
-    <link rel="stylesheet" href="layui/css/layui.css" >
+    <link rel="stylesheet" href="layui/css/layui.css">
     <script type="text/javascript" src="layui/layui.js"></script>
     <script type="text/javascript" src="js/jquery-3.2.1.js"></script>
     <script type="text/javascript" src="js/index.js"></script>
@@ -27,7 +27,7 @@
 
 </script>
 <!-- 弹出层需要的html -->
-<table class="layui-table" style="margin:0px;background:rgb(244,248,249)" id="certCardTr2">
+<table class="layui-table" style="margin:0px;background:rgb(244,248,249);display: none" id="certCardTr2">
     <tr>
         <td>从业资格证号</td>
         <td>证件有效期开始</td>
@@ -44,6 +44,64 @@
     <!--<tr id="certCardTr"></tr>-->
 </table>
 
+</form>
+
+<div id="chooseOrgMain" style="" class="layui-layer-wrap">
+    <form class="layui-form" action="">
+        <div id="chooseOrgMainRadio" class="layui-input-block">
+            <input type="radio" name="orgMain" orgid="701" value="高一支一大队勤务一中队" title="高一支一大队勤务一中队"><br>
+            <input type="radio" name="orgMain" orgid="700" value="高一支一大队协勤人员" title="高一支一大队协勤人员"><br>
+            <input type="radio" name="orgMain" orgid="702" value="高一支一大队勤务二中队" title="高一支一大队勤务二中队"><br>
+        </div>
+    </form>
+</div>
+<!--<input type="checkbox" name="orgMain" lay-skin="switch" lay-text="取消|设置" width="100px">-->
+<!--<input type="checkbox" name="orgMain" title="设置主部门" checked>-->
+<!--
+<span>
+    <form class="layui-form" action="">
+        <input type="radio" name="orgMain" value="测试" title="测试">
+    </form>
+</span>
+-->
+
+
+<!--<form class="layui-form" action="">-->
+<!--<input type="radio" name="orgMain" value="测试2" title="测试2">-->
+<div class="layui-unselect  layui-form-radioed">
+    <i class="layui-anim layui-icon layui-anim-scaleSpring" style="float: left"></i>
+    <div style="float: left;margin: -2px 0px 2px 2px">测试2</div>
+</div>
+
+<!--</form>-->
+
+<!--<div class="layui-unselect layui-form-radio layui-form-radioed">
+    <i class="layui-anim layui-icon layui-anim-scaleSpring"></i>
+    <div>测试2</div>
+</div>-->
+
+
+<!--<form class="layui-form" action="">-->
+    <!--<input type="radio" name="orgMain" value="测试" title="测试">-->
+    <div class="layui-unselect layui-form-radio">
+        <i class="layui-anim layui-icon"></i>
+        <div>测试3</div>
+    </div>
+<!--</form>-->
+
+
+<!--<script>
+    //Demo
+    layui.use('form', function(){
+        var form = layui.form;
+
+        //监听提交
+        form.on('submit(formDemo)', function(data){
+            layer.msg(JSON.stringify(data.field));
+            return false;
+        });
+    });
+</script>-->
 </body>
 
 </html>

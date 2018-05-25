@@ -77,5 +77,3 @@ svn co svn://localhost
 三、如何清除已经保存账号密码的svn地址？
 在settings中找到saved data，然后使用clear或clear all来进行清理
 
-四、如何查看历史提交的日志？
-在
