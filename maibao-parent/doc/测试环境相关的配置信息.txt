@@ -48,7 +48,7 @@ nexus的公共仓库地址：http://192.168.188.132:8081/nexus/content/groups/pu
 
 --------jdk end----------------------
 
---------tomcat begin-----------------
+--------tomcat begin-----------------（暂未布置任何项目）
 安装目录：/usr/local/tomcat/tomcat9
 启动tomcat：/usr/local/tomcat/tomcat9/bin/startup.sh
 停止tomcat：/usr/local/tomcat/tomcat9/bin/shutdown.sh

@@ -14,8 +14,8 @@
 </head>
 <body>
 	<div>
-    <table class="easyui-datagrid" id="userList" title="会员列表" 
-	       data-options="singleSelect:false,collapsible:true,pagination:true,url:'/user/list',method:'post',pageSize:5,toolbar:toolbar,pageList:[2,5,10]">
+    <table class="easyui-datagrid" id="userList" title="会员列表"
+	       data-options="singleSelect:false,collapsible:true,pagination:true,url:'/manage/user/list',method:'post',pageSize:5,toolbar:toolbar,pageList:[2,5,10]">
 	    <thead>
 	        <tr>
 	        	<th data-options="field:'ck',checkbox:true"></th>
@@ -35,6 +35,7 @@
         The window content.
 </div>
 <script type="text/javascript">
+var admin1 = '<%=request.getParameter("num")%>';
 function formatDate(val,row){
 	var now = new Date(val);
 	return now.format("yyyy-MM-dd hh:mm:ss");
