@@ -12,8 +12,11 @@ var globalVar = {
 
 function test2() {
 
+    var testVal = $('#phone').val();
+    var regex = /^[1-9]+[0-9]*$/;
+    alert(regex.test(testVal));
 
-    alert(globalVar.a*5);
+    //alert(globalVar.a*5);
 
     //globalVar.var2();
     //var result =
@@ -70,9 +73,17 @@ $(function () {
 
     alert(milliseconds);*/
 
-    alert(globalVar.a);
+    /*alert(globalVar.a);
     globalVar.a = 5;
-    alert(globalVar.a);
+    alert(globalVar.a);*/
+
+    var var1 = true;
+    var var2 = undefined;
+    var var3;
+    if(var1 || var2){
+        var3 = var1 || var2;
+    }
+    alert(var3);
 
 });
 
