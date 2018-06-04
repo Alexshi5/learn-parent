@@ -77,13 +77,16 @@ $(function () {
     globalVar.a = 5;
     alert(globalVar.a);*/
 
-    var var1 = true;
+    /*var var1 = true;
     var var2 = undefined;
     var var3;
     if(var1 || var2){
         var3 = var1 || var2;
     }
-    alert(var3);
+    alert(var3);*/
+
+    var test = undefined;
+    alert(test.length);
 
 });
 
