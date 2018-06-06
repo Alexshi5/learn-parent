@@ -4,14 +4,14 @@
     <meta charset="UTF-8">
     <title>Title</title>
     <link rel="stylesheet" href="layui/css/layui.css">
-    <script type="text/javascript" src="layui/layui.js"></script>
     <script type="text/javascript" src="js/jquery-3.2.1.js"></script>
+    <script type="text/javascript" src="layui/layui.js"></script>
     <script type="text/javascript" src="js/index.js"></script>
 </head>
 <body>
 <input id="test" type="button" value="测试" onclick="test2()"/>
 
-<input id="phone" type="text">
+<!--<input id="phone" type="text">
 <script>
     //一般直接写在一个js文件中
     /*layui.use(['layer', 'form'], function(){
@@ -26,7 +26,7 @@
     }).use('index');*/
 
 </script>
-<!-- 弹出层需要的html -->
+&lt;!&ndash; 弹出层需要的html &ndash;&gt;
 <table class="layui-table" style="margin:0px;background:rgb(244,248,249);display: none" id="certCardTr2">
     <tr>
         <td>从业资格证号</td>
@@ -41,7 +41,7 @@
         <td>有效状态</td>
         <td>操作</td>
     </tr>
-    <!--<tr id="certCardTr"></tr>-->
+    &lt;!&ndash;<tr id="certCardTr"></tr>&ndash;&gt;
 </table>
 
 </form>
@@ -55,42 +55,42 @@
         </div>
     </form>
 </div>
-<!--<input type="checkbox" name="orgMain" lay-skin="switch" lay-text="取消|设置" width="100px">-->
-<!--<input type="checkbox" name="orgMain" title="设置主部门" checked>-->
-<!--
+&lt;!&ndash;<input type="checkbox" name="orgMain" lay-skin="switch" lay-text="取消|设置" width="100px">&ndash;&gt;
+&lt;!&ndash;<input type="checkbox" name="orgMain" title="设置主部门" checked>&ndash;&gt;
+&lt;!&ndash;
 <span>
     <form class="layui-form" action="">
         <input type="radio" name="orgMain" value="测试" title="测试">
     </form>
 </span>
--->
+&ndash;&gt;
 
 
-<!--<form class="layui-form" action="">-->
-<!--<input type="radio" name="orgMain" value="测试2" title="测试2">-->
+&lt;!&ndash;<form class="layui-form" action="">&ndash;&gt;
+&lt;!&ndash;<input type="radio" name="orgMain" value="测试2" title="测试2">&ndash;&gt;
 <div class="layui-unselect  layui-form-radioed">
     <i class="layui-anim layui-icon layui-anim-scaleSpring" style="float: left"></i>
     <div style="float: left;margin: -2px 0px 2px 2px">测试2</div>
 </div>
 
-<!--</form>-->
+&lt;!&ndash;</form>&ndash;&gt;
 
-<!--<div class="layui-unselect layui-form-radio layui-form-radioed">
+&lt;!&ndash;<div class="layui-unselect layui-form-radio layui-form-radioed">
     <i class="layui-anim layui-icon layui-anim-scaleSpring"></i>
     <div>测试2</div>
-</div>-->
+</div>&ndash;&gt;
 
 
-<!--<form class="layui-form" action="">-->
-    <!--<input type="radio" name="orgMain" value="测试" title="测试">-->
+&lt;!&ndash;<form class="layui-form" action="">&ndash;&gt;
+    &lt;!&ndash;<input type="radio" name="orgMain" value="测试" title="测试">&ndash;&gt;
     <div class="layui-unselect layui-form-radio">
         <i class="layui-anim layui-icon"></i>
         <div>测试3</div>
     </div>
-<!--</form>-->
+&lt;!&ndash;</form>&ndash;&gt;
 
 
-<!--<script>
+&lt;!&ndash;<script>
     //Demo
     layui.use('form', function(){
         var form = layui.form;
@@ -101,7 +101,26 @@
             return false;
         });
     });
-</script>-->
+</script>&ndash;&gt;-->
+
+
+<div class="sjclxx" sjclxx="一号"></div>
+<div class="sjclxx" sjclxx="二号"></div>
 </body>
 
+
+<div id="illegalMoreInfo" class="layui-tab layui-tab-brief" lay-filter="illegalMoreInfoTab">
+    <ul class="layui-tab-title">
+        <li class="layui-this">车辆基本信息</li>
+        <li>车辆违法信息</li>
+        <li>高速通行信息</li>
+        <li>卡口过车信息</li>
+    </ul>
+    <div class="layui-tab-content">
+        <div class="layui-tab-item layui-show">车辆基本信息</div>
+        <div class="layui-tab-item">车辆违法信息</div>
+        <div class="layui-tab-item">高速通行信息</div>
+        <div class="layui-tab-item">卡口过车信息</div>
+    </div>
+</div>
 </html>
