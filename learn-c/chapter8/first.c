@@ -2,9 +2,21 @@
 void example1();
 void example2();
 void example3();
+void example4();
 int main(void){
-	example3();
+	example4();
 	return 0;
+}
+
+
+void example4(){
+	char ch;
+
+	while((ch=getchar())!='y'){
+		if(ch!='\n'){//如果不加这个条件判断，下面的打印语句会打印再次，因为缓冲输入这一动作传递了换行符
+			printf("char is %c\n",ch);
+		}
+	}
 }
 
 void example3(){

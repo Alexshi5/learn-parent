@@ -1,6 +1,6 @@
 layui.config({
     base: 'js/'
-}).use(['layer', 'form','element'], function () {
+}).use(['layer', 'form','element','carousel'], function () {
     layer = layui.layer;
     element = layui.element();
     //element.init();
@@ -12,9 +12,16 @@ layui.config({
         console.log(data.index); //得到当前Tab的所在下标
         console.log(data.elem); //得到当前的Tab大容器
 
-        alert(this.nodeName);
-        alert(data.index);
-        alert(data.elem);
+        alert('测试');
+    });
+
+    var carousel = layui.carousel;
+    //建造实例
+    carousel.render({
+        elem: '#test1'
+        ,width: '100%' //设置容器宽度
+        ,arrow: 'always' //始终显示箭头
+        //,anim: 'updown' //切换动画方式
     });
 });
 

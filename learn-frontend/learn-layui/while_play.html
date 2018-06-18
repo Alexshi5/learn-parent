@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="js/jquery-3.2.1.js"></script>
+    <style>
+        tr {
+            height: 30px;
+            line-height: 30px;
+        }
+
+        ul img {
+            width: 160px;
+            height: 200px;
+        }
+
+        ul {
+            list-style: none;
+            height: 100px;
+        }
+
+        .change {
+            cursor: pointer;
+            z-index: 2;
+            top: 110px;
+        }
+
+        .highlight {
+            height: 22px;
+            width: auto;
+            position: absolute;
+            bottom: 0;
+        }
+
+        .highlight span {
+            float: left;
+            margin: 0 2px;
+        }
+
+        #content {
+            position: relative;
+            width: 560px;
+            height: 280px;
+            overflow: hidden;
+            border: 1px solid antiquewhite;
+        }
+
+        #contentlist {
+            display: block;
+            margin-top: 10px;
+            position: absolute;
+            width: 50000px;
+            left: 0;
+        }
+
+        li {
+            float: left;
+            margin-right: 80px;
+        }
+
+        li table {
+            float: left;
+            margin-left: 10px;
+            width: 310px;
+        }
+
+        .current {
+            background-color: lightgrey;
+        }
+
+        /**
+         * 说明：
+         * 中间展示内容的px为560 = 照片左边40 + 照片160 + 照片距li中的表格10 + 表格310 + 表格右边40
+         */
+    </style>
+</head>
+<body>
+<div id="content">
+    <!--向左的箭头图片-->
+    <img id="prev" class="change" src="images/left.png" align="center" style="position: absolute;left: 0"/>
+    <!-- 卡口过车详情列表 -->
+    <div id="contentlist" class="cardetail">
+        <ul>
+            <li>
+                <div style="float: left">
+                    <img class="bigpictureurl" src="<%=basePath %>images/seizing/nocar.png">
+                </div>
+                <table>
+                    <tr>
+                        <td align="right">号牌号码：</td>
+                        <td>
+                            <div class="vehicleplate">渝A123</div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td align="right">号牌种类：</td>
+                        <td>
+                            <div class="vehicletypecode">大型汽车</div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td align="right">所属区域：</td>
+                        <td>
+                            <div class="deptname">五支五大队</div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td align="right">速度：</td>
+                        <td>
+                            <div class="vehiclespeed">100KM/H</div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td align="right">报警时间：</td>
+                        <td>
+                            <div class="passtime">2018-5-31 17:13:12</div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td align="right">卡口名称：</td>
+                        <td>
+                            <div class="bayonetName">G85永川至桑家坡段</div>
+                        </td>
+                    </tr>
+                </table>
+            </li>
+            <li>
+
+                <div style="float: left">
+                    <img class="bigpictureurl" src="<%=basePath %>images/seizing/nocar.png">
+                </div>
+                <table>
+                    <tr>
+                        <td align="right">号牌号码：</td>
+                        <td>
+                            <div class="vehicleplate">渝B456</div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td align="right">号牌种类：</td>
+                        <td>
+                            <div class="vehicletypecode">大型汽车</div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td align="right">所属区域：</td>
+                        <td>
+                            <div class="deptname">五支五大队</div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td align="right">速度：</td>
+                        <td>
+                            <div class="vehiclespeed">100KM/H</div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td align="right">报警时间：</td>
+                        <td>
+                            <div class="passtime">2018-5-31 17:13:12</div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td align="right">卡口名称：</td>
+                        <td>
+                            <div class="bayonetName">G85永川至桑家坡段</div>
+                        </td>
+                    </tr>
+                </table>
+            </li>
+            <li>
+
+                <div style="float: left">
+                    <img class="bigpictureurl" src="<%=basePath %>images/seizing/nocar.png">
+                </div>
+                <table>
+                    <tr>
+                        <td align="right">号牌号码：</td>
+                        <td>
+                            <div class="vehicleplate">渝C789</div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td align="right">号牌种类：</td>
+                        <td>
+                            <div class="vehicletypecode">大型汽车</div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td align="right">所属区域：</td>
+                        <td>
+                            <div class="deptname">五支五大队</div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td align="right">速度：</td>
+                        <td>
+                            <div class="vehiclespeed">100KM/H</div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td align="right">报警时间：</td>
+                        <td>
+                            <div class="passtime">2018-5-31 17:13:12</div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td align="right">卡口名称：</td>
+                        <td>
+                            <div class="bayonetName">G85永川至桑家坡段</div>
+                        </td>
+                    </tr>
+                </table>
+            </li>
+        </ul>
+    </div>
+    <!--下方展示具体第个过车数据-->
+    <div class="highlight">
+        <span class="current">1</span>
+        <span>2</span><span>3</span>
+    </div>
+    <!--向右的箭头图片-->
+    <img id="next" class="change" src="images/right.png" style="position: absolute;right: 0px"/>
+</div>
+</body>
+</html>
+<script type="text/javascript">
+
+    $(function () {
+        //设置下方图标距左边的定位距离
+        setOffsetLeft();
+        //中间内容的轮播
+        whilePlay();
+
+
+        var html = '天下\n' +
+            '英雄';
+        alert(html);
+
+    });
+
+    /**
+     * 设置下方图标距左边的定位距离
+     **/
+    function setOffsetLeft() {
+        var spansObj = $('.highlight').find('span');
+        var spansLength = 0;
+        for (var i = 0; i < spansObj.length; i++) {
+            spansLength += $(spansObj[i]).width();
+        }
+        var leftLength = ($('#content').width() - spansLength) / 2;
+        $('.highlight').css('left', leftLength - spansObj.length * 2);
+    }
+
+    /**
+     * 中间内容轮播
+     **/
+    function whilePlay() {
+        var $page = 1;//默认第一页
+        var $pagenum = 1;//每页一个元素块（可以多个）
+        var $width = $("#content").width();
+        var $length = $("#contentlist").find("li").length;
+        var $pagesum = Math.ceil($length / $pagenum);//计算需要展示多少页
+        $("#next").click(function () {
+            if (!$("#contentlist").is(":animated")) {
+                if ($page == $pagesum) {
+                    $("#contentlist").animate({left: "0px"}, 300);
+                    $page = 1;
+                } else {
+                    $("#contentlist").animate({left: "-=" + $width}, 300);
+                    $page++;
+                }
+            }
+            $(".highlight").find("span").eq($page - 1).addClass("current").siblings().removeClass("current");
+        });
+        $("#prev").click(function () {
+            if (!$("#contentlist").is(":animated")) {
+                if ($page == 1) {
+                    $("#contentlist").animate({left: "-=" + $width * ($pagesum - 1)}, 300);
+                    $page = $pagesum;
+                } else {
+                    $("#contentlist").animate({left: "+=" + $width}, 300);
+                    $page--;
+                }
+            }
+            $(".highlight").find("span").eq($page - 1).addClass("current").siblings().removeClass("current");
+        });
+    }
+
+</script>

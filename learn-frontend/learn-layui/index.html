@@ -3,10 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
-    <link rel="stylesheet" href="layui/css/layui.css">
-    <script type="text/javascript" src="js/jquery-3.2.1.js"></script>
+    <link rel="stylesheet" href="layui/css/layui.css" media="all">
+    <script type="text/javascript" src="js/jquery-1.11.3.js"></script>
+    <!--<script type="text/javascript" src="js/jquery.min.js"></script>-->
+    <!--<script type="text/javascript" src="js/jquery-3.2.1.js"></script>-->
     <script type="text/javascript" src="layui/layui.js"></script>
     <script type="text/javascript" src="js/index.js"></script>
+    <script type="text/javascript" src="js/imagezoom.js"></script>
+
 </head>
 <body>
 <input id="test" type="button" value="测试" onclick="test2()"/>
@@ -103,13 +107,15 @@
     });
 </script>&ndash;&gt;-->
 
-
+<!--
 <div class="sjclxx" sjclxx="一号"></div>
-<div class="sjclxx" sjclxx="二号"></div>
+<div class="sjclxx" sjclxx="二号"></div>-->
+
+
+<img align="right" width="250px" height="200px" src="images/car.jpg" data-imagezoom="true">
 </body>
 
-
-<div id="illegalMoreInfo" class="layui-tab layui-tab-brief" lay-filter="illegalMoreInfoTab">
+<!--<div id="illegalMoreInfo" class="layui-tab layui-tab-card" lay-filter="illegalMoreInfoTab">
     <ul class="layui-tab-title">
         <li class="layui-this">车辆基本信息</li>
         <li>车辆违法信息</li>
@@ -122,5 +128,24 @@
         <div class="layui-tab-item">高速通行信息</div>
         <div class="layui-tab-item">卡口过车信息</div>
     </div>
-</div>
+</div>-->
 </html>
+
+<script type="text/javascript">
+    (function($){
+        //图片放大功能的配置项
+        var defaults = {
+            cursorcolor:'255,255,255',
+            opacity:0.5,
+            cursor:'crosshair',
+            zindex:2147483647,
+            zoomviewsize:[500,400],//放大之后展示的div宽高
+            zoomviewposition:'left',
+            zoomviewmargin:300,//距离原图的距离，
+            zoomviewborder:'none',
+            magnification:4.925//放大的倍数
+        };
+
+        imageZoom(defaults);
+    })(jQuery);
+</script>
