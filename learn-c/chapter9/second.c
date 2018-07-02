@@ -1,5 +1,5 @@
 //此文件主要是编写独立的函数代码块，供主函数调用
-#include<stdio.h>
+#include <stdio.h>
 #include"head.h"
 
 long fiboshulie1(int n){
