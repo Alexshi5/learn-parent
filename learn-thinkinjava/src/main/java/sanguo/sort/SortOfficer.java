@@ -9,7 +9,7 @@ import java.util.List;
 /**
  * author Alex
  * date 2018/6/24
- * description 对成员进行排官，排官规则：按战力值排，战力相差不超过5万的按贡献值排，先排出4个，然后再排出4个
+ * description 对成员进行排官，排官规则：按战力值排，战力相差不超过5万的按贡献值排，排出指定数量的官位
  */
 public class SortOfficer {
     /**
