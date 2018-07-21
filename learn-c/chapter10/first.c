@@ -14,9 +14,18 @@ void example11();
 int example12(int *, int size); //变量名可以省略
 int example13(int[], int size);
 void example14();
+void example15();
 int main() {
-	example14();
+	example15();
 	return 0;
+}
+
+void example15(){
+	if(1){//在C语言中，1代表的是真，0代表的是假，C++也是一样
+		printf("true");
+	}else{
+		printf("false");
+	}
 }
 
 #define SIZE 5
