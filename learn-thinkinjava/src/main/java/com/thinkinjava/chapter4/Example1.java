@@ -2,10 +2,7 @@ package com.thinkinjava.chapter4;
 
 import org.junit.Test;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 /**
  * author Alex
@@ -126,5 +123,16 @@ public class Example1 {
          * 张三的年龄是：20岁！
          * 王五的年龄是：19岁！
          */
+   }
+
+   @Test
+    public void example7(){
+       for(int i = 1;i<80;i++){
+           Double d=Math.random() * 80;
+           System.out.print(d.intValue() + " ");
+           if(i%8 == 0){
+               System.out.println();
+           }
+       }
    }
 }

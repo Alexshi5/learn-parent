@@ -132,7 +132,61 @@
 </html>
 
 <script type="text/javascript">
-    (function($){
+    $(function () {
+        /*var param  = [];
+        param.push(
+            0,
+            1,
+            2
+        );
+        var paramStr = param.join(',');*/
+
+        var data1 = {
+            deptName:'一支队',
+            unknownCnt:23,
+            hitCarCnt:33,
+            turnoverCnt:43,
+            crashCnt:1,
+            hitObjectCnt:5,
+            hitTailCnt:13,
+            hitPresonCnt:34
+        };
+        var data2 = {
+            deptName:'二支队',
+            unknownCnt:43,
+            hitCarCnt:53,
+            turnoverCnt:23,
+            crashCnt:5,
+            hitObjectCnt:10,
+            hitTailCnt:17,
+            hitPresonCnt:56
+        };
+        var data = [];
+        data.push(data1,data2);
+
+        var legendData = ['其他或不明','碾压、碰撞','撞停驶车','翻、坠车','正、侧面碰撞','撞固定物','尾随相撞'];
+        var deptData = [];
+        var serieData0 = [];
+        var serieData1 = [];
+        var serieData2 = [];
+        var serieData3 = [];
+        var serieData4 = [];
+        var serieData5 = [];
+        var serieData6 = [];
+        for(var i=0;i<data.length;i++){
+            deptData.push(data[i].deptName);
+            serieData0.push(data[i].unknownCnt);
+            serieData1.push(data[i].hitPresonCnt);
+            serieData2.push(data[i].hitCarCnt);
+            serieData3.push(data[i].turnoverCnt);
+            serieData4.push(data[i].crashCnt);
+            serieData5.push(data[i].hitObjectCnt);
+            serieData6.push(data[i].hitTailCnt);
+        }
+        var series = [];
+        series.push(serieData0,serieData1,serieData2,serieData3,serieData4,serieData5,serieData6);
+    });
+    /*(function($){
         //图片放大功能的配置项
         var defaults = {
             cursorcolor:'255,255,255',
@@ -147,5 +201,5 @@
         };
 
         imageZoom(defaults);
-    })(jQuery);
+    })(jQuery);*/
 </script>
