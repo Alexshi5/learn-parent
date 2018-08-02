@@ -2,7 +2,10 @@ package com.thinkinjava.chapter4;
 
 import org.junit.Test;
 
-import java.util.*;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 /**
  * author Alex
@@ -134,5 +137,22 @@ public class Example1 {
                System.out.println();
            }
        }
+   }
+
+   @Test
+   public void example8(){
+       Student s1 = new Student("zhangsan",20);
+       System.out.println("改变之前：");
+       System.out.println(s1);
+       Example1 e1 = new Example1();
+       e1.example9(s1);
+       System.out.println("改变之后返回函数：");
+       System.out.println(s1);
+   }
+
+   public void example9(Student s2){
+       s2.setAge(30);
+       System.out.println("改变之后：");
+       System.out.println(s2);
    }
 }
