@@ -4,202 +4,41 @@
     <meta charset="UTF-8">
     <title>Title</title>
     <link rel="stylesheet" href="layui/css/layui.css" media="all">
-    <script type="text/javascript" src="js/jquery-1.11.3.js"></script>
-    <!--<script type="text/javascript" src="js/jquery.min.js"></script>-->
-    <!--<script type="text/javascript" src="js/jquery-3.2.1.js"></script>-->
+    <!--<script type="text/javascript" src="js/jquery-1.11.3.js"></script>
+    <script type="text/javascript" src="js/jquery.min.js"></script>-->
+    <script type="text/javascript" src="js/jquery-3.2.1.js"></script>
     <script type="text/javascript" src="layui/layui.js"></script>
     <script type="text/javascript" src="js/index.js"></script>
-    <script type="text/javascript" src="js/imagezoom.js"></script>
-
+    <script type="text/javascript" src="js/common.js"></script>
 </head>
+<style>
+    td{
+        padding: 0 !important;
+        margin: 0 !important;
+    }
+</style>
 <body>
-<input id="test" type="button" value="测试" onclick="test2()"/>
-
-<!--<input id="phone" type="text">
-<script>
-    //一般直接写在一个js文件中
-    /*layui.use(['layer', 'form'], function(){
-        var layer = layui.layer
-            ,form = layui.form;
-
-        layer.msg('Hello World');
-    });*/
-
-    /*layui.config({
-        base:'js/'
-    }).use('index');*/
-
-</script>
-&lt;!&ndash; 弹出层需要的html &ndash;&gt;
-<table class="layui-table" style="margin:0px;background:rgb(244,248,249);display: none" id="certCardTr2">
+<table class="layui-table">
+    <thead>
     <tr>
-        <td>从业资格证号</td>
-        <td>证件有效期开始</td>
-        <td>证件有效期结束</td>
-        <td>从业资格类别</td>
-        <td>姓名</td>
-        <td>住址</td>
-        <td>准驾车型</td>
-        <td>核发机关</td>
-        <td>核发日期</td>
-        <td>有效状态</td>
+        <td>编号</td>
+        <td>名称</td>
+        <td>卡口小时流量</td>
+        <td>卡口小时平均速度</td>
+        <td>卡口当日流量</td>
+        <td>状态</td>
         <td>操作</td>
     </tr>
-    &lt;!&ndash;<tr id="certCardTr"></tr>&ndash;&gt;
+    </thead>
+    <tbody id="listTable">
+    <tr class="domNode">
+        <td id="node1" style="border: 1px solid blue" width="90px"><div onblur="updateText(this)" onfocus="clearText(this)" contenteditable="true"  contenteditable="plaintext-only" style="border:1px solid red;width: 100%;height: 100%"><span class="tipInfo" style="color: lightgray">请输入</span></div></td>
+        <td id="node2" contenteditable="true" width="60px"></td>
+        <td id="node3" contenteditable="true" width="60px">11</td>
+    </tr>
+    </tbody>
 </table>
 
-</form>
-
-<div id="chooseOrgMain" style="" class="layui-layer-wrap">
-    <form class="layui-form" action="">
-        <div id="chooseOrgMainRadio" class="layui-input-block">
-            <input type="radio" name="orgMain" orgid="701" value="高一支一大队勤务一中队" title="高一支一大队勤务一中队"><br>
-            <input type="radio" name="orgMain" orgid="700" value="高一支一大队协勤人员" title="高一支一大队协勤人员"><br>
-            <input type="radio" name="orgMain" orgid="702" value="高一支一大队勤务二中队" title="高一支一大队勤务二中队"><br>
-        </div>
-    </form>
-</div>
-&lt;!&ndash;<input type="checkbox" name="orgMain" lay-skin="switch" lay-text="取消|设置" width="100px">&ndash;&gt;
-&lt;!&ndash;<input type="checkbox" name="orgMain" title="设置主部门" checked>&ndash;&gt;
-&lt;!&ndash;
-<span>
-    <form class="layui-form" action="">
-        <input type="radio" name="orgMain" value="测试" title="测试">
-    </form>
-</span>
-&ndash;&gt;
-
-
-&lt;!&ndash;<form class="layui-form" action="">&ndash;&gt;
-&lt;!&ndash;<input type="radio" name="orgMain" value="测试2" title="测试2">&ndash;&gt;
-<div class="layui-unselect  layui-form-radioed">
-    <i class="layui-anim layui-icon layui-anim-scaleSpring" style="float: left"></i>
-    <div style="float: left;margin: -2px 0px 2px 2px">测试2</div>
-</div>
-
-&lt;!&ndash;</form>&ndash;&gt;
-
-&lt;!&ndash;<div class="layui-unselect layui-form-radio layui-form-radioed">
-    <i class="layui-anim layui-icon layui-anim-scaleSpring"></i>
-    <div>测试2</div>
-</div>&ndash;&gt;
-
-
-&lt;!&ndash;<form class="layui-form" action="">&ndash;&gt;
-    &lt;!&ndash;<input type="radio" name="orgMain" value="测试" title="测试">&ndash;&gt;
-    <div class="layui-unselect layui-form-radio">
-        <i class="layui-anim layui-icon"></i>
-        <div>测试3</div>
-    </div>
-&lt;!&ndash;</form>&ndash;&gt;
-
-
-&lt;!&ndash;<script>
-    //Demo
-    layui.use('form', function(){
-        var form = layui.form;
-
-        //监听提交
-        form.on('submit(formDemo)', function(data){
-            layer.msg(JSON.stringify(data.field));
-            return false;
-        });
-    });
-</script>&ndash;&gt;-->
-
-<!--
-<div class="sjclxx" sjclxx="一号"></div>
-<div class="sjclxx" sjclxx="二号"></div>-->
-
-
-<img align="right" width="250px" height="200px" src="images/car.jpg" data-imagezoom="true">
+<div style="width: 200px;height: 100px;border: 1px solid red" contenteditable="plaintext-only"></div>
 </body>
-
-<!--<div id="illegalMoreInfo" class="layui-tab layui-tab-card" lay-filter="illegalMoreInfoTab">
-    <ul class="layui-tab-title">
-        <li class="layui-this">车辆基本信息</li>
-        <li>车辆违法信息</li>
-        <li>高速通行信息</li>
-        <li>卡口过车信息</li>
-    </ul>
-    <div class="layui-tab-content">
-        <div class="layui-tab-item layui-show">车辆基本信息</div>
-        <div class="layui-tab-item">车辆违法信息</div>
-        <div class="layui-tab-item">高速通行信息</div>
-        <div class="layui-tab-item">卡口过车信息</div>
-    </div>
-</div>-->
 </html>
-
-<script type="text/javascript">
-    $(function () {
-        /*var param  = [];
-        param.push(
-            0,
-            1,
-            2
-        );
-        var paramStr = param.join(',');*/
-
-        var data1 = {
-            deptName:'一支队',
-            unknownCnt:23,
-            hitCarCnt:33,
-            turnoverCnt:43,
-            crashCnt:1,
-            hitObjectCnt:5,
-            hitTailCnt:13,
-            hitPresonCnt:34
-        };
-        var data2 = {
-            deptName:'二支队',
-            unknownCnt:43,
-            hitCarCnt:53,
-            turnoverCnt:23,
-            crashCnt:5,
-            hitObjectCnt:10,
-            hitTailCnt:17,
-            hitPresonCnt:56
-        };
-        var data = [];
-        data.push(data1,data2);
-
-        var legendData = ['其他或不明','碾压、碰撞','撞停驶车','翻、坠车','正、侧面碰撞','撞固定物','尾随相撞'];
-        var deptData = [];
-        var serieData0 = [];
-        var serieData1 = [];
-        var serieData2 = [];
-        var serieData3 = [];
-        var serieData4 = [];
-        var serieData5 = [];
-        var serieData6 = [];
-        for(var i=0;i<data.length;i++){
-            deptData.push(data[i].deptName);
-            serieData0.push(data[i].unknownCnt);
-            serieData1.push(data[i].hitPresonCnt);
-            serieData2.push(data[i].hitCarCnt);
-            serieData3.push(data[i].turnoverCnt);
-            serieData4.push(data[i].crashCnt);
-            serieData5.push(data[i].hitObjectCnt);
-            serieData6.push(data[i].hitTailCnt);
-        }
-        var series = [];
-        series.push(serieData0,serieData1,serieData2,serieData3,serieData4,serieData5,serieData6);
-    });
-    /*(function($){
-        //图片放大功能的配置项
-        var defaults = {
-            cursorcolor:'255,255,255',
-            opacity:0.5,
-            cursor:'crosshair',
-            zindex:2147483647,
-            zoomviewsize:[500,400],//放大之后展示的div宽高
-            zoomviewposition:'left',
-            zoomviewmargin:300,//距离原图的距离，
-            zoomviewborder:'none',
-            magnification:4.925//放大的倍数
-        };
-
-        imageZoom(defaults);
-    })(jQuery);*/
-</script>

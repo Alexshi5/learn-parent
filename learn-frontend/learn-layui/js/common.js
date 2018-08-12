@@ -78,9 +78,31 @@ function finalCountDown(initTime,exeFunction,exeTime,isTest) {
 
 //测试
 $(function () {
-    finalCountDown(10,test123,2,true);
+    //finalCountDown(10,test123,2,true);
 });
 
 function test123() {
     alert(123);
+}
+
+/**
+ * 判断字符串、数组或对象是否为空，不为空返回true
+ * @param obj
+ * @returns {boolean}
+ */
+function isNotEmpty(obj) {
+    if (obj === undefined || obj === null) {
+        return false;
+    }
+
+    var type = typeof obj;
+    if (type === 'string' && (obj === '' || obj === 'null' || obj === 'undefined' || obj.trim(obj) === '')) {
+        return false;
+    }
+
+    if (type === 'object' && (obj.length <= 0 || JSON.stringify(obj) === '{}')) {
+        return false;
+    }
+
+    return true;
 }
