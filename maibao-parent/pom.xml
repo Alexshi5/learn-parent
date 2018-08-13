@@ -16,13 +16,17 @@
     <url>http://www.example.com</url>
     <modules>
         <module>maimao-usermanage</module>
+        <module>maimao-common</module>
+        <module>maibao-cms</module>
     </modules>
 
+    <!--发布配置-->
     <distributionManagement>
-        <site>
-            <id>website</id>
-            <url>scp://webhost.company.com/www/website</url>
-        </site>
+        <repository>
+            <!--id与setting中配置的server的id保持一致，并且要跟nexus中仓库的id保持一致-->
+            <id>snapshots</id>
+            <url>http://192.168.188.132:8081/nexus/content/repositories/snapshots</url>
+        </repository>
     </distributionManagement>
 
     <properties>
