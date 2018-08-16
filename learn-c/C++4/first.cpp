@@ -1,6 +1,7 @@
 #include <iostream>
 using namespace std;
 
+void example();
 class Point{
 private:
 	int x,y;
@@ -21,6 +22,7 @@ Point :: Point(int a,int b):x(a),y(b){//定义两个参数的构造函数，x(a)
 	y = b;
 }*/
 
+void example1();
 class Point1{
 private:
 	int x,y;
@@ -31,6 +33,7 @@ Point1 :: Point1(int a,int b):x(a),y(b){//定义两个参数的构造函数
 	cout << "初始化对象，属性x：" << a << "，属性y：" << b <<endl;
 }
 
+void example2();
 class Point2{
 private:
 	int x,y;
@@ -47,25 +50,211 @@ Point2 :: Point2(const Point2 &p){
 	cout << "初始化对象，属性x：" << x << "，属性y：" << y <<endl;
 };
 
+void example3();
+void example4();
+class Point3{
+private:
+	int x,y;
+public:
+	Point3(int=0,int=0);//声明两个参数的构造函数
+	~Point3();//声明析构函数
+};
+
+Point3 :: Point3(int a,int b):x(a),y(b){//定义两个参数的构造函数
+	cout << "Initializing" << a << "," << b << endl;
+}
+Point3 :: ~Point3(){
+	cout << "Destructor is active" << endl;
+}
+
+void example5();
+void example6();
+void example7();
+void example8();
+class Point4{
+private:
+	int x,y;
+public:
+	Point4(int=0,int=0);//默认参数构造函数
+	Point4(const Point4&);//复制构造函数
+	~Point4();//析构函数
+	void show(){
+		cout << "x=" << x << ",y=" << y << endl;
+	}
+};
+
+Point4 :: Point4(int a,int b):x(a),y(b){//定义默认构造函数
+	cout << "使用默认参数构造函数初始化对象！x=" << x << ",y=" << y << endl;
+}
+Point4 :: Point4(const Point4 &p){//定义复制构造函数
+	x = p.x;
+	y = p.y;
+	cout << "使用复制构造函数初始化对象！x=" << x << ",y=" << y << endl;
+}
+Point4 :: ~Point4(){//定义析构函数
+	cout << "析构对象，x=" << x << ",y=" << y << endl;
+}
+
+void show1(Point4 p){//使用对象作为参数的方法
+	cout << "使用对象作为参数，";
+	p.show();
+}
+void show2(Point4 &p){//使用对象引用作为参数的方法
+	cout << "使用对象引用作为参数，";
+	p.show();
+}
+Point4 getPoint4(){//返回值为对象的方法
+	Point4 p(10,20);
+	return p;
+}
+
+void example9();
+class Desk{
+private:
+	int num;//数量
+public:
+	void setNum(int a){
+		num = a;
+	}
+	int getNum(){
+		return num;
+	}
+};
+class Bed{
+private:
+	int num;//数量
+public:
+	void setNum(int a){
+		num = a;
+	}
+	int getNum(){
+		return num;
+	}
+};
+class House{
+private:
+	Desk d;
+	Bed b;
+public:
+	void setHouse(Desk &d,Bed &b){
+		this -> d = d;
+		this -> b = b;
+	}
+	int getTotal(){
+		return d.getNum() + b.getNum();
+	}
+};
+
 int main(){
+	example9();
+	return 0;
+}
+
+void example9(){
+	Bed b;
+	b.setNum(2);
+	Desk d;
+	d.setNum(5);
+	House h;
+	h.setHouse(d,b);
+	cout << "屋子里一共有" << h.getTotal() << "件家具！";
+	/**
+	 * 屋子里一共有7件家具！
+	 */
+}
+
+//测试返回对象时的函数调用流程
+void example8(){
+	Point4 a = getPoint4();
+	show2(a);
+	/**
+	 * 使用默认参数构造函数初始化对象！x=10,y=20
+	 * 使用对象引用作为参数，x=10,y=20
+	 * 析构对象，x=10,y=20
+	 */
+}
+
+//测试函数的形参为对象引用时函数调用流程
+void example7(){
+	Point4 a(17,27);
+	show2(a);
+	/**
+	 * 使用默认参数构造函数初始化对象！x=17,y=27
+	 * 使用对象引用作为参数，x=17,y=27
+	 * 析构对象，x=17,y=27
+	 */
+}
+
+//测试函数的形参为对象时的函数调用流程
+void example6(){
+	Point4 a(16,26);
+	show1(a);
+	/**
+	 * 使用默认参数构造函数初始化对象！x=16,y=26
+	 * 使用复制构造函数初始化对象！x=16,y=26 //创建临时对象
+	 * 使用对象作为参数，x=16,y=26
+	 * 析构对象，x=16,y=26 //先析构临时对象
+	 * 析构对象，x=16,y=26
+	 */
+}
+
+//测试用一个类的对象去初始化另一个对象
+void example5(){
+	Point4 a(15,25);//调用构造函数初始化对象a
+	Point4 b(a);//使用对象a初始化对象b
+	/**
+	 * 使用默认参数构造函数初始化对象！x=15,y=25
+	 * 使用复制构造函数初始化对象！x=15,y=25
+	 * 析构对象，x=15,y=25
+	 * 析构对象，x=15,y=25
+	 */
+}
+
+void example4(){
+	Point3 *p = new Point3[2];//创建对象数组
+	delete [] p;//动态删除对象
+/**
+ * Initializing0,0
+ * Initializing0,0
+ * Destructor is active
+ * Destructor is active
+ */
+}
+
+void example3(){
+	Point3 a(10,20);//通过构造函数实例化一个对象
+	cout << "Exiting main function" << endl;
+
+/**
+ * Initializing //创建对象时调用构造函数
+ * Exiting main function //在程序结束之前调用析构函数
+ * Destructor is active //程序自动调用构造函数
+ */
+}
+
+void example2(){
 	Point2 a;
 	Point2 b(a);
 	/**
 	 * 初始化对象，属性x：12，属性y：20
 	 * 初始化对象，属性x：12，属性y：20
 	 */
+}
 
-	/*Point1 a;
-	Point1 b(10,25);*/
+void example1(){
+	Point1 a;
+	Point1 b(10,25);
 	/**
 	 * 初始化对象，属性x：0，属性y：0
 	 * 初始化对象，属性x：10，属性y：25
 	 */
+}
 
-	/*Point *p1 = new Point();
+void example(){
+	Point *p1 = new Point();
 	Point *p2 = new Point(5,8);
 	delete p1;
-	delete p2;*/
+	delete p2;
 	/**
 	 * 默认初始化对象
 	 * 初始化对象，属性x：5，属性y：8
@@ -83,6 +272,7 @@ int main(){
 	 * 初始化对象，属性x：15，属性y：25
 	 */
 }
+
 /*
 //举例一
 #include <iostream>
