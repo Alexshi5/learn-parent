@@ -1,7 +1,7 @@
 $(function () {
-   var code1 = 'E09.645.001.001';
+   /*var code1 = 'E09.645.001.001';
    var code2 = 'E09.645.001.001';
-   alert(code2.indexOf(code1)!=-1);
+   alert(code2.indexOf(code1)!=-1);*/
 });
 
 
@@ -11,7 +11,7 @@ $(function () {
  * @param obj
  */
 function updateText(obj) {
-    var tipHtml = '<div onblur="updateText(this)" onfocus="clearText(this)" contenteditable="true" contenteditable="plaintext-only" style="border:1px solid red;width: 100%;height: 100%"><span class="tipInfo" style="color: lightgray">请输入</span></div>';
+    var tipHtml = '<div onblur="updateText(this)" onfocus="clearText(this)" contenteditable="true" contenteditable="plaintext-only" onkeydown="test1(this,9)" style="border:1px solid red;width: 100%;height: 100%"><span class="tipInfo" style="color: lightgray">请输入</span></div>';
     //var tipHtml = '';
     var tdText = $(obj).text();
     if(!isNotEmpty(tdText)){//如果为空，没有填入任何信息
@@ -30,6 +30,17 @@ function clearText(obj) {
     }
 }
 
-function test1(param,param1) {
-    alert(param+'=='+param1);
+function test1(self,len) {
+    var value = $(self).text();
+    if(value && value.length > len){
+        layer.msg('填写错误，输入数值过大！');
+        $(self).text(value.substring(0,len));
+    }
+    var event = window.event;
+    if(event.keyCode==13){
+        var text = $(self).text();
+        if(text.indexOf('\n')){
+            $(self).text('');
+        }
+    }
 }

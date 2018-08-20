@@ -247,7 +247,7 @@ public class Example1 {
     }
 
     @Test
-    public void example13(){
+    public void example13() {
         System.out.println(Float.MAX_VALUE);
     }
 
