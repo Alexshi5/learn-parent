@@ -23,10 +23,16 @@ function updateText(obj) {
  * 获取焦点的时候清除提示信息
  * @param obj
  */
+var count = 0;
 function clearText(obj) {
     var tipInfo = $(obj).find('.tipInfo');
     if(isNotEmpty(tipInfo)){//如果有提示信息
         tipInfo.remove();
+    }
+    count++;
+    if(count===1){
+        count--;
+        $(obj).focus();
     }
 }
 
@@ -42,5 +48,13 @@ function test1(self,len) {
         if(text.indexOf('\n')){
             $(self).text('');
         }
+    }
+}
+
+function test2() {
+    var val = $("input[name='test']");
+    var str = '';
+    for(var i=0;i<val.length;i++){
+        console.log($(val[i]).val());
     }
 }

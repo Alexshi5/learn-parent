@@ -26,4 +26,9 @@ public class UserController {
         EasyuiResult result = userService.getUserList(page, rows);
         return result;
     }
+
+    @RequestMapping("/test")
+    public void getTestParam(String test){
+        String test1 = test;
+    }
 }
