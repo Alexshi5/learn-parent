@@ -78,7 +78,7 @@ public class Example {
      */
     @Test
     public void example4() {
-        double v = Example.GetDistance(29.333967128, 106.640592472, 29.361802131, 106.628351447);
+        double v = Example.GetDistance(29.25513386, 106.3270273, 29.25819418, 106.32595339);
         System.out.println(v);
     }
 
@@ -87,7 +87,7 @@ public class Example {
      */
     @Test
     public void example3() {
-        Map<String, Double> map = Example.calculateDistance(106.54357, 29.5755557, 10);
+        Map<String, Double> map = Example.calculateDistance(106.32595339, 29.25819418, 10);
         System.out.println("minlon=" + map.get("minlon"));
         System.out.println("maxlon=" + map.get("maxlon"));
         System.out.println("minlat=" + map.get("minlat"));
