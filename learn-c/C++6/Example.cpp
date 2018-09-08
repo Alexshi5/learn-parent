@@ -9,9 +9,20 @@ void example2();
 void example3();
 #include "Example4.h"
 void example4();
+#include "Example5.h"
+void example5();
 int main() {
-	example4();
+	example5();
 	return 0;
+}
+
+void example5(){
+	C c;
+	c.setA(10);
+	c.showA();//a=10
+
+	c.setC(20,30);
+	c.showC();//c=20 b=30
 }
 
 void example4(){
