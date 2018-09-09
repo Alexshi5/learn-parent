@@ -6,6 +6,6 @@ package com.thinkinjava.chapter1;
 public class Triangle extends Shape {
 
     public void draw() {
-        System.out.println("this triangle");
+        System.out.println("this is triangle");
     }
 }

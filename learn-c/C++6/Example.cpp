@@ -11,9 +11,33 @@ void example3();
 void example4();
 #include "Example5.h"
 void example5();
+#include "Example6.h"
+void example6();
+#include "Example7.h"
+void example7();
 int main() {
-	example5();
+	example7();
 	return 0;
+}
+
+void example7(){
+	C1 obj;
+	obj.A1::show();//a1.show
+	obj.B1::show();//b1.show
+	obj.B1::display();//b1.display
+	obj.C1::display();//c1.display
+	obj.display();//c1.display
+	obj.reveal1();//a1.show
+	obj.reveal2();//b1.show
+}
+
+void example6(){
+	Shape *s1 = new Line();
+	Shape *s2 = new Circle();
+	s1->draw();
+	s2->draw();//执行的都是父类的函数
+	delete s1;
+	delete s2;
 }
 
 void example5(){
