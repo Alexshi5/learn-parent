@@ -1,10 +1,7 @@
 $(function () {
-    var list = [10,25,20];
-    list.sort(sequenceTop);
-    var l = list;
+    var str = "'张三'";
+    alert(str);
+    str = str.replace(/\'/g,'');
+    alert(str);
 });
 
-
-function sequenceTop(a, b) {
-    return b - a;
-}

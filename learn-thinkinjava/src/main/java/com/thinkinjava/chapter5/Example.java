@@ -87,7 +87,7 @@ public class Example {
      */
     @Test
     public void example3() {
-        Map<String, Double> map = Example.calculateDistance(106.32595339, 29.25819418, 10);
+        Map<String, Double> map = Example.calculateDistance(106.58635, 29.35025, 10);
         System.out.println("minlon=" + map.get("minlon"));
         System.out.println("maxlon=" + map.get("maxlon"));
         System.out.println("minlat=" + map.get("minlat"));
