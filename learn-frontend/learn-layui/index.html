@@ -15,95 +15,12 @@
 
 </style>
 <body>
-<input type="button" value="测试" onclick="test2()">
+<input type="button" value="测试" onclick="test()">
 
-<div class="layui-collapse" lay-accordion>
-    <div class="layui-colla-item">
-        <div class="layui-colla-title">杜甫</div>
-        <div class="layui-colla-content layui-show">内容区域</div>
-    </div>
-    <div class="layui-colla-item">
-        <h2 class="layui-colla-title">李清照</h2>
-        <div class="layui-colla-content">内容区域</div>
-    </div>
-    <div class="layui-colla-item">
-        <h2 class="layui-colla-title">鲁迅</h2>
-        <div class="layui-colla-content">内容区域</div>
-    </div>
-</div>
-<hr style="height: 10px;background-color: red">
-<div style="height: 320px;overflow: auto;font-size: 16px; color: black;" id="unprocessedWorkOrders">
-    <table width="100%" id="work_order_table" class="layui-table layui-collapse" lay-accordion>
-        <tr id="tr_title" style="text-align: center;">
-            <td>类型</td><td>内容</td><td>处理时限</td><td>绩效分</td><td>信息来源</td><td>操作</td>
-        </tr>
-        <tr onclick="expandChildren(this)" class="parentNode">
-            <td>接警1</td>
-            <td>测试接警1</td>
-            <td>24小时</td>
-            <td>1分</td>
-            <td>执法总队</td>
-            <td>详情</td>
-        </tr>
-        <tr>
-            <td colspan="6">
-                <table>
-                    <tr>
-                        <td colspan="">测试接警1测试行1</td>
-                    </tr>
-                    <tr>
-                        <td colspan="2">测试接警1测试行2</td>
-                    </tr>
-                </table>
-            </td>
-        </tr>
-        <tr onclick="expandChildren(this)" class="parentNode">
-            <td>接警2</td>
-            <td>测试接警2</td>
-            <td>24小时</td>
-            <td>1分</td>
-            <td>执法总队</td>
-            <td>详情</td>
-        </tr>
-        <tr>
-            <td colspan="6" style="margin: 0px;padding: 0px;">
-                <table class="layui-table" style="margin: 0px;padding: 0px;">
-                    <tr style="border: none">
-                        <td colspan="2" style="border: none">测试接警2测试行1</td>
-                    </tr>
-                    <tr style="border: none">
-                        <td colspan="2" style="border: none">测试接警2测试行2</td>
-                    </tr>
-                </table>
-            </td>
-        </tr>
-    </table>
-</div>
+
 </body>
 </html>
 
 <script>
-    //注意：折叠面板 依赖 element 模块，否则无法进行功能性操作
-    layui.use('element', function(){
-        var element = layui.element();
 
-        element.on('collapse(filter)', function(data){
-            console.log(data.show); //得到当前面板的展开状态，true或者false
-            console.log(data.title); //得到当前点击面板的标题区域DOM对象
-            console.log(data.content); //得到当前点击面板的内容区域DOM对象
-        });
-    });
-
-    $(function () {
-
-    });
-
-    function expandChildren(obj) {
-        var parentNode = $('.parentNode');
-        var nextNodeClass = parentNode.next().attr('class');
-        if(!isNotEmpty(nextNodeClass)){
-            parentNode.next().hide();
-        }
-        $(obj).next().show();
-    }
 </script>
