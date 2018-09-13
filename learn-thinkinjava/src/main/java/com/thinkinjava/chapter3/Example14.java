@@ -22,7 +22,7 @@ public class Example14 {
         String format = sdf.format(date);
         System.out.println("案件日期："+format);
 
-        Date date1 = new Date(1525103999000L);
+        Date date1 = new Date(1536830303002L);
         String format1 = sdf.format(date1);
         System.out.println("数据初始化日期："+format1);//2018-05-10 22:41:43
 

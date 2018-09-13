@@ -136,7 +136,7 @@
             <artifactId>jackson-databind</artifactId>
             <version>${jackson.version}</version>
         </dependency>
-        <!-- ECharts -->
+        <!-- 通用mapper相关 -->
         <dependency>
             <groupId>com.github.abel533</groupId>
             <artifactId>mapper</artifactId>
