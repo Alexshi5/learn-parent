@@ -9,7 +9,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
  * date 2018/9/13
  * description 通用的页面跳转控制器
  */
-@Controller("/page")
+@Controller
+@RequestMapping("/page")
 public class PageController {
 
     @RequestMapping("/{pageName}")
