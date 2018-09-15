@@ -41,6 +41,7 @@ void example7(){
 	for(int i = 0;i<2;i++){
 		cout << v2[i]->a << v2[i]->b;
 	}
+	//1234
 }
 
 void example6() {
