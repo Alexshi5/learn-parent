@@ -4,6 +4,7 @@ import org.junit.Test;
 
 import java.text.SimpleDateFormat;
 import java.util.*;
+import java.util.regex.Pattern;
 
 /**
  * author Alex
@@ -12,6 +13,27 @@ import java.util.*;
  */
 public class Example {
     private static final double EARTH_RADIUS = 6371.393;// 地球半径千米
+
+    @Test//判断是不是整数
+    public void  example8(){
+        String str1 = "E09.645";
+        String str2 = "345";
+        System.out.println(isInteger(str1));
+        System.out.println(isInteger(str2));
+    }
+
+    private boolean isInteger(String str) {
+        Pattern pattern = Pattern.compile("^[-\\+]?[\\d]*$");
+        return pattern.matcher(str).matches();
+    }
+
+    @Test
+    public void example7() throws Exception{
+        String handLeCond = "user_123,567";
+        handLeCond = handLeCond.substring(handLeCond.indexOf("user_")+5,handLeCond.length()-1);
+        String[] fullCodeArray = handLeCond.split(",");
+        System.in.read();
+    }
 
     @Test
     public void example6() throws Exception{
