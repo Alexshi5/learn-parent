@@ -15,8 +15,8 @@
     <!-- FIXME change it to the project's website -->
     <url>http://www.example.com</url>
     <modules>
-        <module>maimao-usermanage</module>
-        <module>maimao-common</module>
+        <module>maibao-usermanage</module>
+        <module>maibao-common</module>
         <module>maibao-cms</module>
     </modules>
 

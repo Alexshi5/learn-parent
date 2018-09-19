@@ -19,7 +19,7 @@
         <!--依赖公共组件-->
         <dependency>
             <groupId>com.mengfei</groupId>
-            <artifactId>maimao-common</artifactId>
+            <artifactId>maibao-common</artifactId>
             <version>${project.version}</version>
         </dependency>
     </dependencies>

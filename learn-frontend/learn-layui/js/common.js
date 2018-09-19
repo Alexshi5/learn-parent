@@ -10,7 +10,10 @@ $(function () {
 });
 
 /**
- * 调用图片放大功能的方法以及配置项（仅支持jquery-1.11.3.js）
+ * 调用图片放大功能的方法以及配置项
+ * 注意：
+ * 1、仅支持jquery-1.11.3.js，需要imagezoom.js文件；
+ * 2、需要在使用放大功能的图上节点上添加data-imagezoom="true"属性
  */
 function imageZoomTest() {
     (function($){
@@ -43,6 +46,7 @@ function isNotEmpty(obj) {
     }
 
     var type = typeof obj;
+
     if (type === 'string' && (obj === '' || obj === 'null' || obj === 'undefined' || obj.trim() === '')) {
         return false;
     }

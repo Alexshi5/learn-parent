@@ -1,6 +1,4 @@
-package com.thinkinjava.chapter3;
-
-import org.junit.Test;
+package com.mengfei.maibao.common;
 
 import java.sql.Timestamp;
 import java.util.Calendar;
@@ -9,20 +7,12 @@ import java.util.GregorianCalendar;
 
 /**
  * author Alex
- * date 2018/5/2
- * description
+ * date 2018/9/19
+ * description 一个java中通用的时间工具类
  */
-public class Example6 {
-    @Test
-    public void test(){
-        Date dayBegin = getDayBegin();
-        long time1 = dayBegin.getTime();
-        Date dayEnd = getDayEnd();
-        long time2 = dayEnd.getTime();
-        System.out.println(dayBegin);
-        System.out.println(time1);
-        System.out.println(dayEnd);
-        System.out.println(time2);
+public class CommonTimeUtil {
+    public static void main(String[] args) {
+
     }
 
     //获取当天的开始时间

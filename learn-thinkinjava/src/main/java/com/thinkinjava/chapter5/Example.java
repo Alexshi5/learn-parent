@@ -14,6 +14,16 @@ import java.util.regex.Pattern;
 public class Example {
     private static final double EARTH_RADIUS = 6371.393;// 地球半径千米
 
+    @Test
+    public void example9(){
+        String str = "123_zhang,456_wang";
+        String str1 = "E09.645,E09.645.001";
+        String str2 = str.split(",")[0].split("_")[0];
+        String str3 = str1.split(",")[0].split("_")[0];
+        System.out.println(isInteger(str2)+" " +str2);
+        System.out.println(isInteger(str3)+" " +str3);
+    }
+
     @Test//判断是不是整数
     public void  example8(){
         String str1 = "E09.645";
@@ -100,7 +110,7 @@ public class Example {
      */
     @Test
     public void example4() {
-        double v = Example.GetDistance(29.25513386, 106.3270273, 29.25819418, 106.32595339);
+        double v = Example.GetDistance(29.260323386599943, 106.48318052216794, 29.440176613400055, 106.68951947783205);
         System.out.println(v);
     }
 
