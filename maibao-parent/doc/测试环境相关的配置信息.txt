@@ -11,9 +11,18 @@ linux账号：root 密码：123
 ---------linux主机 end-------------
 
 ---------各系统域名和IP地址 begin-----------
-cms：http port 8082  jmx port 1097
+cms：http port 8082  jmx port 1097 maibao.cms.com
+usermanage：http port 8083  jmx port 1096 maibao.manage.com
 ---------各系统域名和IP地址 end-------------
 
+---------nginx begin-----------
+windows安装目录：maibao-parent/package/nginx/nginx-1.14.0
+启动命令：start nginx
+查看是否启动：netstat -an|findstr 80
+重启：nginx -s reload
+停止：nginx -s stop
+查看nginx版本：nginx -v
+---------nginx end-------------
 
 ---------mysql数据库 begin----------------（开机自动启动）
 此服务器在linux中，ip：192.168.188.132:3306

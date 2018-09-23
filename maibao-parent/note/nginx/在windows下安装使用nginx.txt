@@ -55,8 +55,8 @@
 
         location / {
             proxy_pass http://tomcatserver_cms/cms/page/login;
-        proxy_connect_timeout 600;
-        proxy_read_timeout 600;
+            proxy_connect_timeout 600;
+            proxy_read_timeout 600;
         }
 
         error_page   500 502 503 504  /50x.html;
@@ -76,3 +76,7 @@
     6、修改配置文件后重启nginx命令：nginx -s reload；
 
     7、停止nginx命令：nginx -s stop
+
+三、扩展：代理不同的tomcat实例
+
+
