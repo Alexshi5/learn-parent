@@ -16,9 +16,30 @@ void example6();
 void example7();
 void example8();
 void example9();
+#include <fstream>
+void example10();
 int main() {
-	example9();
+	example10();
 	return 0;
+}
+
+void example10(){
+	const int size = 10;
+	char ch[size];
+	char *p = "hello";
+	ofstream out;//建立文件输出流
+	out.open("test.txt");//打开一个测试的文件
+	out << p;
+	out << "world";
+	out.close();//关闭输出流
+
+	ifstream in("test.txt");//建立文件流
+	for(int i=0;i<size+1;i++){//循环输入字符
+		in >> ch[i];
+	}
+	ch[size] = '\0';//将最后一个字符置为结束符
+	in.close();//关闭输入流
+	cout << ch;//helloworld
 }
 
 void example9(){
