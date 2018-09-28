@@ -11,8 +11,30 @@ import java.util.regex.Pattern;
  * date 2018/8/20
  * description
  */
-public class Example {
+public class Example{
     private static final double EARTH_RADIUS = 6371.393;// 地球半径千米
+
+    @Test
+    public void example11() throws Exception{
+        ArrayList<Object> list = new ArrayList<>();
+        for(Object obj:list){
+            System.out.println("obj");
+        }
+        //System.in.read();
+    }
+
+    @Test
+    public void example10(){
+        int i = 0;
+        while (true) {
+            try {
+                Thread.sleep(10*1000);
+                System.out.println("循环执行第" + ++i + "次");
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+        }
+    }
 
     @Test
     public void example9(){
@@ -42,7 +64,7 @@ public class Example {
         String handLeCond = "user_123,567";
         handLeCond = handLeCond.substring(handLeCond.indexOf("user_")+5,handLeCond.length()-1);
         String[] fullCodeArray = handLeCond.split(",");
-        System.in.read();
+        //System.in.read();
     }
 
     @Test

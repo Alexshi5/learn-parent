@@ -1,0 +1,75 @@
+一、在linux下安装nginx（以下安装有确认提示时，按：y）
+
+1、下载安装包（下载地址：http://nginx.org/en/download.html）
+
+2、上传安装包到linux并解压（yum安装使用命令：yum install nginx）
+
+    (1) 安装上传下载工具：yum install lrzsz
+
+    (2) 上传命令：rz （下载使用：sz）
+
+    (3) 解压nginx文件到当前目录：tar -zxvf nginx-1.8.0.tar.gz
+
+3、配置linux安装环境
+
+    (1) 安装gcc编译环境：yum install gcc-c++
+
+        使用命令：gcc -v 可查看安装的gcc编译器版本
+
+    (2) 安装perl库PCRE：yum install -y pcre pcre-devel
+
+        nginx的http使用pcre来解析正则表达式
+
+    (3) 安装zlib库：yum install -y zlib zlib-devel
+
+        zlib库提供了很多压缩和解压缩的方式，nginx使用zlib对http包的内容进行gzip
+
+    (4) 安装套接字密码库：yum install -y openssl openssl-devel
+
+        它是一个强大的套接字层密码库，nginx不仅支持http还支持https(即ssl协议上传输http)
+
+4、编译并安装nginx
+
+    (1) 在/usr/local/目录下创建nginx安装目录：mkdir /usr/local/nginx
+
+    (2) 进入到nginx解压目录：cd nginx-1.8.0
+
+    (3) 执行配置命令：./configure
+
+        根据安装提示我们看到配置的默认安装目录是在：/usr/local/nginx 目录下
+
+    (4) 编译并安装：make && make install
+
+5、配置nginx的环境变量（也可以不配置，配置后可以不在nginx的sbin目录也可启动nginx）
+
+    (1) 编辑配置文件：vim /etc/profile
+
+    (2) 在文件末尾添加如下内容：
+
+        #nginx
+        export NGINX_HOME=/usr/local/nginx
+        export PATH=$PATH:$NGINX_HOME/sbin
+
+    (3) 保存文件后重新加载配置文件：source /etc/profile
+
+6、启动nginx（配置环境变量后在非sbin目录使用nginx相关命令时不加./）
+
+    (1) 在/usr/local/nginx/sbin目录下使用命令：./nginx
+
+    (2) 在其他地方使用命令：nginx
+
+7、查看是否启动
+
+    (1) 使用命令：ps aux|grep nginx 如果有master和worker两个进程代表nginx启动成功
+
+    (2) 通过浏览器直接访问linux主机的ip地址，如：192.168.188.132 看到nginx的欢迎页面代表启动成功
+
+        如果nginx进程已经启动却无法从浏览器访问nginx的欢迎页，请尝试关闭linux防火墙后再继续访问
+
+8、重载或停止nginx
+
+    (1) 编辑nginx.conf文件后重载nginx：nginx -s reload
+
+    (2) 完整停止nginx：nginx -s quit 此方式是待nginx处理完任务后再停止nginx
+
+    (3) 快速停止nginx：nginx -s stop 此方式是直接kill掉nginx进程
