@@ -30,6 +30,7 @@
 
         location / {
             #代理的访问地址，这里直接访问到cms系统的登录页面
+            #请注意我的web.xml中配置的拦截路径是：<url-pattern>/cms/*</url-pattern>
             proxy_pass http://127.0.0.1:8082/cms/;
             #代理的连接超时时间（单位：毫秒）
             proxy_connect_timeout 600;
@@ -71,12 +72,10 @@
 
     (1) 查看logs目录下是否有nginx.pid文件，如果有说明nginx是启动状态的，如果没有说明nginx已经停止
 
-    (2) 查看80端口是否启动，查看命令是：netstat -ano|findstr :80 ；
+    (2) 查看80端口是否启动，查看命令是：netstat -anp|findstr :80 ；
 
     6、修改配置文件后重启nginx命令：nginx -s reload；
 
     7、停止nginx命令：nginx -s stop
-
-三、扩展：代理不同的tomcat实例
 
 

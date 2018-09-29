@@ -71,6 +71,11 @@
             <groupId>com.fasterxml.jackson.core</groupId>
             <artifactId>jackson-databind</artifactId>
         </dependency>
+        <!-- 通用mapper相关 -->
+        <dependency>
+            <groupId>com.github.abel533</groupId>
+            <artifactId>mapper</artifactId>
+        </dependency>
     </dependencies>
 
     <build>

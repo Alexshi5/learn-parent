@@ -1,0 +1,24 @@
+1、在setting.xml文件中配置一个server
+
+    <server>
+      <id>snapshots</id>
+      <!--这是nexus默认的账号和密码-->
+      <username>admin</username>
+      <password>admin123</password>
+    </server>
+
+2、在maven项目的pom.xml文件中添加发布配置
+
+    <!--发布配置-->
+    <distributionManagement>
+        <repository>
+            <!--id与setting中配置的server的id保持一致，并且要跟nexus中仓库的id保持一致-->
+            <id>snapshots</id>
+            <!--此url跟nexus中对应的仓库地址保持一致-->
+            <url>http://192.168.188.132:8081/nexus/content/repositories/snapshots</url>
+        </repository>
+    </distributionManagement>
+
+3、在项目的根目录下执行命令：mvn deploy
+
+4、部署的项目版本号只能使用SNAPSHOT作为后缀吗？需要进行测试

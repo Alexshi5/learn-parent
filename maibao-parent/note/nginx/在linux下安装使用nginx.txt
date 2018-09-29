@@ -1,4 +1,4 @@
-一、在linux下安装nginx（以下安装有确认提示时，按：y）
+一、下载并安装nginx（以下安装有确认提示时，按：y）
 
 1、下载安装包（下载地址：http://nginx.org/en/download.html）
 
@@ -30,7 +30,7 @@
 
 4、编译并安装nginx
 
-    (1) 在/usr/local/目录下创建nginx安装目录：mkdir /usr/local/nginx
+    (1) 首先在/usr/local/目录下创建nginx安装目录：mkdir /usr/local/nginx
 
     (2) 进入到nginx解压目录：cd nginx-1.8.0
 
@@ -68,8 +68,18 @@
 
 8、重载或停止nginx
 
-    (1) 编辑nginx.conf文件后重载nginx：nginx -s reload
+    (1) 编辑nginx.conf文件后重启nginx：nginx -s reload
 
     (2) 完整停止nginx：nginx -s quit 此方式是待nginx处理完任务后再停止nginx
 
     (3) 快速停止nginx：nginx -s stop 此方式是直接kill掉nginx进程
+
+二、在Windows开发环境中配置访问地址与域名的映射
+
+    1、找到windows下的hosts文件，windows10在C:\Windows\System32\drivers\etc目录下；
+
+    2、通过管理员权限打开hosts文件，因为保存的时候需要管理员权限才能保存；
+
+    3、在hosts文件中添加访问地址与域名的映射，如：192.168.188.132 maibao.cms.com （192.168.188.132是linux的IP地址）
+
+    4、在浏览器中输入：maibao.cms.com 可以访问到linux的欢迎页面，跟输入：192.168.188.132 是一样的
