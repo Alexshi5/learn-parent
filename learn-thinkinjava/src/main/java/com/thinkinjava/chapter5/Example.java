@@ -15,6 +15,24 @@ public class Example{
     private static final double EARTH_RADIUS = 6371.393;// 地球半径千米
 
     @Test
+    public void example13(){
+        List<String> stringList = null;
+        if(null!=stringList&&!stringList.isEmpty()){
+            System.out.println("集合有元素");
+        }else {
+            System.out.println("集合是空的");
+        }
+    }
+
+    @Test
+    public void example12(){
+        WarnEnum warnEnum[] = WarnEnum.values();
+        for(WarnEnum warn:warnEnum){
+            System.out.println(warn.getFactValue());
+        }
+    }
+
+    @Test
     public void example11() throws Exception{
         ArrayList<Object> list = new ArrayList<>();
         for(Object obj:list){

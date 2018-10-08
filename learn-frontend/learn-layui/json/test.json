@@ -1,0 +1,4 @@
+[
+    {"factValue":91,"optcode":"NOUN_TRAFFICSPEED","optname":"交调站速度预警"},
+    {"factValue":13,"optcode":"NOUN_TRAFFICFLOW_DAY","optname":"交调站日流量预警"}
+]
