@@ -91,3 +91,15 @@ function IEVersion() {
         return -1;//不是ie浏览器
     }
 }
+
+/*
+* 方法:Array.baoremove(dx)
+* 功能:删除数组元素.
+* 参数:dx删除元素的下标.
+* 返回:在原数组上修改数组.
+*/
+Array.prototype.baoremove = function(dx)
+{
+    if(isNaN(dx)||dx>this.length){return false;}
+    this.splice(dx,1);
+};

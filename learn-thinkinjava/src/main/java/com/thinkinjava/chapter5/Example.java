@@ -1,5 +1,7 @@
 package com.thinkinjava.chapter5;
 
+import com.alibaba.fastjson.JSON;
+import com.alibaba.fastjson.TypeReference;
 import org.junit.Test;
 
 import java.text.SimpleDateFormat;
@@ -13,6 +15,79 @@ import java.util.regex.Pattern;
  */
 public class Example{
     private static final double EARTH_RADIUS = 6371.393;// 地球半径千米
+
+    @Test
+    public void example18(){
+        long time1 = 1539861397221l;
+        long time2 = 1539861375864l;
+        System.out.println(time1- time2);
+    }
+
+    @Test
+    public void example17() throws Exception{
+        Student stu1 = new Student();
+        stu1.setName("张三");
+        Student stu2 = new Student();
+        stu2.setName("李四");
+        Student stu3 = new Student();
+        stu3.setName("王五");
+        List<Student> studentList1 = new ArrayList<>();
+        studentList1.add(stu1);
+        studentList1.add(stu2);
+        studentList1.add(stu3);
+        List<Student> studentList2 = new ArrayList<>();
+        studentList2.addAll(studentList1);
+        for(Student student:studentList1){
+            if(student.getName().equals("张三")){
+                studentList2.remove(student);
+            }
+        }
+        //System.in.read();
+    }
+
+    @Test
+    //泛型map与JSON字符串之间的转换
+    public void example16(){
+        Map<String,Set<String>> map = new HashMap<>();
+        Set<String> set = new HashSet<>();
+        set.add("001");
+        set.add("002");
+        map.put("E09.645",set);
+        System.out.println(JSON.toJSONString(map));
+        String str= "{\"E09.645\":[\"001\",\"002\"]}";
+        Map<String, Set<String>> map1 = JSON.parseObject(str, new TypeReference<Map<String, Set<String>>>() {});
+        System.out.println(map1.size());
+    }
+
+
+    @Test
+    //获取当前时间1分钟以前的时间跟过车时间进行对比
+    public void example15() throws Exception{
+        //获取当前时间
+        Date date = new Date();
+        long beforeTime = date.getTime() - 10 * 60 * 1000;
+        //获取redis中的时间
+        SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+        Date parse = format.parse("2018-10-10 19:10:00");
+        if(parse.getTime()>beforeTime){
+            System.out.println("yes");
+        }else {
+            System.out.println("no");
+        }
+    }
+
+    @Test
+    public void example14() throws Exception{
+        source:for(int i=0;i<10;i++){
+            for(int j=0;j<2;j++){
+                if(i%2==0){
+                    continue source;
+                }
+                int a = 0;
+            }
+        }
+        //System.in.read();
+    }
 
     @Test
     public void example13(){
