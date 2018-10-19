@@ -7,10 +7,10 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>learn-javaf1</artifactId>
+    <artifactId>learn-thinkinjava</artifactId>
     <packaging>jar</packaging>
 
-    <name>learn-javaf1</name>
+    <name>learn-thinkinjava</name>
     <url>http://maven.apache.org</url>
 
     <properties>
@@ -26,6 +26,11 @@
         <dependency>
             <groupId>com.alibaba</groupId>
             <artifactId>fastjson</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>redis.clients</groupId>
+            <artifactId>jedis</artifactId>
         </dependency>
     </dependencies>
 </project>

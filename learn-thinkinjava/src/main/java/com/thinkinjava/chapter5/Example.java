@@ -17,10 +17,12 @@ public class Example{
     private static final double EARTH_RADIUS = 6371.393;// 地球半径千米
 
     @Test
-    public void example18(){
-        long time1 = 1539861397221l;
-        long time2 = 1539861375864l;
-        System.out.println(time1- time2);
+    public void example18() throws Exception{
+
+        long time1 = System.currentTimeMillis();
+        //Thread.sleep(1000);
+        long time2 = System.currentTimeMillis();
+        System.out.println(time2/time1);
     }
 
     @Test

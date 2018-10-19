@@ -1,7 +1,5 @@
 package sanguo.sort;
 
-import org.junit.Test;
-
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
@@ -175,17 +173,5 @@ public class SortOfficer {
             System.out.println(p);
         }
         return people;
-    }
-
-    @Test
-    public void example1(){
-        Double d = 10.025;
-        String s = d.toString();
-        System.out.println(s);
-        String[] strings = s.split("\\.");
-        System.out.println(strings[0]);
-        System.out.println(strings[1]);
-        Integer i = Integer.parseInt(strings[1]);
-        System.out.println(i.toString());
     }
 }

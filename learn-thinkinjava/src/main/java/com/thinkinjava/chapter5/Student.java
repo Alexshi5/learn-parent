@@ -1,11 +1,15 @@
 package com.thinkinjava.chapter5;
 
+import java.io.Serializable;
+
 /**
  * author Alex
  * date 2018/8/2
  * description
  */
-public class Student {
+public class Student implements Serializable{
+
+    private static final long serialVersionUID = -8137026281341716330L;
     private String name;
     private Integer age;
 
