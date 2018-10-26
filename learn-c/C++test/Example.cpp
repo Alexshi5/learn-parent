@@ -7,9 +7,34 @@ void example2();
 #include "Example2.h"
 void example3();
 void example4();
+#include "Example3.h"
+void example5();
+
+void example6(char a);
 int main(){
-	example4();
+	//example6('A');
+	example6('p');
+	//example6('c');
+	//example6('B');
 	return 0;
+}
+
+void example6(char a){
+	switch(a){
+	case 'D':
+		case 'a': cout << "1";break;
+	case 'B':
+		case 'b': cout << "2";break;
+	case 'C':
+		case 'c': cout << "3";break;
+	default:
+		cout << "default";break;
+	}
+}
+
+void example5(){
+	Point3 t;
+	cout << t.a << endl;
 }
 
 void example4(){

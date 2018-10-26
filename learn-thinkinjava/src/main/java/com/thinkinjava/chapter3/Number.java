@@ -7,7 +7,7 @@ import java.io.IOException;
  * date 2018/4/7
  * description
  */
-class Number {
+public class Number {
     int a;
 
     public static void main(String[] args) throws IOException {

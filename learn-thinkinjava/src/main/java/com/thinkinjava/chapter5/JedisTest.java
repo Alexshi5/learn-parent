@@ -18,6 +18,11 @@ import java.util.Map;
 public class JedisTest {
 
     @Test
+    public void example4(){
+
+    }
+
+    @Test
     //普通的存取对象的JSON字符串
     public void example1(){
         Jedis jedis = new Jedis("localhost",6379);

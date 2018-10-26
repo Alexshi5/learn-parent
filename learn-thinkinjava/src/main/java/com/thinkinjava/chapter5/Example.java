@@ -16,6 +16,22 @@ import java.util.regex.Pattern;
 public class Example{
     private static final double EARTH_RADIUS = 6371.393;// 地球半径千米
 
+
+    private void example20(Student stu){
+        //stu.setName("李四");
+        stu = new Student();
+        stu.setName("王五");
+    }
+
+    @Test
+    public void example19(){
+        Student stu1 = new Student();
+        stu1.setName("张三");
+        stu1.setAge(20);
+        example20(stu1);
+        System.out.println(stu1.toString());
+    }
+
     @Test
     public void example18() throws Exception{
 
