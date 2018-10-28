@@ -1,5 +1,7 @@
 package f1.chapter5.listener;
 
+import f1.chapter5.pojo.SessionRegistry;
+
 import javax.servlet.annotation.WebListener;
 import javax.servlet.http.HttpSessionEvent;
 import javax.servlet.http.HttpSessionIdListener;
@@ -28,17 +30,20 @@ public class SessionListener implements HttpSessionListener,HttpSessionIdListene
     public void sessionIdChanged(HttpSessionEvent e, String oldSessionId) {
         //当会话id改变时，添加会话活动日志
         System.out.println(showTime() + " 会话id已改变，oldSessionId=" + oldSessionId + "，newSessionId=" + e.getSession().getId());
+        SessionRegistry.updateSession(e.getSession(),oldSessionId);
     }
 
     @Override
     public void sessionCreated(HttpSessionEvent e) {
         //当会话创建时，添加会话活动日志
-        System.out.println(showTime() + " 会话已创建，sessionId=" + e.getSession().getId());
+        System.out.println(showTime() + " 会话已创建，新创建的sessionId=" + e.getSession().getId());
+        SessionRegistry.addSession(e.getSession());
     }
 
     @Override
     public void sessionDestroyed(HttpSessionEvent e) {
         //当会话注销时，添加会话活动日志
         System.out.println(showTime() + " 会话已销毁，销毁的sessionId=" + e.getSession().getId());
+        SessionRegistry.removeSession(e.getSession());
     }
 }

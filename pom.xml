@@ -44,7 +44,7 @@
         <!-- jstl标签库 -->
         <jstl.version>1.2</jstl.version>
         <!-- jsp相关的jar -->
-        <jsp-api.version>2.0</jsp-api.version>
+        <jsp-api.version>2.3.1</jsp-api.version>
         <servlet-api.version>4.0.0</servlet-api.version>
         <!-- jdk的补充工具jar包 -->
         <commons-lang3.version>3.6</commons-lang3.version>
@@ -131,14 +131,14 @@
             </dependency>
             <dependency>
                 <groupId>javax.servlet</groupId>
-                <artifactId>jsp-api</artifactId>
-                <version>${jsp-api.version}</version>
+                <artifactId>javax.servlet-api</artifactId>
+                <version>${servlet-api.version}</version>
                 <scope>provided</scope>
             </dependency>
             <dependency>
-                <groupId>javax.servlet</groupId>
-                <artifactId>javax.servlet-api</artifactId>
-                <version>${servlet-api.version}</version>
+                <groupId>javax.servlet.jsp</groupId>
+                <artifactId>javax.servlet.jsp-api</artifactId>
+                <version>${jsp-api.version}</version>
                 <scope>provided</scope>
             </dependency>
             <!-- commons相关 -->

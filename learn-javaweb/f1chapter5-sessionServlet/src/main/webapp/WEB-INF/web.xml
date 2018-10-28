@@ -39,7 +39,9 @@
   </session-config>
 
   <!--在部署描述符中添加listener-->
-  <listener>
+  <!--<listener>
     <listener-class>f1.chapter5.listener.SessionListener</listener-class>
-  </listener>
+  </listener>-->
+  <!--启动会话复制功能-->
+  <!--<distributable/>-->
 </web-app>
