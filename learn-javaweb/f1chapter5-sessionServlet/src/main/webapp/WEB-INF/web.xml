@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://xmlns.jcp.org/xml/ns/javaee" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd" id="WebApp_ID" version="3.1">
+  <display-name>Archetype Created Web Application</display-name>
+
+  <!--&lt;!&ndash;下面标签中的标签选项都是可选的，如果选择了要按照一定的顺序添加&ndash;&gt;
+  <session-config>
+    &lt;!&ndash;会话的超时时间（单位：分钟），Tomcat默认30分钟，如果此值小于0将永远不会过期&ndash;&gt;
+    <session-timeout>30</session-timeout>
+    &lt;!&ndash;只有在追踪模式中使用了cookie时，才可以使用此标签&ndash;&gt;
+    <cookie-config>
+      &lt;!&ndash;默认值，不需要修改&ndash;&gt;
+      <name>JSESSIONID</name>
+      &lt;!&ndash;domain标签和path标签对应着cookie的Domain和Path特性，Web容器已经设置了正确的默认值，通常不需要修改它们&ndash;&gt;
+      <domain>example.org</domain>
+      <path>/shop</path>
+      &lt;!&ndash;此标签内可以添加任意文本&ndash;&gt;
+      <comment>other info</comment>
+      &lt;!&ndash;此标签对应cookie的HttpOnly特性，默认为false，为了提高安全性，应将其设为true&ndash;&gt;
+      <http-only>true</http-only>
+      &lt;!&ndash;此标签对应cookie的Secure特性，默认为false，如果使用了HTTPS，应将其设为true&ndash;&gt;
+      <secure>false</secure>
+      &lt;!&ndash;此标签对应cookie的Max-Age特性，用于控制cookie的过期时间（单位：秒），默认没有过期时间（相当于设置为-1），
+      即浏览器关闭就过期。最好保持默认值不变，正常情况下也不要去使用这个标签&ndash;&gt;
+      <max-age>1800</max-age>
+    </cookie-config>
+    &lt;!&ndash;表示容器的追踪策略，可以设置一个或多个策略，从上到下安全等级递增，当使用了更高安全等级的策略就不可再使用低等级的策略&ndash;&gt;
+    <tracking-mode>URL</tracking-mode>
+    <tracking-mode>COOKIE</tracking-mode>
+    <tracking-mode>SSL</tracking-mode>
+  </session-config>-->
+
+  <!--该配置设置会话过期时间为30分钟，追踪策略为COOKIE，使用HttpOnly特性来解决安全问题，其他的将接受默认值-->
+  <session-config>
+    <session-timeout>30</session-timeout>
+    <cookie-config>
+      <http-only>true</http-only>
+    </cookie-config>
+    <tracking-mode>COOKIE</tracking-mode>
+  </session-config>
+
+  <!--在部署描述符中添加listener-->
+  <listener>
+    <listener-class>f1.chapter5.listener.SessionListener</listener-class>
+  </listener>
+</web-app>

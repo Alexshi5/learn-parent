@@ -13,6 +13,7 @@
         <module>javaweb-g1</module>
         <module>javaweb-f1</module>
         <module>f1chapter3-helloservlet</module>
+        <module>f1chapter5-sessionServlet</module>
     </modules>
 
     <distributionManagement>
