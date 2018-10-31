@@ -4,9 +4,23 @@ import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.TypeReference;
 import org.junit.Test;
 
+import java.security.NoSuchAlgorithmException;
+import java.security.SecureRandom;
 import java.text.SimpleDateFormat;
 import java.util.*;
 import java.util.regex.Pattern;
+
+class Demo20{
+    int i;
+
+    public int getI() {
+        return i;
+    }
+
+    public void setI(int i) {
+        this.i = i;
+    }
+}
 
 /**
  * author Alex
@@ -16,6 +30,56 @@ import java.util.regex.Pattern;
 public class Example{
     private static final double EARTH_RADIUS = 6371.393;// 地球半径千米
 
+    public void example24(Demo20 demo20){
+        demo20.setI(20);
+    }
+
+    @Test
+    public void example23(){
+       Demo20 demo20 = new Demo20();
+       demo20.setI(10);
+       System.out.println(demo20.getI());
+       example24(demo20);
+        System.out.println(demo20.getI());
+    }
+
+    @Test
+    public void example22(){
+        SecureRandom random = new SecureRandom();
+        byte[] salt = random.generateSeed(64);
+        StringBuffer buffer = new StringBuffer();
+        int count = 0;
+        String s = "";
+        for(byte b:salt){
+            buffer.append(b);
+            s += b + "|";
+            count += 1;
+        }
+        String result = buffer.toString();
+        System.out.println(result + "\t" + result.length());
+        System.out.println(count);
+        System.out.println(s);
+    }
+
+    @Test
+    public void example21(){
+        byte[] salt = new byte[20];
+        try {
+            SecureRandom random = SecureRandom.getInstance("SHA1PRNG");
+            random.nextBytes(salt);
+            StringBuffer buffer = new StringBuffer();
+            int count = 0;
+            for(byte b:salt){
+                buffer.append(b);
+                count += 1;
+            }
+            String result = buffer.toString();
+            System.out.println(result + "\t" + result.length());
+            System.out.println(count);
+        } catch (NoSuchAlgorithmException e) {
+            e.printStackTrace();
+        }
+    }
 
     private void example20(Student stu){
         //stu.setName("李四");
