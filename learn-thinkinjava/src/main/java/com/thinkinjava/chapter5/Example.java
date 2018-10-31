@@ -30,17 +30,33 @@ class Demo20{
 public class Example{
     private static final double EARTH_RADIUS = 6371.393;// 地球半径千米
 
-    public void example24(Demo20 demo20){
+    private void example24(Demo20 demo20){
         demo20.setI(20);
+    }
+    private void example24(int[] arr){
+        arr[0] = 10;
+    }
+    private void example24(long l){
+        l = 1000;
     }
 
     @Test
     public void example23(){
-       Demo20 demo20 = new Demo20();
+      /* Demo20 demo20 = new Demo20();
        demo20.setI(10);
        System.out.println(demo20.getI());
        example24(demo20);
-        System.out.println(demo20.getI());
+        System.out.println(demo20.getI());*/
+
+      /*int[] arr = {100,20};
+        System.out.println(arr[0]);
+        example24(arr);
+        System.out.println(arr[0]);*/
+
+      long l = 5000;
+        System.out.println(l);
+        example24(l);
+        System.out.println(l);
     }
 
     @Test
