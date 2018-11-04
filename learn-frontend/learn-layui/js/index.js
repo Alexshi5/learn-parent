@@ -3,10 +3,11 @@ $(function () {
 });
 
 function test() {
-    var param = '重庆大雾';
-    var encodeParam = encodeURI(param);
-    var decodeParam = decodeURI(encodeParam);
-    var h = 0;
+    var param = '1,2,3,4';
+    var param1 = param.replace(/,/g,'');
+    var param3 = param.replace(/[,]/g,'');
+    var regexp = new RegExp(',','g');
+    var param4 = param.replace(regexp,'');
 }
 
 /**
