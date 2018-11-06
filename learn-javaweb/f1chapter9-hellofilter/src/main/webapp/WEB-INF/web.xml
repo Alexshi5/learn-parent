@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xmlns="http://xmlns.jcp.org/xml/ns/javaee"
+         xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd"
+         id="WebApp_ID" version="3.1">
+  <!--<filter>
+    <filter-name>myFilter</filter-name>
+    <filter-class>com.mengfei.hellofilter.filter.MyFilter</filter-class>
+  </filter>
+  <filter-mapping>
+    <filter-name>myFilter</filter-name>
+    <url-pattern>/do/*</url-pattern>
+    <url-pattern>/bur</url-pattern>
+    <servlet-name>myServlet</servlet-name>
+    <dispatcher>REQUEST</dispatcher>
+    <dispatcher>ASYNC</dispatcher>
+  </filter-mapping>
+
+  <servlet>
+    <servlet-name>myServlet</servlet-name>
+    <servlet-class>com.mengfei.hellofilter.servlet.MyServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>myServlet</servlet-name>
+    <url-pattern>/index</url-pattern>
+  </servlet-mapping>-->
+</web-app>
