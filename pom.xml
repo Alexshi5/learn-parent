@@ -10,6 +10,8 @@
         <module>learn-thinkinjava</module>
         <module>learn-demo</module>
         <module>maibao-parent</module>
+        <module>learn-test</module>
+        <module>learn-test</module>
     </modules>
     <packaging>pom</packaging>
 
