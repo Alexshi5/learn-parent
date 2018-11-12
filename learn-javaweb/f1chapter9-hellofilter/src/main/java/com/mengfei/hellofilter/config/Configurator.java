@@ -1,19 +1,16 @@
 package com.mengfei.hellofilter.config;
 
-import com.mengfei.hellofilter.filter.MyFilter;
-
-import javax.servlet.*;
+import javax.servlet.ServletContextListener;
 import javax.servlet.annotation.WebListener;
-import java.util.EnumSet;
 
 /**
  * author Alex
  * date 2018/11/6
- * description 配置程序
+ * description 演示过滤器的编程式配置
  */
 @WebListener
 public class Configurator implements ServletContextListener{
-    @Override
+    /*@Override
     public void contextInitialized(ServletContextEvent event) {
         //获取正在启动的Servlet容器
         ServletContext context = event.getServletContext();
@@ -28,5 +25,5 @@ public class Configurator implements ServletContextListener{
         //在登记表中添加过滤的Servlet
         registration.addMappingForServletNames(EnumSet.of(DispatcherType.REQUEST,DispatcherType.ASYNC),
                 false,"myServlet");
-    }
+    }*/
 }

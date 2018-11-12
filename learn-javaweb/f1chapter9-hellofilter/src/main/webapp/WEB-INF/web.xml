@@ -3,6 +3,7 @@
          xmlns="http://xmlns.jcp.org/xml/ns/javaee"
          xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd"
          id="WebApp_ID" version="3.1">
+  <!--演示过滤器的基本配置-->
   <!--<filter>
     <filter-name>myFilter</filter-name>
     <filter-class>com.mengfei.hellofilter.filter.MyFilter</filter-class>
@@ -24,4 +25,70 @@
     <servlet-name>myServlet</servlet-name>
     <url-pattern>/index</url-pattern>
   </servlet-mapping>-->
+
+  <!--演示过滤器的排序-->
+  <!--<servlet>
+    <servlet-name>servletOne</servlet-name>
+    <servlet-class>com.mengfei.hellofilter.servlet.ServletOne</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>servletOne</servlet-name>
+    <url-pattern>/order/do/*</url-pattern>
+  </servlet-mapping>
+
+  <filter>
+    <filter-name>filterThree</filter-name>
+    <filter-class>com.mengfei.hellofilter.filter.FilterThree</filter-class>
+  </filter>
+  <filter-mapping>
+    <filter-name>filterThree</filter-name>
+    <servlet-name>servletOne</servlet-name>
+  </filter-mapping>
+
+  <filter>
+    <filter-name>filterTwo</filter-name>
+    <filter-class>com.mengfei.hellofilter.filter.FilterTwo</filter-class>
+  </filter>
+  <filter-mapping>
+    <filter-name>filterTwo</filter-name>
+    <url-pattern>/order/*</url-pattern>
+  </filter-mapping>
+
+  <filter>
+    <filter-name>filterOne</filter-name>
+    <filter-class>com.mengfei.hellofilter.filter.FilterOne</filter-class>
+  </filter>
+  <filter-mapping>
+    <filter-name>filterOne</filter-name>
+    <url-pattern>/*</url-pattern>
+  </filter-mapping>-->
+
+  <!--配置一个简单的日志过滤器-->
+  <filter>
+    <filter-name>logFilter</filter-name>
+    <filter-class>com.mengfei.hellofilter.filter.LogFilter</filter-class>
+  </filter>
+  <filter-mapping>
+    <filter-name>logFilter</filter-name>
+    <url-pattern>/*</url-pattern>
+  </filter-mapping>
+  <!--配置压缩过滤器-->
+  <filter>
+    <filter-name>gzipFilter</filter-name>
+    <filter-class>com.mengfei.hellofilter.filter.GzipFilter</filter-class>
+  </filter>
+  <filter-mapping>
+    <filter-name>gzipFilter</filter-name>
+    <url-pattern>/gzip</url-pattern>
+  </filter-mapping>
+
+  <!--配置登录验证的过滤器-->
+  <filter>
+    <filter-name>loginFilter</filter-name>
+    <filter-class>com.mengfei.hellofilter.filter.LoginFilter</filter-class>
+  </filter>
+  <filter-mapping>
+    <filter-name>loginFilter</filter-name>
+    <url-pattern>/login</url-pattern>
+  </filter-mapping>
 </web-app>

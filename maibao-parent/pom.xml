@@ -20,6 +20,15 @@
         <module>maibao-cms</module>
     </modules>
 
+    <!--配置从镜像——私服-->
+    <repositories>
+        <repository>
+            <id>central</id>
+            <name>Central Repository</name>
+            <url>http://192.168.188.132:8081/nexus/content/groups/public</url>
+        </repository>
+    </repositories>
+
     <!--发布配置-->
     <distributionManagement>
         <repository>

@@ -7,7 +7,7 @@ public class Instrument {
     }
 }
 
-//钢琴类
+//钢琴类d
 class Piano extends Instrument{
     public void play(){
         System.out.println("开始使用钢琴弹奏乐器");
