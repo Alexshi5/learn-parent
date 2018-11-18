@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+                http://www.springframework.org/schema/beans/spring-beans.xsd
+                http://www.springframework.org/schema/context
+                http://www.springframework.org/schema/context/spring-context.xsd">
+    <!-- 配置扫描器，指定要扫描哪个包下面的注解类 -->
+    <context:component-scan base-package="com.mengfei.test"/>
+
+    <!--第一次测试 Spring的依赖注入-->
+    <!--<bean id="helloWorldEnglish" class="com.mengfei.test.HelloWorldEnglishImpl">
+    </bean>
+    <bean id="helloWorldTest" class="com.mengfei.test.HelloWorldTest">
+        <property name="helloWorld" ref="helloWorldEnglish"/>
+    </bean>-->
+
+    <!--第二次测试 Spring的byName-->
+    <!--<bean id="helloWorldEnglish" class="com.mengfei.test.HelloWorldEnglishImpl"></bean>
+    <bean id="helloWorldTest" class="com.mengfei.test.HelloWorldTest" autowire="byName"></bean>-->
+
+    <!--第三次测试 Spring的byType-->
+    <bean id="helloWorldEnglishImpl" class="com.mengfei.test.HelloWorldEnglishImpl"></bean>
+    <bean id="helloWorldTest" class="com.mengfei.test.HelloWorldTest" autowire="byType"></bean>
+    <bean id="helloWorldChinese" class="com.mengfei.test.HelloWorldChineseImpl"></bean>
+</beans>
