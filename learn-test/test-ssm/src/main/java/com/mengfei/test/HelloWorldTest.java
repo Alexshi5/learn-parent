@@ -1,5 +1,6 @@
 package com.mengfei.test;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 import org.springframework.stereotype.Component;
@@ -25,8 +26,10 @@ public class HelloWorldTest {
     }*/
 
     //第二次测试 Spring的byName 跟set方法名和参数类型有关，跟属性名无关
-    /*private HelloWorld helloWorld;
+    /*@Resource
+    private HelloWorld helloWorld;
 
+    @Resource
     public void setHelloWorldEnglish(HelloWorld helloWorld) {
         this.helloWorld = helloWorld;
     }
@@ -36,12 +39,13 @@ public class HelloWorldTest {
     }*/
 
     //第三次测试 Spring的byType
+    @Qualifier("helloWorldEnglishImpl")
+    @Autowired
     private HelloWorld helloWorld;
 
-    @Qualifier("helloWorldChinese")
-    public void setHelloWorldEnglish(HelloWorld helloWorld) {
+    /*public void setHelloWorldEnglish(HelloWorld helloWorld) {
         this.helloWorld = helloWorld;
-    }
+    }*/
 
     public void doSay(){
         helloWorld.say();

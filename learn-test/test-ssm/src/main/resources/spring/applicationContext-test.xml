@@ -17,11 +17,10 @@
     </bean>-->
 
     <!--第二次测试 Spring的byName-->
-    <!--<bean id="helloWorldEnglish" class="com.mengfei.test.HelloWorldEnglishImpl"></bean>
-    <bean id="helloWorldTest" class="com.mengfei.test.HelloWorldTest" autowire="byName"></bean>-->
+    <!--<bean id="helloWorldEnglishImpl" class="com.mengfei.test.HelloWorldEnglishImpl"></bean>-->
+    <!--<bean id="helloWorldTest" class="com.mengfei.test.HelloWorldTest" autowire="byName"></bean>-->
 
     <!--第三次测试 Spring的byType-->
-    <bean id="helloWorldEnglishImpl" class="com.mengfei.test.HelloWorldEnglishImpl"></bean>
-    <bean id="helloWorldTest" class="com.mengfei.test.HelloWorldTest" autowire="byType"></bean>
-    <bean id="helloWorldChinese" class="com.mengfei.test.HelloWorldChineseImpl"></bean>
+    <!--<bean id="helloWorld" class="com.mengfei.test.HelloWorldEnglishImpl"></bean>-->
+    <!--<bean id="helloWorldTest" class="com.mengfei.test.HelloWorldTest" autowire="byType"></bean>-->
 </beans>
