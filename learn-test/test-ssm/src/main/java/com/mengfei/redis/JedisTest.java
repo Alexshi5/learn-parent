@@ -21,11 +21,11 @@ import java.util.*;
 @Component
 public class JedisTest {
     //@Resource
-    private static JedisConnectionFactory jedisConnectionFactory;
+    private JedisConnectionFactory jedisConnectionFactory;
 
 
-    public static void setJedisConnectionFactory(JedisConnectionFactory jedisConnectionFactory) {
-        JedisTest.jedisConnectionFactory = jedisConnectionFactory;
+    public void setJedisConnectionFactory(JedisConnectionFactory jedisConnectionFactory) {
+        this.jedisConnectionFactory = jedisConnectionFactory;
     }
 
     public static void main(String[] args) {

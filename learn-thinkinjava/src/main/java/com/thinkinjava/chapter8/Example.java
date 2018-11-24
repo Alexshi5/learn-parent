@@ -3,6 +3,7 @@ package com.thinkinjava.chapter8;
 import org.apache.commons.lang3.StringUtils;
 import org.junit.Test;
 
+import java.io.File;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
@@ -10,6 +11,7 @@ import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.time.Instant;
 import java.time.LocalDateTime;
+import java.util.Calendar;
 import java.util.Date;
 import java.util.logging.Logger;
 
@@ -19,6 +21,25 @@ import java.util.logging.Logger;
  * description 演示类
  */
 public class Example {
+    @Test
+    public void example5(){
+        String path = "E:\\test\\201811\\12";
+        File file = new File(path);
+        if(!file.exists()){
+            file.mkdirs();
+        }
+    }
+
+    @Test
+    public void example4(){
+        Calendar instance = Calendar.getInstance();
+        int i = instance.get(Calendar.HOUR_OF_DAY);
+        System.out.println(i);
+
+        LocalDateTime now = LocalDateTime.now();
+        int hour = now.getHour();
+        System.out.println(hour);
+    }
 
     public void CopyFile ()
     {

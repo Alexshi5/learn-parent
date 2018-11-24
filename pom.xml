@@ -61,6 +61,10 @@
         <spring.data.redis.version>1.6.0.RELEASE</spring.data.redis.version>
         <!-- solr客户端 -->
         <solrj.version>4.10.3</solrj.version>
+        <!-- word文档导出 -->
+        <freemarker.version>2.3.23</freemarker.version>
+        <dom4j.version>1.6</dom4j.version>
+        <codec.version>1.10</codec.version>
     </properties>
     <dependencyManagement>
         <dependencies>
@@ -187,6 +191,22 @@
                 <groupId>org.apache.solr</groupId>
                 <artifactId>solr-solrj</artifactId>
                 <version>${solrj.version}</version>
+            </dependency>
+            <!-- word导出 -->
+            <dependency>
+                <groupId>org.freemarker</groupId>
+                <artifactId>freemarker</artifactId>
+                <version>${freemarker.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>dom4j</groupId>
+                <artifactId>dom4j</artifactId>
+                <version>${dom4j.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>commons-codec</groupId>
+                <artifactId>commons-codec</artifactId>
+                <version>${codec.version}</version>
             </dependency>
         </dependencies>
     </dependencyManagement>

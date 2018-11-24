@@ -1,7 +1,10 @@
 package com.mengfei.controller;
 
+import com.alibaba.fastjson.JSON;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+
+import java.util.HashMap;
 
 /**
  * author Alex
@@ -12,9 +15,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @RequestMapping("/test")
 public class TestController {
 
-    @RequestMapping("/getParam")
-    public String getParams(String param1){
-        System.out.println(param1);
+    @RequestMapping("/map")
+    public String getParams(String imgUrls){
+        HashMap<String,String> hashMap = JSON.parseObject(imgUrls, HashMap.class);
         return "test";
     }
+
 }
