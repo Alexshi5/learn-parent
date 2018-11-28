@@ -38,7 +38,7 @@ public class DemoController {
         Person person2 = new Person("王五", "女", 22, "18811240002");
         Person person3 = new Person("赵六", "男", 46, "18811240003");
         List<Person> personList = new ArrayList<>();
-        personList.add(null);
+        personList.add(person1);
         personList.add(person2);
         personList.add(person3);
         dataMap.put("personList",personList);

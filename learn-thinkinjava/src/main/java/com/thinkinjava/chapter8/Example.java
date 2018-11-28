@@ -22,6 +22,16 @@ import java.util.logging.Logger;
  */
 public class Example {
     @Test
+    public void example6(){
+        String url = "http://113.207.109.3:9004/group1/M00/52/2D/CuCpnlv1WgSAbnjwAAl0sl35CVA704.jpg";
+        String url2 = "http://10.224.169.158:8080";
+        int i = url.indexOf("//");
+        int j = url.indexOf("/", i + 2);
+        String result = url2 + url.substring(j, url.length());
+        System.out.println(result);
+    }
+
+    @Test
     public void example5(){
         String path = "E:\\test\\201811\\12";
         File file = new File(path);

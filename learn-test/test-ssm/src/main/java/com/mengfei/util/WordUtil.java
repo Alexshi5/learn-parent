@@ -2,7 +2,6 @@ package com.mengfei.util;
 
 
 import freemarker.template.Configuration;
-import freemarker.template.DefaultObjectWrapper;
 import freemarker.template.Template;
 
 import javax.servlet.http.HttpServletResponse;
@@ -26,11 +25,10 @@ public class WordUtil {
      * @return
      */
     public static Boolean writeWordReport(String wordFilePath,String wordFileName,String templatePath,String templateFileName, Map<String, Object> beanParams) {
-        Configuration config = new Configuration();
+        Configuration config = new Configuration(Configuration.getVersion());
         Writer out = null;
         try {
             config.setDirectoryForTemplateLoading(new File(templatePath));
-            config.setObjectWrapper(new DefaultObjectWrapper());
             Template template = config.getTemplate(templateFileName, "UTF-8");
 
             //获取文件目录，如果不存在则创建
