@@ -27,7 +27,6 @@ public class CommonUtil {
      * @param record 要复制的文件
      */
     public void copyFile(File bakDir, File record) {
-        System.out.println("正在准备复制文件......");
         FileInputStream inputStream = null;
         FileOutputStream outputStream = null;
         int length = 0;
@@ -36,32 +35,28 @@ public class CommonUtil {
             bakDir.mkdir();
         }
         try {
-            System.out.println("将要复制的文件名为：" + record.getName());
             inputStream = new FileInputStream(record);
             outputStream = new FileOutputStream(bakDir + File.separator + record.getName());
             while ((length = inputStream.read(bytes)) != -1) {
                 outputStream.write(bytes, 0, length);
             }
-            System.out.println(record.getName() + "文件复制完成！");
         } catch (IOException e) {
-            throw new RuntimeException("复制文件出现异常！");
+            e.printStackTrace();
         } finally {
             try {
                 if (null != inputStream) {
                     inputStream.close();
-                    System.out.println("输入流已关闭！");
                 }
             } catch (Exception e1) {
-                throw new RuntimeException("输入流关闭异常！");
+                e1.printStackTrace();
             }
 
             try {
                 if (null != outputStream) {
                     outputStream.close();
-                    System.out.println("输出流已关闭！");
                 }
             } catch (Exception e2) {
-                throw new RuntimeException("输出流关闭异常！");
+                e2.printStackTrace();
             }
         }
     }
