@@ -37,12 +37,12 @@ public class JedisTest {
     @Test
     public void example6() {
         ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext("spring/applicationContext-test-redis.xml");
-        //JedisConnectionFactory jedisConnectionFactory = (JedisConnectionFactory) context.getBean("jedisConnectionFactory");
+        JedisConnectionFactory jedisConnectionFactory = (JedisConnectionFactory) context.getBean("jedisConnectionFactory");
         Field jedisField = ReflectionUtils.findField(JedisConnection.class, "jedis");
         ReflectionUtils.makeAccessible(jedisField);
         System.out.println(jedisConnectionFactory.getConnection());
         Jedis jedis = (Jedis) ReflectionUtils.getField(jedisField, jedisConnectionFactory.getConnection());
-        String result = jedis.set("test-key", "Hello world-", "NX", "EX", 1);
+        String result = jedis.set("test-key", "Hello world-", "NX", "EX", 100);
         System.out.println(result);
         //代码执行后,返回字符串”OK”或者”null”,表示是否设值成功。
     }
@@ -51,15 +51,16 @@ public class JedisTest {
     //删除本地redis中的数据
     public void example5() {
         Jedis jedis = new Jedis("10.224.169.151", 6379);
-        Set<String> tips = jedis.keys("carblack_*");//carWarn_
+        Set<String> tips = jedis.keys("carWarn#*");//carWarn_
+        System.out.println(tips.size());
         //Set<String> tips = jedis.keys("carWarn_1K1593_550M1004_川A8B27B_2018-11-19 11:18:43_1542597582757_E09.645.001.001");
         for (String str : tips) {
             jedis.del(str);
             //System.out.println(str);
         }
-        jedis.del("AutoPushQWT0");
+        //jedis.del("AutoPushQWT0");
         jedis.close();
-        System.out.println("删除成功，连接已关闭！");
+        System.out.println("连接已关闭！");
     }
 
     @Test
