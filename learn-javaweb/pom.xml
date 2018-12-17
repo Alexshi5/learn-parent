@@ -15,6 +15,7 @@
         <module>f1chapter3-helloservlet</module>
         <module>f1chapter5-sessionServlet</module>
         <module>f1chapter9-hellofilter</module>
+        <module>f1chapter10-websocket</module>
     </modules>
 
     <distributionManagement>

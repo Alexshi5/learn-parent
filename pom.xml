@@ -63,8 +63,9 @@
         <solrj.version>4.10.3</solrj.version>
         <!-- word文档导出 -->
         <freemarker.version>2.3.23</freemarker.version>
-        <dom4j.version>1.6</dom4j.version>
         <codec.version>1.10</codec.version>
+        <!--websocket-->
+        <websocket.version>1.0</websocket.version>
     </properties>
     <dependencyManagement>
         <dependencies>
@@ -199,14 +200,15 @@
                 <version>${freemarker.version}</version>
             </dependency>
             <dependency>
-                <groupId>dom4j</groupId>
-                <artifactId>dom4j</artifactId>
-                <version>${dom4j.version}</version>
-            </dependency>
-            <dependency>
                 <groupId>commons-codec</groupId>
                 <artifactId>commons-codec</artifactId>
                 <version>${codec.version}</version>
+            </dependency>
+            <!--websocket-->
+            <dependency>
+                <groupId>javax.websocket</groupId>
+                <artifactId>javax.websocket-api</artifactId>
+                <version>${websocket.version}</version>
             </dependency>
         </dependencies>
     </dependencyManagement>

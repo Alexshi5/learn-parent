@@ -22,6 +22,13 @@ import java.util.logging.Logger;
  */
 public class Example {
     @Test
+    public void example9(){
+        StringBuffer buffer = new StringBuffer();
+        buffer.append("张三").append( "李四");
+        System.out.println(buffer.toString());
+    }
+
+    @Test
     public void example8(){
         String dataGeneral = "2018年11月共接入数据种类 20类。<p>上海电科3类，共计接入466024条数据，其中1类正常，2类异常；</p><p style=\"text-indent: 2em\">索美1类，共计接入1520条数据，其中1类异常；</p><p style=\"text-indent: 2em\">交委-华南1类，共计接入3342条数据，其中1类异常；</p><p style=\"text-indent: 2em\">旺山7类，共计接入1372396条数据，其中2类正常，5类异常；</p><p style=\"text-indent: 2em\">皖通2类，共计接入0条数据，其中2类异常；</p><p style=\"text-indent: 2em\">交委-同方5类，共计接入184538条数据，其中2类正常，3类异常；</p><p style=\"text-indent: 2em\">中兴1类，共计接入9000条数据，其中1类异常。";
         dataGeneral = dataGeneral.replaceAll("<p>","<w:p>").replaceAll("</p>","</w:p>").replaceAll("<p style=\"text-indent: 2em\">","<w:p><w:tab/>");

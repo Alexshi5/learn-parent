@@ -49,22 +49,6 @@ public class JedisTest {
 
     @Test
     //删除本地redis中的数据
-    public void example5() {
-        Jedis jedis = new Jedis("10.224.169.151", 6379);
-        Set<String> tips = jedis.keys("carWarn#*");//carWarn_
-        System.out.println(tips.size());
-        //Set<String> tips = jedis.keys("carWarn_1K1593_550M1004_川A8B27B_2018-11-19 11:18:43_1542597582757_E09.645.001.001");
-        for (String str : tips) {
-            jedis.del(str);
-            //System.out.println(str);
-        }
-        //jedis.del("AutoPushQWT0");
-        jedis.close();
-        System.out.println("连接已关闭！");
-    }
-
-    @Test
-    //删除本地redis中的数据
     public void example4() {
         Jedis jedis = new Jedis("localhost", 6379);
         Set<String> tips = jedis.keys("tips*");
