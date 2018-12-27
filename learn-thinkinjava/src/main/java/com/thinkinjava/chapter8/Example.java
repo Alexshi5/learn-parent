@@ -22,6 +22,14 @@ import java.util.logging.Logger;
  */
 public class Example {
     @Test
+    public void example10() throws Exception{
+        String str = "12.567";
+        String[] split = str.split("\\.");
+        System.out.println(split[0]);
+        System.in.read();
+    }
+
+    @Test
     public void example9(){
         StringBuffer buffer = new StringBuffer();
         buffer.append("张三").append( "李四");
