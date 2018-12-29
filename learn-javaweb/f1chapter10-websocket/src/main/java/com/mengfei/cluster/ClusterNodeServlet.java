@@ -1,4 +1,4 @@
-package com.mengfei.example1;
+package com.mengfei.cluster;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;

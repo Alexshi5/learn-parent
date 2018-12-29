@@ -10,7 +10,7 @@
 </html>
 <script>
     $(function () {
-        $.get('test/example1',{},function (data) {
+        $.get('test/cluster',{},function (data) {
             console.log(data);
         },'json');
     });

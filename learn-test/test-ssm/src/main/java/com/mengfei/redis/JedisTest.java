@@ -35,11 +35,6 @@ public class JedisTest {
     }
 
     @Test
-    public void example7(){
-        ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext("spring/applicationContext-test-redis.xml");
-    }
-
-    @Test
     public void example6() {
         ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext("spring/applicationContext-test-redis.xml");
         JedisConnectionFactory jedisConnectionFactory = (JedisConnectionFactory) context.getBean("jedisConnectionFactory");

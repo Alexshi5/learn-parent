@@ -1,4 +1,4 @@
-package com.mengfei.example1;
+package com.mengfei.cluster;
 
 import java.io.Serializable;
 
