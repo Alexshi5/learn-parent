@@ -15,33 +15,31 @@ import java.util.List;
 /**
  * author Alex
  * date 2018/12/29
- * description 一个用于关联客户和客服人员的会话类
+ * description 聊天会话类，用于关联客户与客服人员的关系类
  */
 public class ChatSession
 {
-    //会话ID
-    private long sessionId;
-    //客户用户名
+    //聊天会话ID
+    private long chatSessionId;
+    //客户登录的用户名
     private String customerUsername;
-    //客户session
+    //客户的WebSocket会话
     private Session customer;
-    //客服用户名
+    //客服登录的用户名
     private String customerServiceUsername;
-    //客服session
+    //客服的WebSocket会话
     private Session customerService;
-    //创建的消息对象
+    //创建的消息
     private ChatMessage creationMessage;
     //聊天日志
     private final List<ChatMessage> chatLog = new ArrayList<>();
 
-    public long getSessionId()
-    {
-        return sessionId;
+    public long getChatSessionId() {
+        return chatSessionId;
     }
 
-    public void setSessionId(long sessionId)
-    {
-        this.sessionId = sessionId;
+    public void setChatSessionId(long chatSessionId) {
+        this.chatSessionId = chatSessionId;
     }
 
     public String getCustomerUsername()

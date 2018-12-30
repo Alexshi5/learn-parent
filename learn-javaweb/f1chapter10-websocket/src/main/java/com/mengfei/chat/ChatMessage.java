@@ -1,6 +1,6 @@
 package com.mengfei.chat;
 
-import java.time.OffsetDateTime;
+import java.util.Date;
 
 /**
  * author Alex
@@ -10,7 +10,7 @@ import java.time.OffsetDateTime;
 public class ChatMessage
 {
     //当前时区的时间
-    private OffsetDateTime timestamp;
+    private Date timestamp;
     //消息类型
     private Type type;
     //用户名
@@ -18,13 +18,11 @@ public class ChatMessage
     //消息内容
     private String content;
 
-    public OffsetDateTime getTimestamp()
-    {
+    public Date getTimestamp() {
         return timestamp;
     }
 
-    public void setTimestamp(OffsetDateTime timestamp)
-    {
+    public void setTimestamp(Date timestamp) {
         this.timestamp = timestamp;
     }
 
