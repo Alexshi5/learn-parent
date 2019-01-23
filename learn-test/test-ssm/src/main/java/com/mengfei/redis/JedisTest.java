@@ -35,6 +35,37 @@ public class JedisTest {
     }
 
     @Test
+    //将151中的数据修改后添加到本地redis中
+    public void example7() throws Exception{
+        Jedis jedis = new Jedis("10.224.169.151", 6379);
+        //Jedis jedis2 = new Jedis("localhost", 6379);
+        Jedis jedis2 = new Jedis("10.224.169.132", 6379);
+        Set<String> keys = jedis.keys("carWarn*");//6
+        //Set<String> keys = jedis.keys("carblack*");//4
+        int count = 0;
+        for (String key : keys) {
+            if(count>10000){
+                break;
+            }
+            byte[] bytes= jedis.get(key.getBytes());
+            if(null != bytes && bytes.length>0){
+                String newKey = key.replaceAll("#","@@@");
+                String[] arr = newKey.split("#");
+                if(arr.length>6){
+                    continue;
+                }else {
+                    System.out.println(newKey);
+                    jedis2.set(newKey.getBytes(),bytes);
+                    count++;
+                }
+            }
+        }
+        jedis.close();
+        System.out.println("修改成功，连接已关闭！");
+        //System.in.read();
+    }
+
+    @Test
     public void example6() {
         ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext("spring/applicationContext-test-redis.xml");
         JedisConnectionFactory jedisConnectionFactory = (JedisConnectionFactory) context.getBean("jedisConnectionFactory");
@@ -50,8 +81,8 @@ public class JedisTest {
     @Test
     //删除本地redis中的数据
     public void example4() {
-        Jedis jedis = new Jedis("localhost", 6379);
-        Set<String> tips = jedis.keys("tips*");
+        Jedis jedis = new Jedis("10.224.169.132", 6379);
+        Set<String> tips = jedis.keys("carblack*");
         for (String str : tips) {
             System.out.println(str);
             jedis.del(str);
@@ -85,6 +116,7 @@ public class JedisTest {
         System.out.println("redis关闭成功！");
     }
 
+    //序列化
     @Test
     public void example2() {
         Jedis jedis = new Jedis("localhost", 6379);
@@ -97,6 +129,7 @@ public class JedisTest {
         System.out.println("redis关闭成功！");
     }
 
+    //反序列化
     @Test
     public void example3() {
         Jedis jedis = new Jedis("localhost", 6379);

@@ -21,19 +21,12 @@ private RedisTemplate<String, Object> redisTemplate;
     	RedisSerializer redisSerializerString = new StringRedisSerializer();
         redisTemplate.setKeySerializer(redisSerializerString);
         redisTemplate.setValueSerializer(redisSerializer);
-//        redisTemplate.setHashKeySerializer(redisSerializerString);
-//        redisTemplate.setHashValueSerializer(redisSerializerString);
         this.redisTemplate = redisTemplate;  
     }  
-    
-    
+
     public RedisTemplate<String, Object> getRedisTemplate() {
 		return redisTemplate;
 	}
-//    
-    
-    
-
 
 	//=============================common============================  
     
