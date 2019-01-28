@@ -20,10 +20,10 @@
         <module>maibao-cms</module>
     </modules>
 
-    <!--配置从镜像——私服-->
+    <!--配置私服为从镜像-->
     <repositories>
         <repository>
-            <id>central</id>
+            <id>nexus-central</id>
             <name>Central Repository</name>
             <url>http://192.168.188.132:8081/nexus/content/groups/public</url>
         </repository>

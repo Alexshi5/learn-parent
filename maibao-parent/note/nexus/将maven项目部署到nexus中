@@ -20,5 +20,3 @@
     </distributionManagement>
 
 3、在项目的根目录下执行命令：mvn deploy
-
-4、部署的项目版本号只能使用SNAPSHOT作为后缀吗？需要进行测试

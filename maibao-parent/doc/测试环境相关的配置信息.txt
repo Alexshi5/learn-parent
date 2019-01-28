@@ -1,19 +1,32 @@
 ---------各系统域名和IP地址以及端口号 begin---------------------------------
-nexus:默认http port 8081
+windows的hosts文件地址：C:\Windows\System32\drivers\etc
+nexus:http port 8081
 cms：http port 8082  jmx port 1097 maibao.cms.com
 usermanage：http port 8083  jmx port 1096 maibao.manage.com
 ---------各系统域名和IP地址 end--------------------------------------------
 
 ---------linux主机 begin------------------------------------------------（linux防火墙已禁用）
-关机：shutdown -h now
-重启：reboot
 linux主机IP地址：192.168.188.132
 linux账号：root 密码：123
+关机：shutdown -h now
+重启：reboot
 查看防火墙状态：systemctl status firewalld
 启用防火墙：systemctl start firewalld
 停止防火墙：systemctl stop firewalld
 禁用防火墙：systemctl disable firewalld
+修改系统时间并同步到硬件：date -s "2019-01-23 15:32:30" &&hwclock --systohc
 
+修改IP为静态IP：
+(1) 打开配置文件：vim /etc/sysconfig/network-scripts/ifcfg-ens33（不同的虚拟机此文件名可能不同，但都以ifcfg-为前缀）
+(2) 修改内容如下：
+BOOTPROTO="static" #dhcp改为static
+ONBOOT="yes" #开机启用本配置
+IPADDR=192.168.188.132 #静态IP
+GATEWAY=192.168.188.2 #默认网关
+NETMASK=255.255.255.0 #子网掩码
+DNS1=192.168.188.2 #DNS 配置
+(3) 重启网络服务：service network restart
+(4) 重启验证：ifconfig
 ---------linux主机 end---------------------------------------------------
 
 ---------nginx begin------------------------------------------------------
@@ -56,7 +69,7 @@ svn账号：alex 密码：123
 ---------svn end-------------------------------------------------------------
 
 --------nexus begin----------------------------------------------------------
-此服务器在linux中
+此服务器在linux中,ip：192.168.188.132
 安装目录：/usr/local/nexus
 启动nexus：/usr/local/nexus/nexus-2.9.0-04/bin/nexus start
 停止nexus：/usr/local/nexus/nexus-2.9.0-04/bin/nexus stop
