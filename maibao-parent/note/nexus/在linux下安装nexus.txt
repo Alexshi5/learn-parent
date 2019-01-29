@@ -1,8 +1,10 @@
-1、官网地址：https://blog.sonatype.com/（暂不提供下载功能）
+一、nexus3.0以下版本
+
+1、下载地址：https://download.csdn.net/psearch/0/10/0/2/1/nexus-2.9.0-04-bundle.zip
 
 2、上传zip包，使用unzip -d /usr/local/nexus  nexus-2.9.0-04-bundle.zip解压
 
-3、在vi /etc/profile文件的最下面添加环境变量：export RUN_AS_USER=root
+3、在vi /etc/profile文件的最下面添加环境变量：export RUN_AS_USER=root （目的只是在启动时忽略警告，也可以不加）
 
 4、重载profile文件： source /etc/profile
 
@@ -19,3 +21,18 @@
 10、停止nexus：./nexus stop
 
 11、在linux下安装unzip： yum install -y unzip zip
+
+
+二、nexus3.0以上版本
+
+1、下载地址：https://www.sonatype.com/download-oss-sonatype
+
+2、解压：tar -zxvf nexus-3.15.1-01-unix.tar.gz -C /usr/local/nexus
+
+3、进入目录：cd /usr/local/nexus/nexus-3.15.1-01/bin/
+
+4、启动：./nexus start
+
+5、查看8081端口看是否启动（启动比较慢）：netstat -anp|grep 8081
+
+6、浏览器访问：192.168.188.132:8081

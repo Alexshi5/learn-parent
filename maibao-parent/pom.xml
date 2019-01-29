@@ -12,8 +12,6 @@
     <artifactId>maibao-parent</artifactId>
     <packaging>pom</packaging>
 
-    <!-- FIXME change it to the project's website -->
-    <url>http://www.example.com</url>
     <modules>
         <module>maibao-usermanage</module>
         <module>maibao-common</module>
@@ -21,13 +19,13 @@
     </modules>
 
     <!--配置私服为从镜像-->
-    <repositories>
+    <!--<repositories>
         <repository>
-            <id>nexus-central</id>
+            <id>central</id>
             <name>Central Repository</name>
-            <url>http://192.168.188.132:8081/nexus/content/groups/public</url>
+            <url>http://192.168.188.132:8081/nexus/content/repositories/central/</url>
         </repository>
-    </repositories>
+    </repositories>-->
 
     <!--发布配置-->
     <distributionManagement>
