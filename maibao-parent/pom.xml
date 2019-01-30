@@ -21,8 +21,7 @@
     <!--配置私服为从镜像-->
     <!--<repositories>
         <repository>
-            <id>central</id>
-            <name>Central Repository</name>
+            <id>central001</id>
             <url>http://192.168.188.132:8081/nexus/content/repositories/central/</url>
         </repository>
     </repositories>-->
