@@ -1,0 +1,15 @@
+本人博客链接：https://blog.csdn.net/Alexshi5/article/details/86702019
+
+1、选择3rd party 然后点击Artifact Upload
+
+2、在GAV Definition下拉框中选择GAV Parameters
+
+3、填写要上传的jar包的相关信息，比如：groupId、Artifact、Version、Packaging（均可自定义）
+
+4、点击Select Artifact to Upload 选择jar包存放的本地地址
+
+5、再点击Add Artifact 将jar包添加到待上传列表中
+
+6、最后点击Upload Artifact 将jar包上传到nexus的工作目录
+
+7、保存成功后查看第三方库

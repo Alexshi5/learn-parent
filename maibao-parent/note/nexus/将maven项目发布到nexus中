@@ -1,6 +1,9 @@
+本人博客链接：https://blog.csdn.net/Alexshi5/article/details/86702019
+
 1、在setting.xml文件中配置一个server
 
     <server>
+      <!--id要与nexus中的仓库id相同-->
       <id>snapshots</id>
       <!--这是nexus默认的账号和密码-->
       <username>admin</username>
@@ -12,7 +15,7 @@
     <!--发布配置-->
     <distributionManagement>
         <repository>
-            <!--id与setting中配置的server的id保持一致，并且要跟nexus中仓库的id保持一致-->
+            <!--id要跟nexus中仓库的id保持一致-->
             <id>snapshots</id>
             <!--此url跟nexus中对应的仓库地址保持一致-->
             <url>http://192.168.188.132:8081/nexus/content/repositories/snapshots</url>

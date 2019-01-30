@@ -29,8 +29,9 @@
     <!--发布配置-->
     <distributionManagement>
         <repository>
-            <!--id与setting中配置的server的id保持一致，并且要跟nexus中仓库的id保持一致-->
+            <!--id跟nexus中仓库的id保持一致-->
             <id>snapshots</id>
+            <!--将nexus中的repository path复制下来即可-->
             <url>http://192.168.188.132:8081/nexus/content/repositories/snapshots</url>
         </repository>
     </distributionManagement>
