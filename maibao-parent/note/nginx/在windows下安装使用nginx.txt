@@ -15,7 +15,7 @@
     4、保存之后可以通过域名进行访问了，如：maibao.cms.com:8082 ，但由于一个应用通常是由内部的多个服务器提供
 服务的，用户在访问时不可能使用端口进行访问，而应该由服务器内部决定使用哪个服务器给用户提供服务，这就需要用到反向代理了。
 
-二、在Windows开发环境中安装nginx并进行反向代理（下载地址：http://nginx.org/en/download.html）
+二、在Windows开发环境中安装nginx并配置反向代理（下载地址：http://nginx.org/en/download.html）
 
     1、解压nginx-1.14.0.zip到使用目录下；
 

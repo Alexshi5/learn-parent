@@ -120,7 +120,7 @@ GRANT ALL PRIVILEGES ON *.* TO 'root'@'%' IDENTIFIED BY 'Root123_' WITH GRANT OP
 		
 		1.添加服务mysql： chkconfig --add mysql
 
-    1		2.设置mysql服务为自启动： chkconfig mysql on
+        2.设置mysql服务为自启动： chkconfig mysql on
 
 	19、配置环境变量
 

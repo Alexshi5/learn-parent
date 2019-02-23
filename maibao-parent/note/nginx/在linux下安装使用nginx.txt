@@ -86,3 +86,7 @@
 
 三、在linux下配置nginx的反向代理
 
+    可以参考在windows下配置反向代理，nginx只是安装环境不同，但反向代理的配置是一样的
+
+    参考地址：https://blog.csdn.net/Alexshi5/article/details/82795612
+
