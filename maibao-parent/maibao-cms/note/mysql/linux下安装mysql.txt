@@ -1,0 +1,147 @@
+第一种方式安装mysql：yum安装
+
+1、whereis mysql：查找mysql的安装目录；
+
+2、rpm -qa|grep mysql：查看mysql安装了哪些包；
+
+3、yum remove mysql：卸载mysql；（如果卸不掉的话，就把mysql换成包名）
+
+   删除/var/lib/mysql/目录下的数据库文件：rm -rf mysql/
+  
+   删除所有与mysql相关的目录（weheris mysql和find / -name mysql）
+
+4、本地安装rpm源包
+
+下载地址：http://dev.mysql.com/downloads/repo/yum/
+
+先将mysql-community-release-el6-5.noarch.rpm上传到home目录
+[root@192 ~]# yum localinstall mysql-community-release-el6-5.noarch.rpm 
+
+5、yum安装mysql
+
+yum install mysql-server
+
+6、启动mysql服务（第一次启动要创建一个数据库）
+
+systemctl start mysqld
+systemctl stop mysqld
+
+7、跳过权限验证启动mysql
+
+vi /etc/my.cnf  在此文件下
+skip-grant-tables  末尾添加
+systemctl restart mysqld  重启mysql服务
+mysql  输入命令
+use mysql;  使用mysql数据库
+update user set password=password("123") where user="root"; 更改密码   
+flush privileges; 刷新权限
+quit退出mysql，删掉刚才添加的skip-grant-tables
+重启mysql服务
+
+8、连接mysql客户端
+mysql -uroot -p123
+set password=password('Root123_');  重置密码（此方式可以不重置）
+
+9、设置mysql的远程访问
+
+GRANT ALL PRIVILEGES ON *.* TO 'root'@'%' IDENTIFIED BY 'Root123_' WITH GRANT OPTION;
+
+
+
+
+第二种方式安装mysql（参考：http://blog.csdn.net/yougoule/article/details/56680952）
+
+	1、下载mysl ：wget http://mirrors.sohu.com/mysql/MySQL-5.7/mysql-5.7.17-linux-glibc2.5-x86_64.tar.gz
+
+	2、检查本地是否安装了mysql ：rpm -qa|grep mysql
+	
+	3、解压文件到该目录 ：tar -zxvf mysql-5.7.17-linux-glibc2.5-x86_64.tar.gz -C /usr/local/ 
+
+	4、去安装目录：cd /usr/local/mysql ，改名： mv mysql-5.7.17-linux-glibc2.5-x86_64/ mysql
+
+	5、然后去到mysql的support-files目录下,复制my-default.cnf到 /etc/my.cnf(mysqld启动时自动读取)
+
+		cp my-default.cnf /etc/my.cnf
+
+	6、配置数据库编码 ：vi /etc/my.cnf ，添加以下内容：
+
+		[mysql]
+		default-character-set=utf8
+		[mysqld]
+		default-storage-engine=INNODB
+		character_set_server=utf8
+
+	7、复制mysql.server到/etc/init.d/目录下(目的想实现开机自动执行效果)：cp mysql.server /etc/init.d/mysql
+
+	8、修改/etc/init.d/mysql参数：vi /etc/init.d/mysql ；
+
+	9、修改以下内容:（要先在mysql目录下创建data目录）
+
+		basedir=/usr/local/mysql
+		datadir=/usr/local/mysql/data	
+
+	10、出于安全便利，创建一个操作数据库的专门用户
+
+		1.建立一个mysql的组: groupadd mysql
+
+		2.建立alex用户，并且把用户放到mysql组: useradd -r -g mysql mysql
+
+		3.给alex用户设置一个密码: passwd mysql
+
+		4.给目录/usr/local/mysql/mysql 更改拥有者: chown -R mysql:mysql /usr/local/mysql/
+
+	11、在bin目录下初始化mysql数据库：./mysqld --initialize --user=mysql --basedir=/usr/local/mysql --datadir=/usr/local/mysql/data	
+
+		记录初始化密码：grz,DwUy+5ak
+
+	12、在bin目录下给数据库加密：./mysql_ssl_rsa_setup --datadir=/usr/local/mysql/data
+
+	13、跳过权限启动mysql ：./mysqld_safe --user=mysql &
+
+	14、检查mysql是否启动：ps -ef|grep mysql
+
+	15、进入客户端：./mysql -uroot -p  
+
+		输入之前的密码
+
+	16、修改密码：set password=password('新密码'); （重置密码之后才能进行其他操作）
+
+		1.show databases;
+		
+		2.show tables; 
+
+		3.status; 
+
+	17、设置远程访问：
+
+		
+
+	18、设置开机自启动
+		
+		1.添加服务mysql： chkconfig --add mysql
+
+    1		2.设置mysql服务为自启动： chkconfig mysql on
+
+	19、配置环境变量
+
+		1.打开配置文件：vim /etc/profile 
+
+		2.最后一行添加:
+
+			export PATH=$JAVA_HOME/bin:/usr/local/mysql/bin:$PATH
+
+		3.使之修改生效： source /etc/profile
+
+
+	20、启动、停止、重启mysql
+
+		1.启动：service mysql start
+
+		2.停止：service mysql stop
+
+		3.重启：service mysql restart
+
+
+
+
+

@@ -3,60 +3,331 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <parent>
-        <artifactId>maibao-parent</artifactId>
+        <artifactId>learn-parent</artifactId>
         <groupId>com.mengfei</groupId>
         <version>1.0-SNAPSHOT</version>
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>maibao-cms</artifactId>
+    <artifactId>maibao-parent</artifactId>
     <packaging>pom</packaging>
 
     <!-- FIXME change it to the project's website -->
     <url>http://www.example.com</url>
-
-    <dependencies>
-        <!--依赖公共组件-->
-        <dependency>
-            <groupId>com.mengfei</groupId>
-            <artifactId>maibao-common</artifactId>
-            <version>${project.version}</version>
-        </dependency>
-    </dependencies>
     <modules>
-        <module>maibao-cms-pojo</module>
-        <module>maibao-cms-mapper</module>
-        <module>maibao-cms-service</module>
-        <module>maibao-cms-web</module>
+        <module>maibao-usermanage</module>
+        <module>maibao-common</module>
+        <module>maibao-cms</module>
     </modules>
 
+    <!--发布配置-->
     <distributionManagement>
-        <site>
-            <id>website</id>
-            <url>scp://webhost.company.com/www/website</url>
-        </site>
+        <repository>
+            <!--id与setting中配置的server的id保持一致，并且要跟nexus中仓库的id保持一致-->
+            <id>snapshots</id>
+            <url>http://192.168.188.132:8081/nexus/content/repositories/snapshots</url>
+        </repository>
     </distributionManagement>
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <!--统一添加常用jar包的版本号-->
+        <!-- 单元测试 -->
+        <junit.version>4.12</junit.version>
+        <!-- spring -->
+        <spring.version>5.0.0.RELEASE</spring.version>
+        <!-- spring的切面依赖jar包 -->
+        <aspectj.version>1.8.11</aspectj.version>
+        <!-- mybatis 如果版本太高，使用pagehelper3.4.2-fix时会出现参数不匹配的问题-->
+        <mybatis.version>3.2.8</mybatis.version>
+        <!-- spring和mybatis的整合包 -->
+        <mybatis.spring.version>1.3.1</mybatis.spring.version>
+        <!-- mybatis分页处理jar包-->
+        <mybatis.paginator.version>1.2.15</mybatis.paginator.version>
+        <!-- mybatis物理分页插件jar包，官方的分页对逆向工程的支持不好，需要进行修改 -->
+        <pagehelper.version>3.4.2-fix</pagehelper.version>
+        <!-- mysql -->
+        <mysql.version>5.1.43</mysql.version>
+        <!-- 日志处理 -->
+        <log4j.version>2.9.1</log4j.version>
+        <!-- json处理 -->
+        <fastjson.version>1.2.39</fastjson.version>
+        <!-- 阿里巴巴的连接池jar包 -->
+        <druid.version>1.1.5</druid.version>
+        <!-- jstl标签库 -->
+        <jstl.version>1.2</jstl.version>
+        <!-- servlet相关的jar -->
+        <servlet-api.version>4.0.0</servlet-api.version>
+        <!-- jdk的补充工具jar包 -->
+        <commons-lang3.version>3.6</commons-lang3.version>
+        <!-- 输入输出流 -->
+        <commons-io.version>2.6</commons-io.version>
+        <!-- 封装了各种网络协议的jar包 -->
+        <commons-net.version>3.6</commons-net.version>
+        <!-- 文件上传 -->
+        <commons-fileupload.version>1.3.3</commons-fileupload.version>
+        <!-- jackson工具 -->
+        <jackson.version>2.9.2</jackson.version>
+        <!-- 应用程序之间的通信jar包-->
+        <httpclient.version>4.3.5</httpclient.version>
+        <!-- 时间格式化组件-->
+        <joda-time.version>2.9.9</joda-time.version>
+        <!-- redis客户端 -->
+        <jedis.version>2.9.0</jedis.version>
+        <!-- solr客户端 -->
+        <solrj.version>4.10.3</solrj.version>
+        <!--mapper报表图形组件-->
+        <mapper.version>3.0.0</mapper.version>
     </properties>
 
+    <dependencyManagement>
+        <dependencies>
+            <!-- 单元测试 -->
+            <dependency>
+                <groupId>junit</groupId>
+                <artifactId>junit</artifactId>
+                <version>${junit.version}</version>
+            </dependency>
+            <!-- spring -->
+            <dependency>
+                <groupId>org.springframework</groupId>
+                <artifactId>spring-context</artifactId>
+                <version>${spring.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.springframework</groupId>
+                <artifactId>spring-orm</artifactId>
+                <version>${spring.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.springframework</groupId>
+                <artifactId>spring-webmvc</artifactId>
+                <version>${spring.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.aspectj</groupId>
+                <artifactId>aspectjweaver</artifactId>
+                <version>${aspectj.version}</version>
+            </dependency>
+            <!-- mybatis -->
+            <dependency>
+                <groupId>org.mybatis</groupId>
+                <artifactId>mybatis</artifactId>
+                <version>${mybatis.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.mybatis</groupId>
+                <artifactId>mybatis-spring</artifactId>
+                <version>${mybatis.spring.version}</version>
+            </dependency>
+            <!-- 分页 -->
+            <dependency>
+                <groupId>com.github.miemiedev</groupId>
+                <artifactId>mybatis-paginator</artifactId>
+                <version>${mybatis.paginator.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.github.pagehelper</groupId>
+                <artifactId>pagehelper</artifactId>
+                <version>${pagehelper.version}</version>
+            </dependency>
+            <!-- mysql -->
+            <dependency>
+                <groupId>mysql</groupId>
+                <artifactId>mysql-connector-java</artifactId>
+                <version>${mysql.version}</version>
+            </dependency>
+            <!-- log4j -->
+            <dependency>
+                <groupId>org.apache.logging.log4j</groupId>
+                <artifactId>log4j-core</artifactId>
+                <version>${log4j.version}</version>
+            </dependency>
+            <!-- fastjson -->
+            <dependency>
+                <groupId>com.alibaba</groupId>
+                <artifactId>fastjson</artifactId>
+                <version>${fastjson.version}</version>
+            </dependency>
+            <!-- 连接池 -->
+            <dependency>
+                <groupId>com.alibaba</groupId>
+                <artifactId>druid</artifactId>
+                <version>${druid.version}</version>
+            </dependency>
+            <!-- httpclient -->
+            <dependency>
+                <groupId>org.apache.httpcomponents</groupId>
+                <artifactId>httpclient</artifactId>
+                <version>${httpclient.version}</version>
+            </dependency>
+            <!-- jsp相关 -->
+            <dependency>
+                <groupId>jstl</groupId>
+                <artifactId>jstl</artifactId>
+                <version>${jstl.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>javax.servlet</groupId>
+                <artifactId>javax.servlet-api</artifactId>
+                <version>${servlet-api.version}</version>
+                <scope>provided</scope>
+            </dependency>
+            <!-- 时间操作组件 -->
+            <dependency>
+                <groupId>joda-time</groupId>
+                <artifactId>joda-time</artifactId>
+                <version>${joda-time.version}</version>
+            </dependency>
+            <!-- commons相关 -->
+            <dependency>
+                <groupId>org.apache.commons</groupId>
+                <artifactId>commons-lang3</artifactId>
+                <version>${commons-lang3.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>commons-io</groupId>
+                <artifactId>commons-io</artifactId>
+                <version>${commons-io.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>commons-fileupload</groupId>
+                <artifactId>commons-fileupload</artifactId>
+                <version>${commons-fileupload.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>commons-net</groupId>
+                <artifactId>commons-net</artifactId>
+                <version>${commons-net.version}</version>
+            </dependency>
+            <!-- Jackson Json处理工具包 -->
+            <dependency>
+                <groupId>com.fasterxml.jackson.core</groupId>
+                <artifactId>jackson-databind</artifactId>
+                <version>${jackson.version}</version>
+            </dependency>
+            <!-- redis -->
+            <dependency>
+                <groupId>redis.clients</groupId>
+                <artifactId>jedis</artifactId>
+                <version>${jedis.version}</version>
+            </dependency>
+            <!-- solr -->
+            <dependency>
+                <groupId>org.apache.solr</groupId>
+                <artifactId>solr-solrj</artifactId>
+                <version>${solrj.version}</version>
+            </dependency>
+            <!-- 通用mapper -->
+            <dependency>
+                <groupId>com.github.abel533</groupId>
+                <artifactId>mapper</artifactId>
+                <version>${mapper.version}</version>
+            </dependency>
+
+        </dependencies>
+    </dependencyManagement>
+
     <build>
+        <finalName>${project.artifactId}</finalName>
+
+        <!-- 如果不添加此节点mybatis的mapper.xml文件都会被漏掉。 -->
+        <!--<resources>
+            <resource>
+                <directory>src/main/java</directory>
+                <includes>
+                    <include>**/*.properties</include>
+                    <include>**/*.xml</include>
+                </includes>
+                <filtering>false</filtering>
+            </resource>
+            <resource>
+                <directory>src/main/resources</directory>
+                <includes>
+                    <include>**/*.properties</include>
+                    <include>**/*.xml</include>
+                </includes>
+                <filtering>false</filtering>
+            </resource>
+        </resources>-->
+        <plugins>
+            <!--配置jdk版本，加载项目时自动使用配置版本，还有一种方法修改配置文件settings.xml-->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>3.7.0</version>
+                <configuration>
+                    <source>1.8</source>
+                    <target>1.8</target>
+                    <encoding>UTF-8</encoding>
+                </configuration>
+            </plugin>
+
+            <!-- 资源文件拷贝插件 -->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-resources-plugin</artifactId>
+                <version>2.7</version>
+                <configuration>
+                    <encoding>UTF-8</encoding>
+                </configuration>
+            </plugin>
+
+            <!--配置tomcat插件，可以使用此插件来运行项目-->
+            <!--<plugin>
+                <groupId>org.apache.tomcat.maven</groupId>
+                <artifactId>tomcat7-maven-plugin</artifactId>
+                <version>2.2</version>
+                <configuration>
+                    <port>8080</port>
+                    <path>/</path>
+                </configuration>
+            </plugin>-->
+
+            <!-- maven项目启动时略过测试类的插件，如果没有配置会在启动时先进行测试 -->
+            <!--<plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-surefire-plugin</artifactId>
+                <version>2.18.1</version>
+                <configuration>
+                    <skipTests>true</skipTests>
+                </configuration>
+            </plugin>-->
+        </plugins>
+
         <pluginManagement><!-- lock down plugins versions to avoid using Maven defaults (may be moved to parent pom) -->
             <plugins>
                 <plugin>
                     <artifactId>maven-clean-plugin</artifactId>
                     <version>3.0.0</version>
                 </plugin>
+                <!-- see http://maven.apache.org/ref/current/maven-core/default-bindings.html#Plugin_bindings_for_war_packaging -->
                 <plugin>
-                    <artifactId>maven-site-plugin</artifactId>
-                    <version>3.7</version>
+                    <artifactId>maven-resources-plugin</artifactId>
+                    <version>3.0.2</version>
                 </plugin>
                 <plugin>
-                    <artifactId>maven-project-info-reports-plugin</artifactId>
-                    <version>2.9</version>
+                    <artifactId>maven-compiler-plugin</artifactId>
+                    <version>3.7.0</version>
+                </plugin>
+                <plugin>
+                    <artifactId>maven-surefire-plugin</artifactId>
+                    <version>2.20.1</version>
+                </plugin>
+                <plugin>
+                    <artifactId>maven-war-plugin</artifactId>
+                    <version>3.2.0</version>
+                </plugin>
+                <plugin>
+                    <artifactId>maven-install-plugin</artifactId>
+                    <version>2.5.2</version>
+                </plugin>
+                <plugin>
+                    <artifactId>maven-deploy-plugin</artifactId>
+                    <version>2.8.2</version>
                 </plugin>
             </plugins>
         </pluginManagement>
+
     </build>
 </project>

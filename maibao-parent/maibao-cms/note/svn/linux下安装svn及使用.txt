@@ -1,0 +1,79 @@
+1、验证是否有安装svn
+
+[root@192 ~]# svnserve --version
+
+2、yum安装svn
+
+[root@192 ~]# yum install -y subversion
+
+3、创建一个svn的工作目录
+
+[root@192 ~]# mkdir /usr/local/svn
+
+4、创建一个测试用的资源仓库
+
+[root@192 svn]# svnadmin create test
+
+5、conf目录下的文件说明
+
+authz：权限相关的配置
+
+password：账号相关的配置
+
+svnserve.conf：资源库相关的配置
+
+6、修改配置文件
+
+vi svnserve.conf
+
+anon-access = none    #取消匿名访问
+
+auth-access = write    #授权用户有可写权限
+
+password-db = passwd    #指定用户配置文件，后面会用到
+
+authz-db = authz    #指定权限配置文件，后面会用到
+
+7、添加账号测试及密码
+
+vi passwd
+alex=123
+
+8、编辑authz文件，指定svn仓库目录，配置用户权限
+
+[/]代表根目录
+alex = rw  读写权限
+
+9、启动svn服务
+
+[root@192 conf]# svnserve -d -r /usr/local/svn/test
+
+-d是启动服务
+-r是指定svn目录
+
+10、客户端连接svn
+
+svn://192.168.188.128
+
+11、停止直接kill掉
+
+12、从服务器上检出项目
+
+svn co svn://localhost
+
+13、在版本库创建新的目录并提交
+
+[root@192 db]# svn mkdir -m 'make new dir' svn://localhost/otherdir
+
+
+其他使用说明
+
+一、如何将本地项目添加到svn仓库中？
+先初始化一个svn仓库，然后在仓库中创建一个跟项目根目录一样的空目录，之后将这个目录checkout到本地项目根目录所在的目录中即可。
+
+二、如何忽略上传文件以及上传文件夹？
+在settings中添加忽略文件和文件夹，忽略文件使用*.xx，如*.iml，忽略文件夹使用*xx，如*target，中间使用空格分隔
+
+三、如何清除已经保存账号密码的svn地址？
+在settings中找到saved data，然后使用clear或clear all来进行清理
+
