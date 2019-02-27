@@ -48,5 +48,4 @@ public abstract class BaseService<T> {
         return this.getMapper().select(obj);
     }
 
-
 }

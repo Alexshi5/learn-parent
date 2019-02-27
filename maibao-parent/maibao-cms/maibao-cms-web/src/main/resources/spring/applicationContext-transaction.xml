@@ -22,6 +22,7 @@
     		<tx:method name="update*"/>
     		<tx:method name="delete*"/>
     		<tx:method name="get*" propagation="SUPPORTS" read-only="true"/>
+			<tx:method name="query*" propagation="SUPPORTS" read-only="true"/>
     	</tx:attributes>
     </tx:advice>
     

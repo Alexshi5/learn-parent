@@ -76,6 +76,15 @@
             <groupId>com.github.abel533</groupId>
             <artifactId>mapper</artifactId>
         </dependency>
+        <!-- 分页 -->
+        <dependency>
+            <groupId>com.github.miemiedev</groupId>
+            <artifactId>mybatis-paginator</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.github.pagehelper</groupId>
+            <artifactId>pagehelper</artifactId>
+        </dependency>
     </dependencies>
 
     <build>
