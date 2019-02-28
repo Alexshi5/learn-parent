@@ -1,13 +1,7 @@
 package com.mengfei.maibao.cms.service;
 
-import com.mengfei.maibao.cms.mapper.TbItemCatMapper;
-import com.mengfei.maibao.cms.pojo.TbItemCat;
-import com.mengfei.maibao.cms.pojo.TbItemCat;
-import com.mengfei.maibao.cms.pojo.TbItemCatExample;
-import org.springframework.beans.factory.annotation.Autowired;
+import com.mengfei.maibao.cms.pojo.ItemCat;
 import org.springframework.stereotype.Service;
-
-import java.util.List;
 
 /**
  * author Alex
@@ -15,19 +9,24 @@ import java.util.List;
  * description 商品类目相关的服务类
  */
 @Service
-public class ItemCatService {
-    @Autowired
-    private TbItemCatMapper tbItemCatMapper;
+public class ItemCatService extends BaseService<ItemCat>{
+
+    /*@Autowired
+    private TbItemCatMapper tbItemCatMapper;*/
 
     /**
      * 根据父节点的id来查询商品类目列表
      * @param parentId
      * @return
      */
-    public List<TbItemCat> getItemCat(Long parentId){
-        TbItemCatExample example = new TbItemCatExample();
-        TbItemCatExample.Criteria criteria = example.createCriteria();
-        criteria.andParentIdEqualTo(parentId);
-        return tbItemCatMapper.selectByExample(example);
-    }
+    /*public List<TbItemCat> getItemCat(Long parentId){
+        TbItemCat itemCat = new TbItemCat();
+        itemCat.setParentId(parentId);
+        return tbItemCatMapper.select(itemCat);
+    }*/
+
+    /*@Override
+    public Mapper<TbItemCat> getMapper() {
+        return this.tbItemCatMapper;
+    }*/
 }

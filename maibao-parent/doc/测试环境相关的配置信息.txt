@@ -91,3 +91,13 @@ nexus的公共仓库地址：http://192.168.188.132:8081/nexus/content/groups/pu
 停止tomcat：/usr/local/tomcat/tomcat9/bin/shutdown.sh
 
 --------tomcat end------------------------------------------------------------
+
+--------ftp begin------------------------------------------------------------
+安装方式：yum
+用户：ftpuser  密码：123
+启动ftp：systemctl start vsftpd
+停止ftp：systemctl stop vsftpd
+创建新用户命令：useradd 用户名
+修改用户密码：passwd 用户名
+
+--------ftp end--------------------------------------------------------------

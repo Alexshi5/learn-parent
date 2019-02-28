@@ -1,0 +1,104 @@
+一、搭建ftp服务器
+
+1、查看是否已经安装ftp
+
+    [root@localhost ~]# which vsftpd
+
+2、使用yum安装ftp服务器（安装目录在/usr/sbin/vsftpd下，工作目录在/home/ftpuser下）
+
+    [root@localhost ~]# yum install vsftpd -y
+
+3、创建一个ftp用户：ftpuser
+
+    [root@localhost ~]# useradd ftpuser
+
+4、修改ftpuser的账号密码（密码过于简单或少于8个字符时会有提示，可以忽略）
+
+    [root@localhost ~]# passwd ftpuser
+
+    看到此提示代表设置成功：passwd: all authentication tokens updated successfully.
+
+5、修改selinux（selinux是linux的一个安全子系统）
+
+    [root@localhost ~]# setsebool -P ftpd_full_access on
+    [root@localhost ~]# setsebool -P tftp_home_dir on
+
+    设置完后查看ftp配置状态：[root@localhost ~]# getsebool -a | grep ftp
+
+6、为确保完全关闭匿名访问
+
+    [root@localhost ~]# vim /etc/vsftpd/vsftpd.conf
+
+    将anonymous_enable=YES修改为anonymous_enable=NO
+
+7、启动ftp服务器
+
+    [root@localhost ~]# systemctl start vsftpd
+
+8、查看21端口号ftp服务是否启动
+
+    [root@localhost ~]# netstat -anp|grep 21
+
+9、根据服务名vsftpd查看进程号
+
+    [root@localhost ~]# ps aux|grep vsftpd
+
+10、使用FileZilla工具进行连接测试，能够列出工具目录则正常（如果连接不上可能是linux防火墙没有关闭的原因）
+
+    主机：192.168.188.132  用户：ftpuser  密码：123  端口号：21  点击快速连接
+
+
+二、搭建nginx+ftp组合服务器
+
+1、linux下安装nginx可以参考：https://blog.csdn.net/Alexshi5/article/details/87897737
+
+2、创建ftp上传图片的工作目录
+
+    [root@localhost ~]# mkdir /home/ftpuser/www/images -p
+
+3、给工作目录赋予使用权限
+
+    [root@localhost home]# chmod -R 777 /home/ftpuser
+
+4、在nginx的配置文件中新增一个server
+
+    server {
+            listen       80;
+            #请求图片的域名（hosts文件中记得添加域名和ip地址的映射）
+            server_name  maibao.ftp.com;
+
+            #charset koi8-r;
+
+            #access_log  logs/host.access.log  main;
+
+            location / {
+                #root   html;
+                #修改root的访问地址
+    	        root /home/ftpuser/www/;
+    	        index  index.html index.htm;
+            }
+
+            #error_page  404              /404.html;
+
+            # redirect server error pages to the static page /50x.html
+            #
+            error_page   500 502 503 504  /50x.html;
+            location = /50x.html {
+                root   html;
+            }
+        }
+
+5、记得重启nginx的配置文件
+
+    [root@localhost]# nginx -s reload
+
+6、使用FileZilla工具在/home/ftpuser/www/images目录下上传一张测试图片
+
+    访问地址：http://maibao.ftp.com/images/test.jpg
+
+7、解决nginx重启“var/run/nginx/nginx.pid" no such file or directory问题
+
+  	方法一：在/var/run下新建一个nginx目录即可（重启还要重建）
+
+  	方法二：在nginx目录下新建logs目录，并到conf目录下修改nginx.conf （#pid logs/nginx.pid;）将#号去掉
+

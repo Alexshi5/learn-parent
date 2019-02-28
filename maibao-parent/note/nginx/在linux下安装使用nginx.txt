@@ -82,11 +82,55 @@
 
     3、在hosts文件中添加访问地址与域名的映射，如：192.168.188.132 maibao.cms.com （192.168.188.132是linux的IP地址）
 
-    4、在浏览器中输入：maibao.cms.com 可以访问到linux的欢迎页面，跟输入：192.168.188.132 是一样的
-
 三、在linux下配置nginx的反向代理
 
-    可以参考在windows下配置反向代理，nginx只是安装环境不同，但反向代理的配置是一样的
+    1、用vim工具修改nginx的配置文件
 
-    参考地址：https://blog.csdn.net/Alexshi5/article/details/82795612
+    [root@localhost ~]# vim /usr/local/nginx/conf/nginx.conf
 
+    2、将配置文件中的内容修改成如下所示：
+
+        upstream tomcatserver_cms{
+            #添加对远程服务器的代理，即对windows开发环境进行代理
+    	    server 192.168.0.101:8082;
+        }
+
+        server {
+            listen       80;
+            server_name  maibao.cms.com;
+
+            #charset koi8-r;
+
+            #access_log  logs/host.access.log  main;
+
+            location / {
+                #root   html;
+                #index  index.html index.htm;
+
+                #代理的ip地址和端口号
+                proxy_pass http://tomcatserver_cms/;
+                #代理的连接超时时间（单位：毫秒）
+                proxy_connect_timeout 600;
+                #代理的读取资源超时时间（单位：毫秒）
+                proxy_read_timeout 600;
+            }
+
+            #error_page  404              /404.html;
+
+            # redirect server error pages to the static page /50x.html
+            #
+            error_page   500 502 503 504  /50x.html;
+            location = /50x.html {
+                root   html;
+            }
+        }
+
+        3、修改后重启nginx
+
+        [root@localhost ~]# nginx -s reload
+
+        4、在浏览器中输入：maibao.cms.com 可以访问到项目的默认页面，跟输入：192.168.0.101:8082 是一样的
+
+四、nginx配置文件中关于server_name的配置
+
+    参考地址：https://blog.csdn.net/qq_40737025/article/details/85053164

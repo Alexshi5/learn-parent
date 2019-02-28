@@ -1,31 +1,10 @@
 package com.mengfei.maibao.cms.mapper;
 
-import com.mengfei.maibao.cms.pojo.TbItem;
-import com.mengfei.maibao.cms.pojo.TbItemExample;
-import org.apache.ibatis.annotations.Param;
+import com.github.abel533.mapper.Mapper;
+import com.mengfei.maibao.cms.pojo.Item;
+import org.springframework.stereotype.Repository;
 
-import java.util.List;
+@Repository
+public interface TbItemMapper extends Mapper<Item>{
 
-public interface TbItemMapper {
-    int countByExample(TbItemExample example);
-
-    int deleteByExample(TbItemExample example);
-
-    int deleteByPrimaryKey(Long id);
-
-    int insert(TbItem record);
-
-    int insertSelective(TbItem record);
-
-    List<TbItem> selectByExample(TbItemExample example);
-
-    TbItem selectByPrimaryKey(Long id);
-
-    int updateByExampleSelective(@Param("record") TbItem record, @Param("example") TbItemExample example);
-
-    int updateByExample(@Param("record") TbItem record, @Param("example") TbItemExample example);
-
-    int updateByPrimaryKeySelective(TbItem record);
-
-    int updateByPrimaryKey(TbItem record);
 }

@@ -1,9 +1,15 @@
 package com.mengfei.maibao.cms.pojo;
 
-import java.io.Serializable;
-import java.util.Date;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
 
-public class TbItemCat implements Serializable {
+@Table(name = "tb_item_cat")
+public class ItemCat extends BasePojo {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     private Long parentId;
@@ -15,13 +21,7 @@ public class TbItemCat implements Serializable {
     private Integer sortOrder;
 
     private Boolean isParent;
-
-    private Date created;
-
-    private Date updated;
-
-    private static final long serialVersionUID = 1L;
-
+    
     public Long getId() {
         return id;
     }
@@ -43,7 +43,7 @@ public class TbItemCat implements Serializable {
     }
 
     public void setName(String name) {
-        this.name = name == null ? null : name.trim();
+        this.name = name;
     }
 
     public Integer getStatus() {
@@ -70,28 +70,12 @@ public class TbItemCat implements Serializable {
         this.isParent = isParent;
     }
 
-    public Date getCreated() {
-        return created;
-    }
-
-    public void setCreated(Date created) {
-        this.created = created;
-    }
-
-    public Date getUpdated() {
-        return updated;
-    }
-
-    public void setUpdated(Date updated) {
-        this.updated = updated;
-    }
-
-    //扩展字段，支持EasyuiTree的显示
+    //扩展商品类目获取方法
     public String getText(){
         return this.getName();
     }
 
     public String getState(){
-        return this.isParent?"closed":"open";
+        return this.getIsParent()? "closed":"open";
     }
 }

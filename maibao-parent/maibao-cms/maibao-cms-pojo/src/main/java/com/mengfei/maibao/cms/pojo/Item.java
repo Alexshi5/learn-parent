@@ -1,9 +1,15 @@
 package com.mengfei.maibao.cms.pojo;
 
-import java.io.Serializable;
-import java.util.Date;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
 
-public class TbItem implements Serializable {
+@Table(name = "tb_item")
+public class Item extends BasePojo {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     private String title;
@@ -20,13 +26,7 @@ public class TbItem implements Serializable {
 
     private Long cid;
 
-    private Byte status;
-
-    private Date created;
-
-    private Date updated;
-
-    private static final long serialVersionUID = 1L;
+    private Integer status;
 
     public Long getId() {
         return id;
@@ -41,7 +41,7 @@ public class TbItem implements Serializable {
     }
 
     public void setTitle(String title) {
-        this.title = title == null ? null : title.trim();
+        this.title = title;
     }
 
     public String getSellPoint() {
@@ -49,7 +49,7 @@ public class TbItem implements Serializable {
     }
 
     public void setSellPoint(String sellPoint) {
-        this.sellPoint = sellPoint == null ? null : sellPoint.trim();
+        this.sellPoint = sellPoint;
     }
 
     public Long getPrice() {
@@ -73,7 +73,7 @@ public class TbItem implements Serializable {
     }
 
     public void setBarcode(String barcode) {
-        this.barcode = barcode == null ? null : barcode.trim();
+        this.barcode = barcode;
     }
 
     public String getImage() {
@@ -81,7 +81,7 @@ public class TbItem implements Serializable {
     }
 
     public void setImage(String image) {
-        this.image = image == null ? null : image.trim();
+        this.image = image;
     }
 
     public Long getCid() {
@@ -92,27 +92,19 @@ public class TbItem implements Serializable {
         this.cid = cid;
     }
 
-    public Byte getStatus() {
+    public Integer getStatus() {
         return status;
     }
 
-    public void setStatus(Byte status) {
+    public void setStatus(Integer status) {
         this.status = status;
     }
 
-    public Date getCreated() {
-        return created;
+    @Override
+    public String toString() {
+        return "Item [id=" + id + ", title=" + title + ", sellPoint=" + sellPoint + ", price=" + price
+                + ", num=" + num + ", barcode=" + barcode + ", image=" + image + ", cid=" + cid + ", status="
+                + status + "]";
     }
 
-    public void setCreated(Date created) {
-        this.created = created;
-    }
-
-    public Date getUpdated() {
-        return updated;
-    }
-
-    public void setUpdated(Date updated) {
-        this.updated = updated;
-    }
 }

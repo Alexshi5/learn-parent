@@ -1,6 +1,6 @@
 package com.mengfei.maibao.cms.controller;
 
-import com.mengfei.maibao.cms.pojo.TbItemCat;
+import com.mengfei.maibao.cms.pojo.ItemCat;
 import com.mengfei.maibao.cms.service.ItemCatService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -28,9 +28,13 @@ public class ItemCatController {
      * @return
      */
     @RequestMapping(value = "/list")
-    public ResponseEntity<List<TbItemCat>> getItemCat(@RequestParam(value = "id",defaultValue = "0") Long parentId){
+    public ResponseEntity<List<ItemCat>> getItemCat(@RequestParam(value = "id",defaultValue = "0") Long parentId){
         try {
-            List<TbItemCat> itemCats = itemCatService.getItemCat(parentId);
+            ItemCat itemCat = new ItemCat();
+            itemCat.setParentId(parentId);
+            List<ItemCat> itemCats = itemCatService.getListByWhere(itemCat);
+
+            //List<TbItemCat> itemCats = itemCatService.getItemCat(parentId);
             if(itemCats.isEmpty()){
                 return ResponseEntity.status(HttpStatus.NOT_FOUND).body(null);
             }
