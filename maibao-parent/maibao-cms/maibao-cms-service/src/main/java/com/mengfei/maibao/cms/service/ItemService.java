@@ -31,6 +31,7 @@ public class ItemService extends BaseService<Item>{
      * @return
      */
     public Boolean addItem(Item item, String desc){
+
         //写入商品表
         item.setId(null);//出于安全的考虑
         item.setStatus(1);

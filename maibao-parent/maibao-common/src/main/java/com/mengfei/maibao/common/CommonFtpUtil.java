@@ -133,6 +133,7 @@ public class CommonFtpUtil {
 	}
 	
 	public static void main(String[] args) {
+		Thread thread = new Thread();
 		try {  
 	        FileInputStream in=new FileInputStream(new File("C:\\Users\\Alexs\\Desktop\\test.jpg"));
 	        boolean flag = uploadFile("192.168.188.132", 21, "ftpuser", "123", "/home/ftpuser/www/images","/2019/02/28", "20190228001.jpg", in);
