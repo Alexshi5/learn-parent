@@ -1,0 +1,12 @@
+Spring Container ：父容器
+SpringMVC Container ：子容器
+
+它们之间的关系如下：
+
+    (1) 子容器可以访问父容器中的资源，如：Controller可以注入Service
+
+    (2) 父容器不能访问子容器的资源
+
+    (3) 注意：@Value注解的值只能在当前容器使用。由于子容器可以访问父容器，而父容器不可以访问子容器，如果父子容器
+
+        都想使用@Value注解注入的值，则可以先把值注入到Service中，然后子容器再去Service中获取值

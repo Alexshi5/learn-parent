@@ -1,0 +1,12 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<!--HelloThymeleaf中间使用空格会导致无法解析报500-->
+<h1 th:text="HelloThymeleaf"></h1>
+<h1 th:text="${content}"></h1>
+</body>
+</html>

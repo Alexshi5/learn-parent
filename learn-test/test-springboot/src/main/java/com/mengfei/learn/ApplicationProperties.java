@@ -9,7 +9,7 @@ import org.springframework.stereotype.Component;
  * description 用于应用程序的配置文件设置
  */
 @Component
-public class ApplicationPropertiesTest {
+public class ApplicationProperties {
 
     @Value("${test.title}")
     private String testTitle;

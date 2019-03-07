@@ -3863,7 +3863,7 @@ var cachedruns,
 		return pass;
 	});
 
-// If slice is not available, provide a backup
+// If slice is not available, provide a util
 try {
 	slice.call( docElem.childNodes, 0 )[0].nodeType;
 } catch ( e ) {

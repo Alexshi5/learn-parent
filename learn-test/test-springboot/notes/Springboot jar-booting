@@ -1,0 +1,22 @@
+1、jar包启动需要添加main方法所在类的路径，配置插件如下：
+
+<plugin>
+    <configuration>
+        <mainClass>com.mengfei.learn.SpringbootApplication</mainClass>
+    </configuration>
+    <executions>
+        <execution>
+            <goals>
+                <goal>repackage</goal>
+            </goals>
+        </execution>
+    </executions>
+</plugin>
+
+2、jar启动命令
+
+java -jar test.jar : 启动jar包，ssh关闭时退出
+
+nohup java -jar test.jar & ：启动jar包，后台运行（&要加上）
+
+nohup java -jar test.jar >temp.txt & ：同上，日志可以指定到文件中（&要加上）

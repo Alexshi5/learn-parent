@@ -1,0 +1,103 @@
+SpringBoot1学习参考地址：https://www.cnblogs.com/ityouknow/p/5662753.html
+SpringBoot2学习参考地址：https://blog.csdn.net/liubenlong007/article/details/85383482
+
+一、注解使用
+
+1、@RestController：使用此注解的类中的方法默认都是返回json格式数据，不需要再配置jackson
+
+2、@Value：使用此注解注入配置文件配置项
+
+    (1) 在application.properties中进行配置，示例如下：
+
+    test.title=测试标题
+
+    (2) 创建ApplicationPropertiesTest类，在类中使用@Value进行注入，示例如下：
+
+    @Value("${test.title}")
+    private String testTitle;
+    //要添加getter和setter方法
+
+    (3) 使用时在Controller注入配置类的Bean
+
+    @Autowired
+    ApplicationPropertiesTest propertiesTest;
+    //ApplicationPropertiesTest类记得添加@Component注解
+
+    (4) 注意：@Value注解的值只能在当前容器使用。由于子容器可以访问父容器，而父容器不可以访问子容器，如果父子容器
+
+    都想使用@Value注解注入的值，则可以先把值注入到Service中，然后子容器再去Service中获取值
+
+    (5) 更多详细内容可以参考：https://blog.csdn.net/hry2015/article/details/72353994
+
+3、@Entity和@Table
+
+    @Entity配合@Id来进行对象关系映射，它属于JPA规范
+
+    更多详细内容参考：https://www.cnblogs.com/softidea/p/6216722.html
+
+二、Maven配置
+
+1、添加web模块
+
+<dependency>
+    <groupId>org.springframework.boot</groupId>
+    <artifactId>spring-boot-starter-web</artifactId>
+</dependency>
+
+2、添加mysql
+
+<dependency>
+    <groupId>mysql</groupId>
+    <artifactId>mysql-connector-java</artifactId>
+</dependency>
+
+3、添加spring data jpa
+
+<dependency>
+    <groupId>org.springframework.boot</groupId>
+    <artifactId>spring-boot-starter-data-jpa</artifactId>
+</dependency>
+
+4、添加spring jdbc
+
+<dependency>
+    <groupId>org.springframework.boot</groupId>
+    <artifactId>spring-boot-starter-jdbc</artifactId>
+</dependency>
+
+三、log配置
+
+    log配置内容请查看application.properties文件
+
+四、数据库操作
+
+1、首先要添加mysql的依赖，如果需要用到jpa或spring jdbc需要另外添加依赖；
+
+2、在配置文件中配置url、driver、username、pwd等信息，配置内容请查看application.properties文件
+
+五、整合Thymeleaf模板（更多使用可参考：https://www.cnblogs.com/jin-zhe/p/8202885.html）
+
+    1、添加依赖
+
+    <dependency>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-thymeleaf</artifactId>
+    </dependency>
+
+    2、添加配置
+
+    具体配置内容查看application.properties文件
+
+    3、实现热部署方式一（还可以使用devtools或者ctrl+f9进行rebuild）
+
+        (1) 设置idea --> File --> Settings --> 查找 build project automatically --> 选中
+
+        (2) 设置idea --> File --> Settings --> 查找Registry --> 找到并勾选compiler.automake.allow.when.app.running
+
+        (3) 配置设置spring.thymeleaf.cache=false
+
+        (4) 热部署可参考：https://liuyanzhao.com/7105.html
+
+        (5) 请注意显示页面的方法所在类不能有@RestController注解，否则将返回json字符串，而不是页面
+
+
