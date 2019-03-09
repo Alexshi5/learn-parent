@@ -110,7 +110,7 @@ public abstract class BaseService<T extends BasePojo> {
      * @param obj
      * @return
      */
-    public Integer updateSelectiveById(T obj){
+    public Integer updateSelective(T obj){
         obj.setUpdated(new Date());
         return this.mapper.updateByPrimaryKeySelective(obj);
     }

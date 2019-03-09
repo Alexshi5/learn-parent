@@ -1,6 +1,5 @@
 package com.mengfei.maibao.cms.pojo;
 
-import javax.persistence.Column;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -13,10 +12,8 @@ public class ItemParamItem extends BasePojo {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(name = "item_id")
     private Long itemId;
 
-    @Column(name = "param_data")
     private String paramData;
 
     public Long getId() {

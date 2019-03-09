@@ -59,7 +59,47 @@ public class ItemController {
             //返回201
             return ResponseEntity.status(HttpStatus.SC_CREATED).build();
         }catch (Exception e){
+            e.getStackTrace();
             LOGGER.error("新增商品失败！ item = " + item, e);
+        }
+
+        //返回500
+        return ResponseEntity.status(HttpStatus.SC_INTERNAL_SERVER_ERROR).build();
+    }
+
+    /**
+     * 修改商品
+     * @param item
+     * @param desc
+     * @return
+     */
+    @PostMapping("/update")
+    public ResponseEntity<Void> updateItem(Item item, @RequestParam("desc") String desc){
+
+        try {
+            if(LOGGER.isDebugEnabled()){
+                LOGGER.debug("开始修改商品，参数item = " + item + "，参数desc = " + desc);
+            }
+            if(StringUtils.isBlank(desc)){
+                //返回400
+                return ResponseEntity.status(HttpStatus.SC_BAD_REQUEST).build();
+            }
+
+            Boolean bool = itemService.updateItem(item, desc);
+            if(LOGGER.isDebugEnabled()){
+                LOGGER.debug("商品修改成功，商品id = " + item.getId());
+            }
+
+            if(!bool){
+                //保存失败500
+                return ResponseEntity.status(HttpStatus.SC_INTERNAL_SERVER_ERROR).build();
+            }
+
+            //返回204
+            return ResponseEntity.status(HttpStatus.SC_NO_CONTENT).build();
+        }catch (Exception e){
+            e.getStackTrace();
+            LOGGER.error("修改商品失败！ item = " + item, e);
         }
 
         //返回500

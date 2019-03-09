@@ -61,4 +61,25 @@ public class ItemService extends BaseService<Item>{
 
         return new EasyUIResult(pageInfo.getTotal(),pageInfo.getList());
     }
+
+    /**
+     * 修改商品
+     * @param item
+     * @param desc
+     * @return
+     */
+    public Boolean updateItem(Item item, String desc) {
+        //强制设置不能更新的字段为null
+        item.setCreated(null);
+        item.setUpdated(null);
+
+        Integer count1 = super.updateSelective(item);
+        //更新商品描述数据
+        ItemDesc itemDesc = new ItemDesc();
+        itemDesc.setItemId(item.getId());
+        itemDesc.setItemDesc(desc);
+        Integer count2 = this.itemDescService.updateSelective(itemDesc);
+
+        return count1 == 1 && count2 == 1;
+    }
 }
