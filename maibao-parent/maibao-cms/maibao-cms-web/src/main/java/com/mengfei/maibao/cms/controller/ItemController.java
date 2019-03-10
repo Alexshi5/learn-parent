@@ -35,7 +35,8 @@ public class ItemController {
      * @return
      */
     @PostMapping("/add")
-    public ResponseEntity<Void> addItem(Item item, @RequestParam("desc") String desc){
+    public ResponseEntity<Void> addItem(Item item, @RequestParam("desc") String desc,
+                                        @RequestParam("itemParams") String itemParams){
 
         try {
             if(LOGGER.isDebugEnabled()){
@@ -46,7 +47,7 @@ public class ItemController {
                 return ResponseEntity.status(HttpStatus.SC_BAD_REQUEST).build();
             }
 
-            Boolean bool = itemService.addItem(item, desc);
+            Boolean bool = itemService.addItem(item, desc, itemParams);
             if(LOGGER.isDebugEnabled()){
                 LOGGER.debug("商品新增成功，商品id = " + item.getId());
             }
@@ -74,7 +75,8 @@ public class ItemController {
      * @return
      */
     @PostMapping("/update")
-    public ResponseEntity<Void> updateItem(Item item, @RequestParam("desc") String desc){
+    public ResponseEntity<Void> updateItem(Item item, @RequestParam("desc") String desc,
+                                           @RequestParam("itemParams") String itemParams){
 
         try {
             if(LOGGER.isDebugEnabled()){
@@ -85,7 +87,7 @@ public class ItemController {
                 return ResponseEntity.status(HttpStatus.SC_BAD_REQUEST).build();
             }
 
-            Boolean bool = itemService.updateItem(item, desc);
+            Boolean bool = itemService.updateItem(item, desc, itemParams);
             if(LOGGER.isDebugEnabled()){
                 LOGGER.debug("商品修改成功，商品id = " + item.getId());
             }
