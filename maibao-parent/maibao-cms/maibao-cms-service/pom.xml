@@ -30,7 +30,7 @@
         <dependency>
             <groupId>com.mengfei</groupId>
             <artifactId>maibao-cms-mapper</artifactId>
-            <version>1.0-SNAPSHOT</version>
+            <version>${project.version}</version>
         </dependency>
     </dependencies>
 

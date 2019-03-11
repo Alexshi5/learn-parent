@@ -16,6 +16,7 @@
         <module>maibao-usermanage</module>
         <module>maibao-common</module>
         <module>maibao-cms</module>
+        <module>maibao-portal</module>
     </modules>
 
     <!--配置私服仓库-->
@@ -68,13 +69,15 @@
         <mysql.version>5.1.43</mysql.version>
         <!-- 日志处理 -->
         <log4j.version>2.9.1</log4j.version>
+        <slf4j.version>1.7.25</slf4j.version>
         <!-- json处理 -->
         <fastjson.version>1.2.39</fastjson.version>
         <!-- 阿里巴巴的连接池jar包 -->
         <druid.version>1.1.5</druid.version>
         <!-- jstl标签库 -->
         <jstl.version>1.2</jstl.version>
-        <!-- servlet相关的jar -->
+        <!-- jsp相关的jar -->
+        <jsp-api.version>2.3.1</jsp-api.version>
         <servlet-api.version>4.0.0</servlet-api.version>
         <!-- jdk的补充工具jar包 -->
         <commons-lang3.version>3.6</commons-lang3.version>
@@ -191,6 +194,12 @@
                 <version>${servlet-api.version}</version>
                 <scope>provided</scope>
             </dependency>
+            <dependency>
+                <groupId>javax.servlet.jsp</groupId>
+                <artifactId>javax.servlet.jsp-api</artifactId>
+                <version>${jsp-api.version}</version>
+                <scope>provided</scope>
+            </dependency>
             <!-- 时间操作组件 -->
             <dependency>
                 <groupId>joda-time</groupId>
@@ -242,7 +251,13 @@
                 <artifactId>mapper</artifactId>
                 <version>${mapper.version}</version>
             </dependency>
-
+            <!-- slf4j-log4j12 -->
+            <dependency>
+                <groupId>org.slf4j</groupId>
+                <artifactId>slf4j-log4j12</artifactId>
+                <version>${slf4j.version}</version>
+                <scope>test</scope>
+            </dependency>
         </dependencies>
     </dependencyManagement>
 

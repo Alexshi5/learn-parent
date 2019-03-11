@@ -1,0 +1,87 @@
+1、什么是跨域请求？
+
+    请求不同的域名或相同域名下的端口号都叫跨域请求，浏览器允许跨域请求资源，但不允许跨域请求ajax数据
+
+2、怎么获取跨域的json数据
+
+    既然浏览器允许跨域获取js资源，那么我们可以通过js代码将数据进行包裹传送到需要数据的服务器（代码可以是一个函数），
+这就可以解决跨域请求json数据的问题了。
+
+3、获取的js代码写法示例：
+
+    数据发送端：
+
+    out.print("fun({\"id\":101})");
+
+    数据获取端：
+
+    <script src="${请求的远程资源地址，传送一段js代码，包含一个函数，将数据通过函数进行传递}"></script>
+    <script src="http://www.maibao.cms.com/test.jsp"></script>
+
+    function fun(data){
+        alert(data);
+    }
+
+4、jsonp的优化，将请求数据的方式变得更通用
+
+    数据发送端代码优化：
+
+    String callback = request.getParameter("callback");//用于获取数据获取方传入的回调函数名
+    if(null != callback){
+        out.print(callback + "({\"id\":101})");
+    }else{
+        out.print("({\"id\":101})");
+    }
+
+    数据获取端代码优化：
+
+    <script src="http://www.maibao.cms.com/test.jsp?callback=fun"></script>
+
+    function fun(data){
+        alert(data);
+    }
+
+5、jsonp跟jquery进行集成
+
+    数据获取端代码优化：
+
+    此时只需将发起的ajax请求的dataType修改为jsonp即可（即将json修改为jsonp），url修改为
+http://www.maibao.cms.com/test.jsp，这时jquery会帮我们传递callback参数。
+
+6、解决jsonp的乱码问题
+
+    数据发送端通过将返回的数据对象序列化成json格式的字符串数据，然后发送到数据获取端，此时可能会导致乱码问题，
+
+这是由springMVC的注解驱动设置的默认转化器导致的（它默认的是ISO_8859_1）。
+
+    将注解驱动构造函数的第一个参数修改成我们想要的编码格式，示例如下：
+
+    <mvc:annotation-driven>
+        <mvc:message-converters>
+            <bean class="org.springframework.http.converter.StringHttpMessageConverter">
+                <constructor-arg index="0" value="UTF-8"/>
+            </bean>
+        </mvc:message-converters>
+    </mvc:annotation-driven>
+
+7、通过扩展spring的配置扩展类来统一支持jsonp
+
+    注意：这种方法需要使用spring4.1的稳定版本与jackson版本兼容才行，参考至：https://www.oschina.net/question/3101458_2241439?sort=default
+
+    这种方式是使用spring的注解直接返回json数据，但spring的注解并不支持jsonp的请求，所以才需要扩展spring的json转化类，通过
+这种配置的话只需要使用spring的注解直接返回json数据就可以了，不需要接收请求参数中传递的回调函数名进行拼接了。
+
+    转化类配置如下：
+
+    <mvc:annotation-driven>
+        <mvc:message-converters>
+            <!--使用自定义的字符串文本转化器-->
+            <!--<bean class="org.springframework.http.converter.StringHttpMessageConverter">
+                <constructor-arg index="0" value="UTF-8"/>
+            </bean>-->
+            <!--使用自定义的json转化器-->
+            <bean class="com.mengfei.maibao.common.spring.extend.convert.json.CallbackMappingJackson2HttpMessageConverter">
+                <property name="callbackName" value="callback"/>
+            </bean>
+        </mvc:message-converters>
+    </mvc:annotation-driven>

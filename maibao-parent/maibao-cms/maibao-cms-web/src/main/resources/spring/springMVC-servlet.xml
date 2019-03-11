@@ -15,7 +15,18 @@
 	<!-- 使用默认servlet处理静态资源 -->
 	<mvc:default-servlet-handler/>
 	<!-- 解决注解映射问题 -->
-	<mvc:annotation-driven/>
+	<mvc:annotation-driven>
+		<mvc:message-converters>
+			<!--使用自定义的字符串文本转化器-->
+			<bean class="org.springframework.http.converter.StringHttpMessageConverter">
+				<constructor-arg index="0" value="UTF-8"/>
+			</bean>
+			<!--使用自定义的json转化器-->
+			<!--<bean class="com.mengfei.maibao.common.spring.extend.convert.json.CallbackMappingJackson2HttpMessageConverter">
+				<property name="callbackName" value="callback"/>
+			</bean>-->
+		</mvc:message-converters>
+	</mvc:annotation-driven>
 	<!-- 配置内部资源的视图解析-->
 	<bean id="viewResolver" class=" org.springframework.web.servlet.view.InternalResourceViewResolver">
 		<property name="prefix" value="/WEB-INF/jsp/"/>
@@ -25,8 +36,8 @@
 	<!-- 用于上传文件，定义文件解释器,id属性的值不可更改,它会和后台DispatcherServlet中的常量保持一致，实现自动注入 -->  
 	<bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver">    
 	    <!-- 设置默认编码 -->  
-	    <property name="defaultEncoding" value="utf-8"></property>  
+	    <property name="defaultEncoding" value="utf-8"/>
 	    <!-- 设定文件上传的最大值5MB，5*1024*1024 -->
-	    <property name="maxUploadSize" value="5242880"></property>    
+	    <property name="maxUploadSize" value="5242880"/>
 	</bean> 
 </beans>                

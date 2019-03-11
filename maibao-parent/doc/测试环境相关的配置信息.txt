@@ -1,8 +1,9 @@
 ---------各系统域名和IP地址以及端口号 begin---------------------------------
 windows的hosts文件地址：C:\Windows\System32\drivers\etc
-nexus:http port 8081
-cms：http port 8082  jmx port 1097 maibao.cms.com
-usermanage：http port 8083  jmx port 1096 maibao.manage.com
+私用 nexus:http port 8081
+内容管理系统 cms：http port 8082  jmx port 1097 maibao.cms.com
+用户管理系统 usermanage：http port 8083  jmx port 1096 maibao.manage.com
+门户系统 portal:http port 8085 jmx port 1095 maibao.portal.com
 ---------各系统域名和IP地址 end--------------------------------------------
 
 ---------linux主机 begin------------------------------------------------（linux防火墙已禁用）
