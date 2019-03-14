@@ -1,0 +1,91 @@
+一、什么是npm？
+
+    即Node Package Manager（节点包管理器），节点包的提供者，如jQuery、Vue使用npm publish将节点包提交到远程代码仓库，
+
+当有人要使用代码仓库中的节点时，就使用npm install将该节点的节点包下载到本地，下载的代码会出现在node_modules目录中。
+
+二、下载与安装
+
+1、下载地址：https://nodejs.org/en/download/
+
+2、安装之后在DOS命令窗口查看当前的npm版本：npm -v
+
+三、修改npm配置
+
+1、首先在npm的同级目录下创建两个文件夹，分别命名为：node_cache和node_global
+
+2、更改默认的配置目录
+
+    (1) 查看配置列表
+
+        npm config list
+
+    (2) 设置全局下载目录
+
+        npm config set prefix "D:\Program Files\nodejs\node_modules\node_global"
+
+    (3) 查看全局下载目录
+
+        npm config get prefix
+
+    (4) 设置缓存目录
+
+        npm config set cache "D:\Program Files\nodejs\node_modules\node_cache"
+
+    (5) 查看缓存目录
+
+        npm config get cache
+
+四、npm i和npm install的区别（建议使用npm install命令）
+
+1）用npm i安装的模块没办法使用npm uninstall删除，必须使用npm uninstall i才能卸载掉
+2）npm i会帮助检测与当前node版本最匹配的npm包版本号，并匹配出相互依赖的npm包应该提升的版本号
+3）部分npm包在当前node版本下无法使用，必须使用建议版本
+4）安装报错时intall会出现npm-debug.log 文件，npm i不一定会出现
+5）npm install能生成package.lock.json文件，而npm i不能
+
+五、package.json介绍
+
+1、什么是package.json？
+
+     每个项目的根目录下面，一般都有一个package.json文件，定义了这个项目所需要的各种模块，以及项目的配置信息
+
+（比如名称、版本、许可证等元数据）。npm install 命令根据这个配置文件，自动下载所需的模块，也就是配置项目所需
+
+的运行和开发环境。
+
+2、package.json的属性说明
+
+name - 包名。（不要把node或者js放在名字中）
+version - 包的版本号
+dependencies - 项目运行所依赖的模块
+devDependencies - 项目开发所需要的模块
+bin - 这需要在你的package.json中提供一个bin字段，它是一个命令名和本地文件名的映射。在安装时，如果是全局安装，
+npm将会使用符号链接把这些文件链接到prefix/bin，如果是本地安装，会链接到./node_modules/.bin/
+
+
+六、cnpm的使用
+
+1、什么是cnpm？（官方地址：http://npm.taobao.org/）
+
+    因为npm安装插件是从国外服务器下载，受网络影响大，可能出现异常，所以cnpm是一个完整npmjs.org 镜像。
+
+2、安装cnpm
+
+    (1) 安装命令
+
+        npm install -g cnpm --registry=https://registry.npm.taobao.org
+
+    (2) 配置环境变量
+
+        在path里将全局路径丢进去重新打开DOS窗口即可：D:\Program Files\nodejs\node_modules\node_global
+
+    (3) 查看cnpm的版本号
+
+        cnpm -v
+
+4、npm与cnpm的区别
+
+    (1) cnpm是只读的，不能进行提交或更新操作
+
+    (2) 使用时将npm命令替换成cnpm即可，其他没有区别

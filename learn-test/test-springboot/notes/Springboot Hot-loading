@@ -1,4 +1,4 @@
-热启动的配置如下：
+热启动的配置如下（2.0版本下没有进行过测试，有可能不兼容，原因参考：https://www.jianshu.com/p/e6d5a3969343）
 
 <dependencies>
 

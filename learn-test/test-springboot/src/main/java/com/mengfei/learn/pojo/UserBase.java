@@ -1,5 +1,7 @@
 package com.mengfei.learn.pojo;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 import javax.persistence.*;
 import java.io.Serializable;
 import java.util.Date;
@@ -10,6 +12,8 @@ import java.util.Date;
  * description 用户实体类
  */
 @Entity
+@Table(name = "user_base")
+@JsonIgnoreProperties(value = { "hibernateLazyInitializer", "handler" })
 public class UserBase implements Serializable{
     private static final long serialVersionUID = 6208820779001972177L;
 

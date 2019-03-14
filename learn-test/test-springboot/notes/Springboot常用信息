@@ -35,35 +35,13 @@ SpringBoot2学习参考地址：https://blog.csdn.net/liubenlong007/article/deta
 
     更多详细内容参考：https://www.cnblogs.com/softidea/p/6216722.html
 
-二、Maven配置
+4、@JsonIgnoreProperties(value = { "hibernateLazyInitializer", "handler" })
 
-1、添加web模块
+    实体类上添加这个注解用于消除由于序列化空属性值时出现的异常
 
-<dependency>
-    <groupId>org.springframework.boot</groupId>
-    <artifactId>spring-boot-starter-web</artifactId>
-</dependency>
+二、
 
-2、添加mysql
 
-<dependency>
-    <groupId>mysql</groupId>
-    <artifactId>mysql-connector-java</artifactId>
-</dependency>
-
-3、添加spring data jpa
-
-<dependency>
-    <groupId>org.springframework.boot</groupId>
-    <artifactId>spring-boot-starter-data-jpa</artifactId>
-</dependency>
-
-4、添加spring jdbc
-
-<dependency>
-    <groupId>org.springframework.boot</groupId>
-    <artifactId>spring-boot-starter-jdbc</artifactId>
-</dependency>
 
 三、log配置
 
@@ -100,4 +78,48 @@ SpringBoot2学习参考地址：https://blog.csdn.net/liubenlong007/article/deta
 
         (5) 请注意显示页面的方法所在类不能有@RestController注解，否则将返回json字符串，而不是页面
 
+六、整合redis
 
+1、添加依赖
+
+<dependency>
+   <groupId>org.springframework.boot</groupId>
+   <artifactId>spring-boot-starter-data-redis</artifactId>
+</dependency>
+<dependency>
+    <groupId>org.apache.commons</groupId>
+    <artifactId>commons-pool2</artifactId>
+</dependency>
+
+2、添加缓存配置
+
+    请查看类：RedisConfig配置类
+
+3、获取和设置缓存
+
+    在@RestController所在的类中要设置缓存的方法上添加@Cacheable(value = "user1") //注：user1是键
+
+4、异常解决
+
+    (1) 异常：com.fasterxml.jackson.databind.exc.InvalidDefinitionException: No serializer found for class org.hibernate.proxy.pojo.bytebuddy.ByteBuddyInterceptor and no properties discovered to create BeanSerializer (to avoid exception, disable SerializationFeature.FAIL_ON_EMPTY_BEANS) (through reference chain: com.mengfei.learn.pojo.UserBase$HibernateProxy$jTZvlLMQ["hibernateLazyInitializer"])
+
+    (2) 出现异常的原因是：第一次获取缓存时会先查询redis，由于redis中没有缓存数据，实体类在序列化时就会出现这个异常
+
+    (3) 解决方法：https://blog.csdn.net/J080624/article/details/82529082
+
+七、Session共享（默认使用Redis）
+
+1、添加的依赖
+
+<dependency>
+    <groupId>org.springframework.session</groupId>
+    <artifactId>spring-session-data-redis</artifactId>
+</dependency>
+
+2、添加Session配置
+
+    请参考：SessionConfig配置类
+
+3、多个项目共享（暂未测试）
+
+    只需要在其他项目再添加一次配置即可，启动时会自动进行Session共享
