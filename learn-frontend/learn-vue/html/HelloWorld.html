@@ -19,12 +19,31 @@
 <div id="app">
     <h2>{{msg}}</h2>
 </div>
+<!--HelloWorld-->
+<script>
+    new Vue({
+        el:'#app',
+        data:{
+            msg:'Hello World!'
+        }
+    });
+</script>
 
 <!--双向绑定，将msg的值绑定到h2中，当input中的值改变时，h2中的值也会改变-->
 <div id="app1">
     <h2>{{msg1}}</h2>
     <input type="text" v-model="msg1">
 </div>
+<!--双向绑定-->
+<script>
+    var modelData = {
+        msg1:'双向绑定'
+    };
+    new Vue({
+        el:'#app1',
+        data: modelData
+    });
+</script>
 
 <!--v-if指令是条件渲染指令，它根据表达式的真假来删除和插入元素-->
 <div id="app2">
@@ -33,6 +52,24 @@
     <h2 v-if="age>20">{{age}}</h2>
     <h2 v-if="isContain()">{{name}}</h2>
 </div>
+<!--v-if指令-->
+<script>
+    var modelData1 = {
+        yes:true,
+        no:false,
+        age:25,
+        name:'Tina'
+    };
+    new Vue({
+        el:'#app2',
+        data:modelData1,
+        methods:{
+            isContain : function () {
+                return this.name.indexOf('tom')!==-1;
+            }
+        }
+    });
+</script>
 
 <!--
 注意：
@@ -59,70 +96,6 @@ v-show与v-if都是条件渲染指令，不同的是使用v-if指令渲染的元
         </tbody>
     </table>
 </div>
-
-<!--v-bind指令可以在其名称后面放一个参数，中间用冒号隔开，这个参数通常是html元素的属性，如：v-bind:class-->
-<div id="app4">
-    <span v-bind:class="defaultColor==='black'?'fontColor1':'fontColor2'">测试1</span>
-    <!--v-bind的缩写形式，即缩写为一个冒号-->
-    <span :class="defaultColor==='black'?'fontColor1':'fontColor2'">测试2</span>
-</div>
-
-<!--v-on指令用于监听DOM事件，它的使用语法跟v-bind差不多-->
-<div id="app5">
-    <button v-on:click="showEnglish()">显示英文</button>
-    <!--v-on的简写形式，即缩写为一个@符号-->
-    <button @click="showChinese()">显示中文</button>
-</div>
-
-
-<!--选中单选框-->
-<div id="app6">
-    <input type="radio" name="radios" value="1" v-model="param"><label>one</label>
-    <input type="radio" name="radios" value="2" v-model="param"><label>two</label>
-    <input type="radio" name="radios" value="3" v-model="param"><label>three</label>
-</div>
-</body>
-</html>
-<!--HelloWorld-->
-<script>
-    new Vue({
-        el:'#app',
-        data:{
-            msg:'Hello World!'
-        }
-    });
-</script>
-
-<!--双向绑定-->
-<script>
-    var modelData = {
-        msg1:'双向绑定'
-    };
-    new Vue({
-        el:'#app1',
-        data: modelData
-    });
-</script>
-
-<!--v-if指令-->
-<script>
-    var modelData1 = {
-        yes:true,
-        no:false,
-        age:25,
-        name:'Tina'
-    };
-    new Vue({
-        el:'#app2',
-        data:modelData1,
-        methods:{
-            isContain : function () {
-                return this.name.indexOf('tom')!==-1;
-            }
-        }
-    });
-</script>
-
 <!--v-for指令-->
 <script>
     new Vue({
@@ -149,6 +122,12 @@ v-show与v-if都是条件渲染指令，不同的是使用v-if指令渲染的元
     });
 </script>
 
+<!--v-bind指令可以在其名称后面放一个参数，中间用冒号隔开，这个参数通常是html元素的属性，如：v-bind:class-->
+<div id="app4">
+    <span v-bind:class="defaultColor==='black'?'fontColor1':'fontColor2'">测试1</span>
+    <!--v-bind的缩写形式，即缩写为一个冒号-->
+    <span :class="defaultColor==='black'?'fontColor1':'fontColor2'">测试2</span>
+</div>
 <!--v-bind指令-->
 <script>
     new Vue({
@@ -159,6 +138,12 @@ v-show与v-if都是条件渲染指令，不同的是使用v-if指令渲染的元
     });
 </script>
 
+<!--v-on指令用于监听DOM事件，它的使用语法跟v-bind差不多-->
+<div id="app5">
+    <button v-on:click="showEnglish()">显示英文</button>
+    <!--v-on的简写形式，即缩写为一个@符号-->
+    <button @click="showChinese()">显示中文</button>
+</div>
 <!--v-on指令-->
 <script>
     new Vue({
@@ -177,6 +162,13 @@ v-show与v-if都是条件渲染指令，不同的是使用v-if指令渲染的元
     });
 </script>
 
+
+<!--选中单选框-->
+<div id="app6">
+    <input type="radio" name="radios" value="1" v-model="param"><label>one</label>
+    <input type="radio" name="radios" value="2" v-model="param"><label>two</label>
+    <input type="radio" name="radios" value="3" v-model="param"><label>three</label>
+</div>
 <!--选中radio-->
 <script>
     new Vue({
@@ -186,3 +178,5 @@ v-show与v-if都是条件渲染指令，不同的是使用v-if指令渲染的元
         }
     });
 </script>
+</body>
+</html>
