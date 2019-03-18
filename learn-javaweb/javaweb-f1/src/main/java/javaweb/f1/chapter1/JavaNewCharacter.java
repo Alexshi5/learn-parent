@@ -85,7 +85,7 @@ public class JavaNewCharacter {
         Thread thread3 = new Thread(this::dosomething);
     }
 
-    public void dosomething() {
+    private void dosomething() {
         //代码块
     }
 }
