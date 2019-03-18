@@ -10,4 +10,5 @@ import org.springframework.data.jpa.repository.JpaRepository;
  */
 public interface UserMapper extends JpaRepository<UserBase,Long>{
 
+    //UserBase getUserBaseByUserBasename(String username);
 }

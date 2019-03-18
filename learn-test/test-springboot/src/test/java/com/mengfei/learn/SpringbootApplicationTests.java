@@ -1,6 +1,7 @@
 package com.mengfei.learn;
 
 import com.mengfei.learn.mapper.UserMapper;
+import com.mengfei.learn.pojo.UserBase;
 import org.junit.Assert;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -10,6 +11,8 @@ import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.data.redis.core.StringRedisTemplate;
 import org.springframework.data.redis.core.ValueOperations;
 import org.springframework.test.context.junit4.SpringRunner;
+
+import java.util.Optional;
 
 //使用指明的类来进行单元测试
 @RunWith(SpringRunner.class)
@@ -63,4 +66,14 @@ public class SpringbootApplicationTests {
 		UserBase user2 = (UserBase)valueOperations.get("cesi002");
 		Assert.assertEquals("002",user2.getPassword());
 	}*/
+
+	//自定义简单查询
+	@Test
+	public void simpleQueryTest(){
+		/*UserBase cesi001 = userMapper.getUserBaseByUserBasename("cesi001");
+		System.out.println(cesi001);*/
+
+		Optional<UserBase> byId = userMapper.findById(1L);
+		System.out.println(byId);
+	}
 }

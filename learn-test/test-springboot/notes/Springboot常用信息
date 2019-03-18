@@ -120,6 +120,12 @@ SpringBoot2学习参考地址：https://blog.csdn.net/liubenlong007/article/deta
 
     请参考：SessionConfig配置类
 
-3、多个项目共享（暂未测试）
+3、多个项目共享（该方案已经进行测试可行）
 
-    只需要在其他项目再添加一次配置即可，启动时会自动进行Session共享
+    只需要在其他项目再添加一次配置即可，启动时会自动进行Session共享。
+
+    实现原理：使用时服务器将会生成一个Cookie名为SESSION的cookie来存储SessionId，当浏览器下次访问时将会把该SessionId发送到服务器以判断
+
+是不是已经登录的用户，由于后台服务器可能会做负载均衡，所以使用Redis来做Session共享，默认有效时间为1800秒（30分钟）
+
+

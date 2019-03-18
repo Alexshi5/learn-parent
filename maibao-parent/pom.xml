@@ -20,23 +20,23 @@
     </modules>
 
     <!--配置私服仓库-->
-    <repositories>
+    <!--<repositories>
         <repository>
-            <!--仓库id，repositories可以配置多个仓库，保证id不重复-->
+            &lt;!&ndash;仓库id，repositories可以配置多个仓库，保证id不重复&ndash;&gt;
             <id>nexus001</id>
             <name>nexus repository</name>
-            <!--仓库地址，即nexus仓库组的地址-->
+            &lt;!&ndash;仓库地址，即nexus仓库组的地址&ndash;&gt;
             <url>http://192.168.188.132:8081/nexus/content/groups/public</url>
-            <!--是否下载releases构件-->
+            &lt;!&ndash;是否下载releases构件&ndash;&gt;
             <releases>
                 <enabled>true</enabled>
             </releases>
-            <!--是否下载snapshots构件-->
+            &lt;!&ndash;是否下载snapshots构件&ndash;&gt;
             <snapshots>
                 <enabled>false</enabled>
             </snapshots>
         </repository>
-    </repositories>
+    </repositories>-->
 
     <!--发布配置-->
     <distributionManagement>
