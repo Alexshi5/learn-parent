@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>Vue测试页面</title>
     <script type="text/javascript" src="../js/jquery-3.2.1.js"></script>
     <script type="text/javascript" src="../js/vue.js"></script>
     <style>
@@ -21,7 +21,7 @@
 </div>
 <!--HelloWorld-->
 <script>
-    new Vue({
+    var app = new Vue({
         el:'#app',
         data:{
             msg:'Hello World!'
@@ -39,7 +39,7 @@
     var modelData = {
         msg1:'双向绑定'
     };
-    new Vue({
+    var app1 = new Vue({
         el:'#app1',
         data: modelData
     });
@@ -60,7 +60,7 @@
         age:25,
         name:'Tina'
     };
-    new Vue({
+    var app2 = new Vue({
         el:'#app2',
         data:modelData1,
         methods:{
@@ -98,7 +98,7 @@ v-show与v-if都是条件渲染指令，不同的是使用v-if指令渲染的元
 </div>
 <!--v-for指令-->
 <script>
-    new Vue({
+    var app3 = new Vue({
         el:'#app3',
         data:{
             people: [{
@@ -123,6 +123,13 @@ v-show与v-if都是条件渲染指令，不同的是使用v-if指令渲染的元
 </script>
 
 <!--v-bind指令可以在其名称后面放一个参数，中间用冒号隔开，这个参数通常是html元素的属性，如：v-bind:class-->
+<!--可使用的表达式有以下几种：
+{{ number + 1 }}
+{{ ok ? 'YES' : 'NO' }}
+{{ message.split('').reverse().join('') }}
+示例：<div v-bind:id="'list-' + id"></div>
+注意：不要使用语句或控制流，只可使用表达式
+-->
 <div id="app4">
     <span v-bind:class="defaultColor==='black'?'fontColor1':'fontColor2'">测试1</span>
     <!--v-bind的缩写形式，即缩写为一个冒号-->
@@ -130,7 +137,7 @@ v-show与v-if都是条件渲染指令，不同的是使用v-if指令渲染的元
 </div>
 <!--v-bind指令-->
 <script>
-    new Vue({
+    var app4 = new Vue({
         el:'#app4',
         data:{
             defaultColor:'black'
@@ -146,7 +153,7 @@ v-show与v-if都是条件渲染指令，不同的是使用v-if指令渲染的元
 </div>
 <!--v-on指令-->
 <script>
-    new Vue({
+    var app5 = new Vue({
         el:'#app5',
         data:{
 
@@ -171,12 +178,78 @@ v-show与v-if都是条件渲染指令，不同的是使用v-if指令渲染的元
 </div>
 <!--选中radio-->
 <script>
-    new Vue({
+    var app6 = new Vue({
         el:'#app6',
         data:{
             param:'2'
         }
     });
 </script>
+
+
+<!--组件化的应用构建-->
+<div id="app7">
+    <ol>
+        <com-item v-for="i in arrayList" :h_h="i" :key="i.id"></com-item>
+    </ol>
+</div>
+<script>
+    /*自定义一个组件*/
+    Vue.component('com-item',{//com-item为自定义组件的标签名
+        //props为自定义属性组,h_h是其中的一个属性，其值是一个对象变量，可以动态的改变
+        props: ['h_h'],
+        //template是我们要在自定义组件中添加的模板标签内容
+        template: '<li>{{h_h.text}}</li>'
+    });
+
+    /*为自定义的组件绑定数据*/
+    var app7 = new Vue({
+        el:'#app7',
+        data:{
+            arrayList:[{
+                id: 0,text: '张三'
+            },{
+                id: 1,text: '李四'
+            },{
+                id: 2,text: '王五'
+            }]
+        }
+    });
+</script>
+
+<!--渲染html-->
+<!--使用v-html会将内容作为html解析，并忽略属性中的数据绑定，所以它不能用来复合局部模板，更好的方式
+是使用组件的形式。别名，动态渲染html是比较危险的，不要对用户的输入进行渲染，只渲染可信任的数据-->
+<div id="app8">
+    <p v-html="varHtml"></p>
+</div>
+<script>
+    var app8 = new Vue({
+        el:'#app8',
+        data: {
+            varHtml: '<span style="color: red">渲染HTML</span>'
+        }
+    });
+</script>
+
+<!--计算属性：会基于它们的依赖进行缓存，多次访问会返回相同的计算结果，除非message发生了改变，它会重新计算结果。如果是方法则每次都会执行-->
+<div id="app9">
+    <p>{{message}}</p>
+    <p>{{reversedMessage}}</p>
+</div>
+<script>
+    var app9 = new Vue({
+        el: '#app9',
+        data: {
+            message: 'Hello'
+        },
+        computed: {
+            reversedMessage: function () {
+                return this.message.split('').reverse().join('_');
+            }
+        }
+    });
+</script>
+
 </body>
 </html>

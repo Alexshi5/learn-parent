@@ -51,6 +51,16 @@ function regex() {
 }
 
 /**
+ * 获取json文件中的json数据
+ */
+function getJson() {
+    $.getJSON('json/test.json',function (data) {
+        var data1 = data;
+        console.log(data);
+    });
+}
+
+/**
  * 判断字符串、数组或对象是否为空，不为空返回true
  * @param obj
  * @returns {boolean}
