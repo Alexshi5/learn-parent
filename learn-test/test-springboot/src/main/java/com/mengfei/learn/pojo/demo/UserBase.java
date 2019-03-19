@@ -1,4 +1,4 @@
-package com.mengfei.learn.pojo;
+package com.mengfei.learn.pojo.demo;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
@@ -22,8 +22,8 @@ public class UserBase implements Serializable{
     @Column(name = "oid",columnDefinition = "bigint COMMENT '主键自增'")
     private Long oid;
 
-    @Column(name = "UserBasename",columnDefinition = "varchar(50) COMMENT '用户名'")
-    private String UserBasename;
+    @Column(name = "user_basename",columnDefinition = "varchar(50) COMMENT '用户名'")
+    private String userBasename;
 
     @Column(name = "password",columnDefinition = "varchar(50) COMMENT '用户密码'")
     private String password;
@@ -40,8 +40,8 @@ public class UserBase implements Serializable{
 
     public UserBase(){}
 
-    public UserBase(String UserBasename, String password, String phone, Date created, Integer state) {
-        this.UserBasename = UserBasename;
+    public UserBase(String userBasename, String password, String phone, Date created, Integer state) {
+        this.userBasename = userBasename;
         this.password = password;
         this.phone = phone;
         this.created = created;
@@ -64,12 +64,12 @@ public class UserBase implements Serializable{
         this.oid = oid;
     }
 
-    public String getUserBasename() {
-        return UserBasename;
+    public String getuserBasename() {
+        return userBasename;
     }
 
-    public void setUserBasename(String UserBasename) {
-        this.UserBasename = UserBasename;
+    public void setuserBasename(String userBasename) {
+        this.userBasename = userBasename;
     }
 
     public String getPassword() {
@@ -100,7 +100,7 @@ public class UserBase implements Serializable{
     public String toString() {
         return "UserBase{" +
                 "oid=" + oid +
-                ", UserBasename='" + UserBasename + '\'' +
+                ", userBasename='" + userBasename + '\'' +
                 ", password='" + password + '\'' +
                 ", phone='" + phone + '\'' +
                 ", created=" + created +

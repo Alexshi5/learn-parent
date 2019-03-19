@@ -1,8 +1,8 @@
 package com.mengfei.learn.controller;
 
 import com.mengfei.learn.ApplicationProperties;
-import com.mengfei.learn.mapper.UserMapper;
-import com.mengfei.learn.pojo.UserBase;
+import com.mengfei.learn.mapper.demo.UserMapper;
+import com.mengfei.learn.pojo.demo.UserBase;
 import com.mengfei.learn.util.CommonDatabaseUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;

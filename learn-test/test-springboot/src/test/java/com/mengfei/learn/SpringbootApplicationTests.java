@@ -1,7 +1,11 @@
 package com.mengfei.learn;
 
-import com.mengfei.learn.mapper.UserMapper;
-import com.mengfei.learn.pojo.UserBase;
+import com.mengfei.learn.mapper.demo.UserMapper;
+import com.mengfei.learn.mapper.demo2.UserInfoRepository;
+import com.mengfei.learn.pojo.demo.UserBase;
+import com.mengfei.learn.pojo.demo2.UserInfo;
+import com.mengfei.learn.service.UserService;
+import com.mengfei.learn.util.CustomException;
 import org.junit.Assert;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -12,7 +16,7 @@ import org.springframework.data.redis.core.StringRedisTemplate;
 import org.springframework.data.redis.core.ValueOperations;
 import org.springframework.test.context.junit4.SpringRunner;
 
-import java.util.Optional;
+import java.util.Date;
 
 //使用指明的类来进行单元测试
 @RunWith(SpringRunner.class)
@@ -21,6 +25,12 @@ import java.util.Optional;
 public class SpringbootApplicationTests {
 	@Autowired
 	private UserMapper userMapper;
+
+	@Autowired
+	private UserInfoRepository userInfoRepository;
+
+	@Autowired
+	private UserService userService;
 
 	@Autowired
 	private RedisTemplate redisTemplate;
@@ -33,19 +43,18 @@ public class SpringbootApplicationTests {
 		Assert.assertEquals("张三","张三");
 	}
 
-	//测试数据库连接
+	//测试数据库连接，并添加数据
 	@Test
 	public void saveUser() throws Exception{
-		/*UserBase user = new UserBase("cesi001","001","136001",new Date(),1);
-		userMapper.save(user);*/
+		UserBase user = new UserBase("cesi001","001","136001",new Date(),1);
+		UserBase save = userMapper.save(user);
+		System.out.println(save);
 
-		int size = userMapper.findAll().size();
-		boolean b = false;
-		if(size > 0){
-			b = true;
-		}
-		Assert.assertEquals("当前数据库用户的数量为：" + size + "个",true,b);
+		UserInfo userInfo = new UserInfo(1L,"这是用户cesi001的详细描述",new Date(),1);
+		UserInfo save1 = userInfoRepository.save(userInfo);
+		System.out.println(save1);
 	}
+
 
 	//测试连接redis
 	@Test
@@ -70,10 +79,26 @@ public class SpringbootApplicationTests {
 	//自定义简单查询
 	@Test
 	public void simpleQueryTest(){
-		/*UserBase cesi001 = userMapper.getUserBaseByUserBasename("cesi001");
-		System.out.println(cesi001);*/
+		UserBase cesi001 = userMapper.getUserBaseByUserBasename("cesi001");
+		System.out.println(cesi001);
 
-		Optional<UserBase> byId = userMapper.findById(1L);
-		System.out.println(byId);
+		/*Optional<UserBase> byId = userMapper.findById(1L);
+		System.out.println(byId);*/
+	}
+
+	/**
+	 * 测试自定义事务
+	 */
+	@Test
+	public void transactionTest(){
+		try {
+			UserBase userBase = new UserBase("cesi002","002","136002",new Date(),1);
+			UserInfo userInfo = new UserInfo(1L,"这是用户cesi001的详细描述",new Date(),1);
+
+			String save = userService.save(userBase,userInfo);
+			System.out.println(save);
+		}catch (CustomException cus){
+			System.out.println(cus.getMessage());
+		}
 	}
 }
