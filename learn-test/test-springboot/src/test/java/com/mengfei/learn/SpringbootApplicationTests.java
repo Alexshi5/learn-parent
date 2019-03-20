@@ -100,5 +100,16 @@ public class SpringbootApplicationTests {
 		}catch (CustomException cus){
 			System.out.println(cus.getMessage());
 		}
+
+		/*try {
+			UserBase userBase = new UserBase("cesi002","002","136002",new Date(),1);
+			UserInfo userInfo = new UserInfo(1L,"这是用户cesi001的详细描述",new Date(),1);
+
+			String save = userService.save2(userBase,userInfo);
+			System.out.println(save);
+		}catch (Exception e){
+			System.out.println(e);
+		}*/
 	}
+
 }

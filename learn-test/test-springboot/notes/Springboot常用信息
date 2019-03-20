@@ -35,9 +35,16 @@ SpringBoot2学习参考地址：https://blog.csdn.net/liubenlong007/article/deta
 
     更多详细内容参考：https://www.cnblogs.com/softidea/p/6216722.html
 
-4、@JsonIgnoreProperties(value = { "hibernateLazyInitializer", "handler" })
+4、@JsonIgnoreProperties(ignoreUnknown = true)
 
     实体类上添加这个注解用于消除由于序列化空属性值时出现的异常
+    类注解：@JsonIgnoreProperties({"name"},{"age"})
+    方法或属性注解：@JsonIgnore
+
+5、@Transactional(rollbackFor=Exception.class)
+
+    在@Transactional注解中如果不配置rollbackFor属性,那么事物只会在遇到RuntimeException的时候才会回滚,
+加上rollbackFor=Exception.class,可以让事物在遇到非运行时异常时也回滚。
 
 
 二、Spring Jpa Data（更多使用可参考：https://blog.csdn.net/mickjoust/article/details/80352795）
@@ -109,10 +116,23 @@ SpringBoot2学习参考地址：https://blog.csdn.net/liubenlong007/article/deta
 
     (7) 问题：如何配置jta事务
 
+    使用springboot+mybatis+MysqlXA
     可参考一：https://blog.csdn.net/weixin_41685100/article/details/80046525
     可参考二：https://blog.csdn.net/sinat_36596988/article/details/82149241
     可参考三：https://www.cnblogs.com/tusheng/p/9077309.html
 
+    使用springboot+jpa+MysqlXA
+    可参考一：https://www.cnblogs.com/shamo89/p/7326718.html
+    可参考二：https://spring.io/blog/2011/08/15/configuring-spring-and-jta-without-full-java-ee/ (spring的官方配置文档)
+
+    JTA事务的实现原理
+    可参考一：https://blog.csdn.net/qq_14986713/article/details/78810237
+    可参考二：https://blog.csdn.net/ggibenben1314/article/details/48812501
+
+    JTA事务和druid连接池结合使用
+    可参考一：https://www.jianshu.com/p/0dde641295af
+    可参考二：https://blog.csdn.net/a510835147/article/details/75675311
+    可参考三：https://my.oschina.net/simpleton/blog/916108
 
 三、log配置
 
@@ -155,7 +175,7 @@ SpringBoot2学习参考地址：https://blog.csdn.net/liubenlong007/article/deta
 六、整合redis
 
 1、添加依赖
-
+    ``
 <dependency>
    <groupId>org.springframework.boot</groupId>
    <artifactId>spring-boot-starter-data-redis</artifactId>

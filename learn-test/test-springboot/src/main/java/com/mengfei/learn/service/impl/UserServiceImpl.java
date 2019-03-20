@@ -18,13 +18,13 @@ public class UserServiceImpl implements UserService {
     private UserInfoRepository userInfoRepository;
 
     @Override
-    @Transactional(value = "demoTransactionManager",rollbackFor = CustomException.class)
-    public String save(UserBase userBase, UserInfo userInfo)throws CustomException{
+    @Transactional(value = "jtaTransactionManager",rollbackFor = CustomException.class)
+    public String save(UserBase userBase, UserInfo userInfo) throws CustomException{
         UserBase save = new UserBase();
         UserInfo save1 = new UserInfo();
         try {
             save = userMapper.save(userBase);
-            int i = 10/0;
+            //int i = 10/0;
         }catch (Exception e){
             throw new CustomException(e.getMessage());
         }
@@ -35,6 +35,25 @@ public class UserServiceImpl implements UserService {
         }catch (Exception e){
             throw new CustomException(e.getMessage());
         }
+
+        if(null != save && null != save1){
+            return save + "==" + save1;
+        }else {
+            return save.toString() + "==" + save1.toString();
+        }
+    }
+
+    @Override
+    @Transactional(value = "demoTransactionManager",rollbackFor = Exception.class)
+    public String save2(UserBase userBase, UserInfo userInfo) throws Exception{
+        UserBase save = new UserBase();
+        save = userMapper.save(userBase);
+
+        UserInfo save1 = new UserInfo();
+
+
+        save1 = userInfoRepository.save(userInfo);
+        int i = 10/0;
 
         if(null != save && null != save1){
             return save + "==" + save1;

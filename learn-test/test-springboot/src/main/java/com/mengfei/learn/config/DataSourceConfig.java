@@ -1,15 +1,15 @@
 package com.mengfei.learn.config;
 
-import com.alibaba.druid.pool.DruidDataSource;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.boot.jta.atomikos.AtomikosDataSourceBean;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Primary;
 import org.springframework.jdbc.core.JdbcTemplate;
 
 import javax.sql.DataSource;
-import java.sql.SQLException;
+import java.util.Properties;
 
 /**
  * 统一配置多数据源的连接池
@@ -51,9 +51,7 @@ public class DataSourceConfig {
     private int maxWait;
 
     /**
-
      * 配置间隔多久才进行一次检测，检测需要关闭的空闲连接，单位是毫秒
-
      */
     @Value("60000")
     private int timeBetweenEvictionRunsMillis;
@@ -103,14 +101,14 @@ public class DataSourceConfig {
     @Bean(name = "demoDataSource")
     @Qualifier("demoDataSource")
     public DataSource demoDataSource(){
-        DataSource ds= getDruidDataSource(usernameSystenm, passwordSystem, dbUrlSystem);
+        DataSource ds= getDruidDataSource(usernameSystenm, passwordSystem, dbUrlSystem,"demoDataSource");
         return ds;
     }
 
     @Bean(name = "demo2DataSource")
     @Qualifier("demo2DataSource")
     public DataSource demo2DataSource(){
-        DataSource ds=getDruidDataSource(usernameEvent, passwordEvent, dbUrlEvent);
+        DataSource ds=getDruidDataSource(usernameEvent, passwordEvent, dbUrlEvent,"demo2DataSource");
         return ds;
     }
 
@@ -133,7 +131,15 @@ public class DataSourceConfig {
         return new JdbcTemplate(dataSource);
     }
 
-    private DruidDataSource getDruidDataSource(String username, String password, String url) {
+    /**
+     * 非JTA事务
+     * @param username
+     * @param password
+     * @param url
+     * @param datasourceName
+     * @return
+     */
+    /*private DruidDataSource getDruidDataSource(String username, String password, String url,String datasourceName) {
         DruidDataSource datasource = new DruidDataSource();
         datasource.setUrl(url);
         datasource.setUsername(username);
@@ -158,6 +164,72 @@ public class DataSourceConfig {
             //添加日志
         }
         datasource.setConnectionProperties(connectionProperties);
+
         return datasource;
+    }*/
+
+    /**
+     * JTA事务MysqlXA版本
+     * @param username
+     * @param password
+     * @param url
+     * @param datasourceName
+     * @return
+     */
+    /*private DataSource getDruidDataSource(String username, String password, String url,String datasourceName) {
+        MysqlXADataSource mysqlXADataSource=new MysqlXADataSource();
+        mysqlXADataSource.setUrl(url);
+        //mysqlXADataSource.setPinGlobalTxToPhysicalConnection(true);
+        mysqlXADataSource.setPassword(password);
+        mysqlXADataSource.setUser(username);
+
+
+        AtomikosDataSourceBean xaDataSource=new AtomikosDataSourceBean();
+        xaDataSource.setXaDataSource(mysqlXADataSource);
+        xaDataSource.setUniqueResourceName(datasourceName);
+
+        xaDataSource.setMinPoolSize(minIdle);
+        xaDataSource.setMaxPoolSize(maxActive);
+
+        *//*<property name="poolSize" value="10" />
+        <property name="minPoolSize" value="10"/>
+        <property name="maxPoolSize" value="30"/>
+        <property name="borrowConnectionTimeout" value="60"/>  <!--获取连接失败重新获等待最大时间，在这个时间内如果有可用连接，将返回-->
+        <property name="reapTimeout" value="20"/> <!--最大获取数据时间，如果不设置这个值，Atomikos使用默认的5分钟，那么在处理大批量数据读取的时候，一旦超过5分钟，就会抛出类似 Resultset is close 的错误.-->
+        <property name="maxIdleTime" value="60"/>    <!--最大闲置时间，超过最小连接池连接的连接将将关闭-->
+        <property name="maintenanceInterval" value="60" />  <!--连接回收时间-->
+        <property name="loginTimeout" value="60" />     <!--java数据库连接池，最大可等待获取datasouce的时间-->
+        <property name="logWriter" value="60"/>
+        <property name="testQuery">
+            <value>select 1</value>
+        </property>
+*//*
+
+        return xaDataSource;
+    }*/
+
+
+    /**
+     * JTA事务DruidXA版本
+     * @param username
+     * @param password
+     * @param url
+     * @param datasourceName
+     * @return
+     * @throws Exception
+     */
+    private DataSource getDruidDataSource(String username, String password, String url,String datasourceName){
+
+        Properties twoProperties = new Properties();
+        twoProperties.put("url", url);
+        twoProperties.put("username", username);
+        twoProperties.put("password", password);
+
+        AtomikosDataSourceBean xaDataSource = new AtomikosDataSourceBean();
+        xaDataSource.setUniqueResourceName(datasourceName);
+        xaDataSource.setXaProperties(twoProperties);
+        xaDataSource.setXaDataSourceClassName("com.alibaba.druid.pool.xa.DruidXADataSource");
+
+        return xaDataSource;
     }
 }

@@ -56,7 +56,7 @@ public class Demo2Config {
                 .dataSource(demo2DataSource)
                 .properties(jpaProperties.getProperties())
                 .packages("com.mengfei.learn.pojo.demo2") //设置实体类所在位置：类或包
-                //.persistenceUnit("demo2PersistenceUnit") //持久化单元，作用暂时未知
+                .persistenceUnit("demo2PersistenceUnit") //持久化单元
                 .build();
     }
 
