@@ -1,5 +1,6 @@
 package com.mengfei.learn.config;
 
+import com.alibaba.druid.pool.xa.DruidXADataSource;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.jta.atomikos.AtomikosDataSourceBean;
@@ -9,7 +10,6 @@ import org.springframework.context.annotation.Primary;
 import org.springframework.jdbc.core.JdbcTemplate;
 
 import javax.sql.DataSource;
-import java.util.Properties;
 
 /**
  * 统一配置多数据源的连接池
@@ -202,8 +202,8 @@ public class DataSourceConfig {
         <property name="logWriter" value="60"/>
         <property name="testQuery">
             <value>select 1</value>
-        </property>
-*//*
+        </property>*//*
+
 
         return xaDataSource;
     }*/
@@ -219,16 +219,17 @@ public class DataSourceConfig {
      * @throws Exception
      */
     private DataSource getDruidDataSource(String username, String password, String url,String datasourceName){
-
-        Properties twoProperties = new Properties();
-        twoProperties.put("url", url);
-        twoProperties.put("username", username);
-        twoProperties.put("password", password);
+        DruidXADataSource druidXADataSource = new DruidXADataSource();
+        druidXADataSource.setUrl(url);
+        druidXADataSource.setUsername(username);
+        druidXADataSource.setPassword(password);
+        druidXADataSource.setMinIdle(minIdle);
+        druidXADataSource.setMaxActive(maxActive);
+        druidXADataSource.setInitialSize(initialSize);
 
         AtomikosDataSourceBean xaDataSource = new AtomikosDataSourceBean();
         xaDataSource.setUniqueResourceName(datasourceName);
-        xaDataSource.setXaProperties(twoProperties);
-        xaDataSource.setXaDataSourceClassName("com.alibaba.druid.pool.xa.DruidXADataSource");
+        xaDataSource.setXaDataSource(druidXADataSource);
 
         return xaDataSource;
     }

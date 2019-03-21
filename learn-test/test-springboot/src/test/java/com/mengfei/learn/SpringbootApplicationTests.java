@@ -112,4 +112,15 @@ public class SpringbootApplicationTests {
 		}*/
 	}
 
+	public static void main(String[] args) throws Exception{
+		for(int j=0;j<10;j++){
+			String s = "一段测试的文字";
+			System.out.println(s);
+			int i = 10;
+			i++;
+			System.out.println(i);
+		}
+		System.in.read();
+	}
+
 }
