@@ -61,4 +61,14 @@ public class UserServiceImpl implements UserService {
             return save.toString() + "==" + save1.toString();
         }
     }
+
+    @Override
+    @Transactional(value = "demoTransactionManager",rollbackFor = CustomException.class)
+    public String save3(UserBase userBase) throws CustomException {
+        UserBase save = userMapper.save(userBase);
+        int i = 10/0;
+        return save.toString();
+    }
+
+
 }

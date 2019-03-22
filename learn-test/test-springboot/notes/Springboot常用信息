@@ -101,7 +101,9 @@ SpringBoot2学习参考地址：https://blog.csdn.net/liubenlong007/article/deta
 
     (4) 问题：引入druid连接池引发的日志错误，需要添加log4j来解决，但这样的话项目中会有两个日志框架
 
-        解决方法参考：https://blog.csdn.net/qq_35170213/article/details/85779498
+        解决方法一：参考：https://blog.csdn.net/qq_35170213/article/details/85779498
+
+        解决方法二：引入springboot已经适配过的jar包，配置参考Maven配置
 
     (5) 问题：多数据源事务回滚
 
@@ -114,7 +116,7 @@ SpringBoot2学习参考地址：https://blog.csdn.net/liubenlong007/article/deta
         在spring的文档中说道，spring声明式事务管理默认对非检查型异常和运行时异常进行事务回滚，而对检查型异常(try catch)则不进行回滚操作，
         故而如果异常被try{}catch{}了，事务就不回滚了，如果想让事务回滚必须再往外抛try{}catch{throw Exception}。
 
-    (7) 问题：如何配置jta事务
+    (7) 问题：如何配置jta事务（请注意druid与mysql jdbc驱动的适配）
 
     使用springboot+mybatis+MysqlXA
     可参考一：https://blog.csdn.net/weixin_41685100/article/details/80046525
@@ -126,18 +128,16 @@ SpringBoot2学习参考地址：https://blog.csdn.net/liubenlong007/article/deta
     可参考二：https://spring.io/blog/2011/08/15/configuring-spring-and-jta-without-full-java-ee/ (spring的官方配置文档)
 
     JTA事务的实现原理
-    可参考一：https://blog.csdn.net/qq_14986713/article/details/78810237
-    可参考二：https://blog.csdn.net/ggibenben1314/article/details/48812501
+    可参考一：https://www.ibm.com/developerworks/cn/java/j-lo-jta/#icomments
+    可参考二：https://blog.csdn.net/ggibenben1314/article/details/48812501（XA协议）
 
     JTA事务和druid连接池结合使用
     可参考一：https://www.jianshu.com/p/0dde641295af
-    可参考二：https://blog.csdn.net/a510835147/article/details/75675311
-    可参考三：https://my.oschina.net/simpleton/blog/916108
+    可参考二：https://my.oschina.net/simpleton/blog/916108
 
 三、log配置
 
     log配置内容请查看application.properties文件
-
 
 四、数据库操作
 

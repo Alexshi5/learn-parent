@@ -5,7 +5,6 @@ import com.mengfei.learn.mapper.demo2.UserInfoRepository;
 import com.mengfei.learn.pojo.demo.UserBase;
 import com.mengfei.learn.pojo.demo2.UserInfo;
 import com.mengfei.learn.service.UserService;
-import com.mengfei.learn.util.CustomException;
 import org.junit.Assert;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -91,7 +90,8 @@ public class SpringbootApplicationTests {
 	 */
 	@Test
 	public void transactionTest(){
-		try {
+		//多个数据源先抓异常再向外抛
+		/*try {
 			UserBase userBase = new UserBase("cesi002","002","136002",new Date(),1);
 			UserInfo userInfo = new UserInfo(1L,"这是用户cesi001的详细描述",new Date(),1);
 
@@ -99,8 +99,9 @@ public class SpringbootApplicationTests {
 			System.out.println(save);
 		}catch (CustomException cus){
 			System.out.println(cus.getMessage());
-		}
+		}*/
 
+		//多个数据源直接向外抛异常
 		/*try {
 			UserBase userBase = new UserBase("cesi002","002","136002",new Date(),1);
 			UserInfo userInfo = new UserInfo(1L,"这是用户cesi001的详细描述",new Date(),1);
@@ -110,17 +111,15 @@ public class SpringbootApplicationTests {
 		}catch (Exception e){
 			System.out.println(e);
 		}*/
-	}
 
-	public static void main(String[] args) throws Exception{
-		for(int j=0;j<10;j++){
-			String s = "一段测试的文字";
-			System.out.println(s);
-			int i = 10;
-			i++;
-			System.out.println(i);
+		//单个数据源直接向外抛异常
+		try {
+			UserBase userBase = new UserBase("cesi002","002","136002",new Date(),1);
+
+			String save = userService.save3(userBase);
+			System.out.println(save);
+		}catch (Exception e){
+			System.out.println(e);
 		}
-		System.in.read();
 	}
-
 }

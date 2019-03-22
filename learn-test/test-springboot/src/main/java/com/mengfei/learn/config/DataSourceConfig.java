@@ -7,7 +7,6 @@ import org.springframework.boot.jta.atomikos.AtomikosDataSourceBean;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Primary;
-import org.springframework.jdbc.core.JdbcTemplate;
 
 import javax.sql.DataSource;
 
@@ -118,7 +117,7 @@ public class DataSourceConfig {
      * @date 2017年8月3日
      * @param dataSource
      * @return
-     */
+     *//*
     @Bean(name = "demoJdbcTemplate")
     public JdbcTemplate demoJdbcTemplate(
             @Qualifier("demoDataSource") DataSource dataSource) {
@@ -129,7 +128,7 @@ public class DataSourceConfig {
     public JdbcTemplate demo2JdbcTemplate(
             @Qualifier("demo2DataSource") DataSource dataSource) {
         return new JdbcTemplate(dataSource);
-    }
+    }*/
 
     /**
      * 非JTA事务

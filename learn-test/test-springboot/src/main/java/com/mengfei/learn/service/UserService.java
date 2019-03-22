@@ -11,4 +11,6 @@ public interface UserService {
     String save(UserBase userBase, UserInfo userInfo) throws CustomException;
 
     String save2(UserBase userBase, UserInfo userInfo) throws Exception;
+
+    String save3(UserBase userBase) throws CustomException;
 }
