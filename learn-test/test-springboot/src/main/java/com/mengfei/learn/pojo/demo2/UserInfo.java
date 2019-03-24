@@ -11,7 +11,7 @@ import java.util.Date;
  */
 @Entity
 @Table(name = "user_info")
-@JsonIgnoreProperties(value = { "hibernateLazyInitializer", "handler" })
+@JsonIgnoreProperties(ignoreUnknown = true)
 public class UserInfo implements Serializable {
     private static final long serialVersionUID = 3351721746033141506L;
 
