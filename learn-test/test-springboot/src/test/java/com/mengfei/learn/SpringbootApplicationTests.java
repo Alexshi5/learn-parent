@@ -3,7 +3,7 @@ package com.mengfei.learn;
 import com.mengfei.learn.mapper.demo.UserMapper;
 import com.mengfei.learn.mapper.demo2.UserInfoRepository;
 import com.mengfei.learn.pojo.demo.UserBase;
-import com.mengfei.learn.pojo.demo2.UserInfo;
+import com.mengfei.learn.rabbitmq.MQSender;
 import com.mengfei.learn.service.UserService;
 import org.junit.Assert;
 import org.junit.Test;
@@ -12,10 +12,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.data.redis.core.StringRedisTemplate;
-import org.springframework.data.redis.core.ValueOperations;
 import org.springframework.test.context.junit4.SpringRunner;
-
-import java.util.Date;
 
 //使用指明的类来进行单元测试
 @RunWith(SpringRunner.class)
@@ -37,6 +34,9 @@ public class SpringbootApplicationTests {
 	@Autowired
 	private StringRedisTemplate stringRedisTemplate;
 
+	@Autowired
+	private MQSender mqSender;
+
 	@Test
 	public void contextLoads() throws Exception{
 		Assert.assertEquals("张三","张三");
@@ -45,23 +45,23 @@ public class SpringbootApplicationTests {
 	//测试数据库连接，并添加数据
 	@Test
 	public void saveUser() throws Exception{
-		UserBase user = new UserBase("cesi001","001","136001",new Date(),1);
+		/*UserBase user = new UserBase("cesi001","001","136001",new Date(),1);
 		UserBase save = userMapper.save(user);
 		System.out.println(save);
 
 		UserInfo userInfo = new UserInfo(1L,"这是用户cesi001的详细描述",new Date(),1);
 		UserInfo save1 = userInfoRepository.save(userInfo);
-		System.out.println(save1);
+		System.out.println(save1);*/
 	}
 
 
 	//测试连接redis
 	@Test
 	public void testRedis(){
-		ValueOperations<String, String> valueOperations = stringRedisTemplate.opsForValue();
+		/*ValueOperations<String, String> valueOperations = stringRedisTemplate.opsForValue();
 		valueOperations.set("a","10");
 
-		Assert.assertEquals("10",valueOperations.get("a"));
+		Assert.assertEquals("10",valueOperations.get("a"));*/
 	}
 
 	//测试在redis中手动添加对象
@@ -113,13 +113,21 @@ public class SpringbootApplicationTests {
 		}*/
 
 		//单个数据源直接向外抛异常
-		try {
+		/*try {
 			UserBase userBase = new UserBase("cesi002","002","136002",new Date(),1);
 
 			String save = userService.save3(userBase);
 			System.out.println(save);
 		}catch (Exception e){
 			System.out.println(e);
-		}
+		}*/
+	}
+
+	/**
+	 * 测试rabbitmq，发送并接收队列消息
+	 */
+	@Test
+	public void rabbitmqTest(){
+		this.mqSender.send();
 	}
 }
