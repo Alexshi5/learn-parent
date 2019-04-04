@@ -1,5 +1,6 @@
 package com.mengfei.learn.pojo.demo;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 import javax.persistence.*;
@@ -31,6 +32,7 @@ public class UserBase implements Serializable{
     @Column(name = "phone",columnDefinition = "varchar(20) COMMENT '用户电话'")
     private String phone;
 
+    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss",timezone = "GMT+8")
     @Column(name = "created",columnDefinition = "datetime COMMENT '创建时间'")
     private Date created;
 

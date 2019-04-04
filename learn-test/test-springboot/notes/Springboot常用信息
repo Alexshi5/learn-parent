@@ -224,7 +224,7 @@ SpringBoot2学习参考地址：https://blog.csdn.net/liubenlong007/article/deta
 是不是已经登录的用户，由于后台服务器可能会做负载均衡，所以使用Redis来做Session共享，默认有效时间为1800秒（30分钟）
 
 
-八、添加对rabbitmq的支持（当前只测试了windows环境）
+八、集成Rabbitmq（当前只测试了windows环境）
 
     1、rabbitmq需要erlang虚拟机的支持，所以需要先安装erlang虚拟机（官方地址：http://www.erlang.org/downloads）；
 
@@ -258,4 +258,44 @@ SpringBoot2学习参考地址：https://blog.csdn.net/liubenlong007/article/deta
         (2) Springboot中集成RabbitMQ：http://www.ityouknow.com/springboot/2016/11/30/spring-boot-rabbitMQ.html
 
 
+九、集成Swagger
+
+    1、pom依赖
+
+        <dependency>
+            <groupId>io.springfox</groupId>
+            <artifactId>springfox-swagger2</artifactId>
+            <version>2.6.1</version>
+        </dependency>
+        <dependency>
+            <groupId>io.springfox</groupId>
+            <artifactId>springfox-swagger-ui</artifactId>
+            <version>2.6.1</version>
+        </dependency>
+
+    2、添加Swagger的配置文件SwaggerConfig.java
+
+    3、在用户启动器上添加@EnableSwagger2注解启用Swagger
+
+    4、在SwaggerControllerTest中添加相应的接口
+
+    5、访问http://localhost:8080/swagger-ui.html访问swagger的ui主页
+
+    6、常用的swagger注解如下：
+
+        @Api：修饰整个类，描述Controller的作用
+        @ApiOperation：描述一个类的一个方法，或者说一个接口
+        @ApiParam：单个参数描述
+        @ApiModel：用对象来接收参数
+        @ApiProperty：用对象接收参数时，描述对象的一个字段
+        @ApiResponse：HTTP响应其中1个描述
+        @ApiResponses：HTTP响应整体描述
+        @ApiIgnore：使用该注解忽略这个API
+        @ApiError ：发生错误返回的信息
+        @ApiImplicitParam：一个请求参数
+        @ApiImplicitParams：多个请求参数
+
+    7、问题一：时间格式化不对
+
+    解决：在实体属性上添加@JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss",timezone = "GMT+8")注解
 
