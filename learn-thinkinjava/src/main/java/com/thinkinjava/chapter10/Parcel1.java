@@ -1,5 +1,9 @@
 package com.thinkinjava.chapter10;
 
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Set;
+
 /**
  * author Alex
  * date 2019/3/24
@@ -28,5 +32,21 @@ class Parcel1Test{
 
         parcel1.fun(false);
         //Parcel1.fun()
+    }
+}
+
+class MapTest{
+    public static void main(String[] args) {
+        Map<String,String> map = new HashMap<>();
+        map.put("1","111");
+        map.put("2","222");
+        Set<Map.Entry<String, String>> entries = map.entrySet();
+        for(Map.Entry<String, String> obj : entries){
+            System.out.println(obj.getKey() + "==" + obj.getValue());
+        }
+
+        int i = 10;
+        System.out.println(Integer.toBinaryString(i));
+        System.out.println(Integer.toHexString(i));
     }
 }
