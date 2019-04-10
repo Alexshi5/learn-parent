@@ -1,0 +1,303 @@
+@charset "UTF-8";
+/*表格样式*/
+.normalTable {
+    width: 100%;
+    text-align: center;
+    height: auto;
+    flex: 1;
+}
+.el-table td, .el-table th.is-leaf {
+    border-bottom: none;
+    text-align: center;
+}
+.el-table th {
+    background: #eff3fa;
+    padding: 10px;
+    font-weight: normal;
+    border-right: 1px solid #f0f4fc;
+}
+/*--------------打印按钮样式-------------*/
+.el-button--primary{
+    background-color:#fff;
+    border: none;
+    height: 25px;
+    padding-top: 0;
+    display: inline-block;
+}
+.el-button{
+    padding: 0px 0px;
+}
+.el-button--primary:focus, .el-button--primary:hover {
+    background: #f09247;
+    border-color: #fff;
+    color: #fff;
+}
+.print,.export{
+    border: none;
+    margin-right: 0;
+    margin-top: 0px;
+}
+.print img{
+    height: 25px;
+    vertical-align: middle;
+}
+.print .printBtn{
+    width: 16px;
+    height: 16px;
+    vertical-align: middle;
+}
+.print b{
+    font-weight: normal;
+    padding-left: 10px;
+    vertical-align: middle;
+}
+.el-dropdown span{
+    display: inline-block;
+}
+/*右侧打印按钮*/
+.rightBtn .el-button{
+    padding: 0 12px;
+}
+.rightBtn .el-button--primary{
+    background-color:#f09247;
+    border: none;
+    height: 25px;
+    padding-top: 0;
+    display: inline-block;
+}
+
+/*element.ui分页条设置*/
+.block {
+    height: 49px;
+    text-align: right;
+}
+.el-pagination {
+    padding: 7px 15px;
+    /*border: 1px solid #dce2ee;*/
+    border-top: 0;
+}
+/*layer弹窗样式*/
+.layui-layer-title{
+    background-color: #2d97f6!important;
+    color: #fff!important;
+}
+
+
+/*copy样式start*/
+.patientFile_BiaoQian{
+    padding: 7px 0 6px 0;
+}
+
+.BiaoQian_input{
+    width: 353px;
+    height: 24px;
+    box-sizing: border-box;
+    text-indent: 1em;
+    border: 0;
+    border-radius: 3px;
+    border: 0;
+}
+.patientFile_BiaoQianRight{
+    height: 40px;
+    float: right;
+    text-align: right;
+}
+.patientFile_BiaoQianRight1{
+    display: inline-block;
+    border-radius: 3px;
+    border: 1px solid #dce2ee;
+    font-size: 0;
+
+}
+.tuBiaoInput{
+    margin-top: 5px;
+}
+.tuBiaoInput .radioBox{
+    margin-right: 5px;
+}
+.tuBiaoInput input[type="checkbox"]{
+    margin-right: 3px;
+    vertical-align: middle;
+    display: inline-block;
+    margin-bottom: 2px;
+}
+.BiaoQian_search{
+    display: inline-block;
+    height: 24px;
+    line-height: 24px;
+    color: #9c9c9c;
+    width: 42px;
+    cursor: pointer;
+    text-align: center;
+    border-left: 1px solid #dce2ee;
+}
+.BiaoQian_input:focus{
+    outline: 0;
+}
+.gaoJi_sezrch{
+    display: inline-block;
+    height: 24px;
+    color: #f0954f;
+    font-size: 13px;
+    line-height: 24px;cursor: pointer;
+    padding: 0 8px;
+    border-radius: 3px;
+    margin-left: 1.5%;
+    position: relative;
+    z-index: 9999;
+    /*float: right;*/
+}
+.marRight5{
+    margin-right: 5px;
+}
+
+.gaoJi_searchBox{
+    padding: 8px 0 0 0;
+    position: relative;
+}
+.el-date-table td{
+    border: 0;
+}
+.el-date-editor .el-range-input {
+    width: 43%;
+    text-align: center;
+    font-size: 13px;
+}
+.normalBottom{
+    float: left;
+    height: 24px;
+    border: 1px solid #409eff;
+    color: #409eff;
+    font-size: 13px;
+    line-height: 24px;
+    cursor: pointer;
+    padding: 0 12px;
+    border-radius: 5px;
+    margin-top: 2px;
+}
+.normalBottom:hover{
+    background: #409eff;
+    color: #fff;
+}
+.normalBottom1{
+    margin-right: 18px;
+    color: black;
+    background: #dce2ee;
+}
+.searchLogo{
+    font-size: 19px;
+    vertical-align: text-bottom;
+}
+td{
+    border: 0;
+}
+/*/!*-----------th设置-------*!/*/
+.el-table th {
+    background: #e3e7ee;
+    padding: 10px;
+    font-weight: bold;
+    border-right: 1px solid #f0f4fc;
+}
+.el-table td, .el-table th.is-leaf {
+    border-bottom: none;
+    color: #5e6d80;
+    text-align: center;
+    border-right: 1px solid #f0f4fc;
+}
+.el-table--border td, .el-table--border th {
+    border-right: 1px solid #f0f4fc;
+}
+/*-----------td设置-------*/
+td {
+    background-clip: padding-box;
+}
+.el-table--border td{
+    padding: 6px;
+    height: 36px;
+    border-right: 1px solid #f0f4fc;
+}
+.el-table--border, .el-table--group {
+    /*border: 1px solid #dce2ee;*/
+    color: black;
+}
+.el-table--striped .el-table__body tr.el-table__row--striped.current-row td, .el-table__body tr.current-row>td, .el-table__body tr.hover-row.current-row>td, .el-table__body tr.hover-row.el-table__row--striped.current-row>td, .el-table__body tr.hover-row.el-table__row--striped>td, .el-table__body tr.hover-row>td {
+    background-color: #e3ebf3!important;
+}
+.el-table__row:hover{
+    cursor: pointer;
+}
+.el-table .font_pink{
+    color: #2d96f7;cursor: pointer;
+}
+.el-select-dropdown__item.selected {
+    color: #409eff;
+    font-weight: 700;
+}
+.el-pagination__jump {
+    margin-left: 0px;
+}
+.normalTable{
+    width: 100%;text-align: center;height: auto;flex: 1;
+}
+.el-pagination.is-background .btn-next, .el-pagination.is-background .btn-prev, .el-pagination.is-background .el-pager li {
+    margin: 0 0px;
+}
+.patientFile{
+    margin-bottom: 12px;
+    border-bottom: 1px solid #e2e9ee;
+}
+.el-table__body-wrapper {
+    overflow: hidden!important;
+}
+/*copy样式End*/
+
+/*-------------------采浆费用汇总 特殊表格样式--------------------------*/
+.specialForm{
+    height: 100%;
+}
+.specialForm .el-table{
+    height: 100%;
+}
+.specialForm .el-table thead.is-group th {
+    background: #e3e7ee;
+    border-right: 1px solid #f0f4fc;
+}
+.specialForm .el-table th>.cell{
+    text-align: center;
+    color: #5e6d80;
+    font-weight: bold;
+}
+.specialForm .el-table__row:last-child td{
+    border-bottom: 1px solid #f0f4fc;
+}
+
+/*AI浆员档案*/
+.query_btn {
+    right: 15px;
+    top: 110px;
+    position: absolute;
+    width: 58px;
+    height: 25px;
+    line-height: 25px;
+    text-align: center;
+    border-radius: 5px;
+    border: 1px solid #2b97f5;
+    color: #2b97f5;
+    cursor: pointer;
+}
+/*隐藏筛选条件*/
+.el-collapse-item.is-active .el-collapse-item__header{
+    float: right;
+    color: #f1a161;
+}
+.el-collapse, .el-collapse-item__header, .el-collapse-item__wrap{
+    border-bottom: none;
+}
+/*筛选条件*/
+.select_condition{
+    color: #2b97f5;
+    font-size: 15px;
+    padding-top: 15px;
+    font-weight: bold;
+    padding-left: 5px;
+}

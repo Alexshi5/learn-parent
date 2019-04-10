@@ -10,6 +10,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.Date;
+
 @Service
 public class UserServiceImpl implements UserService {
     @Autowired
@@ -66,9 +68,22 @@ public class UserServiceImpl implements UserService {
     @Transactional(value = "demoTransactionManager",rollbackFor = CustomException.class)
     public String save3(UserBase userBase) throws CustomException {
         UserBase save = userMapper.save(userBase);
-        int i = 10/0;
+        //int i = 10/0;
         return save.toString();
     }
 
+    @Override
+    @Transactional(value = "demoTransactionManager",rollbackFor = CustomException.class)
+    public String save4(UserBase userBase) throws CustomException {
+        UserBase save = userMapper.save(userBase);
+        this.test1();
+        return save.toString();
+    }
+
+    private void test1(){
+        UserBase userBase = new UserBase("cesi003","003","136003",new Date(),1);
+        UserBase save = userMapper.save(userBase);
+        int i = 10/0;
+    }
 
 }
