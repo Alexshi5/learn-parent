@@ -14,8 +14,6 @@ import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.data.redis.core.StringRedisTemplate;
 import org.springframework.test.context.junit4.SpringRunner;
 
-import java.util.Date;
-
 //使用指明的类来进行单元测试
 @RunWith(SpringRunner.class)
 //用于SpringBoot应用测试，默认根据包名逐级往上查找直到找到@SpringBootApplication
@@ -125,14 +123,14 @@ public class SpringbootApplicationTests {
 		}*/
 
 		//单个数据源直接向外抛异常，方法体中调用了其他的方法
-		try {
+		/*try {
 			UserBase userBase = new UserBase("cesi002","002","136002",new Date(),1);
 
 			String save = userService.save4(userBase);
 			System.out.println(save);
 		}catch (Exception e){
 			System.out.println(e);
-		}
+		}*/
 	}
 
 	/**
