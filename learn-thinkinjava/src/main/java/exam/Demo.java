@@ -1,5 +1,7 @@
 package exam;
 
+import java.util.Vector;
+
 /**
  * author Alex
  * date 2019/4/5
@@ -9,12 +11,29 @@ public class Demo {
     private int txx = 1;
     public static void main(String[] args) throws Exception{
         Demo demo = new Demo();
-        demo.example4();
+        demo.example5();
+
+        //demo.example4();
         //demo.example3();
         //System.out.println(demo.getNum1());
         //demo.example2();
         //demo.example1();
         //System.out.println(demo.getNum(100));
+    }
+
+    private void example6(){
+        
+    }
+
+    private void example5(){
+        Vector vector = new Vector();
+        vector.add("test");
+        vector.add("is");
+        boolean test = vector.contains("test");
+        System.out.println(test);
+        System.out.println(vector);
+        vector.remove("test");
+        System.out.println(vector);
     }
 
     private void example4()throws Exception{
