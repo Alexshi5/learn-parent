@@ -11,7 +11,7 @@ public class Demo {
     private int txx = 1;
     public static void main(String[] args) throws Exception{
         Demo demo = new Demo();
-        demo.example5();
+        demo.example6();
 
         //demo.example4();
         //demo.example3();
@@ -22,7 +22,7 @@ public class Demo {
     }
 
     private void example6(){
-        
+        String s = "G";
     }
 
     private void example5(){
