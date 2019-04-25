@@ -140,4 +140,25 @@ public class SpringbootApplicationTests {
 	public void rabbitmqTest(){
 		this.mqSender.send();
 	}*/
+
+	//测试数据库更新操作使用对象参数而不再使用参数列表
+	/*@Test
+	public void updateByObj() throws CustomException {
+		UserInfo userInfo = new UserInfo();
+		userInfo.setOid(1L);
+		//userInfo.setState(0);
+		//userInfo.setUserInfoDesc("使用参数列表");
+		userInfo.setState(1);
+		userInfo.setUserInfoDesc("使用参数对象");
+		Integer integer = this.userService.save5(userInfo);
+		System.out.println(integer);
+	}*/
+
+	//测试使用实体管理器对托管态用户信息进行更新
+	/*@Test
+	public void updateByObj() throws CustomException {
+		UserInfo userInfo = new UserInfo();
+		userInfo.setOid(1L);
+		this.userService.save6(userInfo);
+	}*/
 }

@@ -15,4 +15,8 @@ public interface UserService {
     String save3(UserBase userBase) throws CustomException;
 
     String save4(UserBase userBase) throws CustomException;
+
+    Integer save5(UserInfo userInfo) throws CustomException;
+
+    void save6(UserInfo userInfo) throws CustomException;
 }
