@@ -2,6 +2,7 @@ package com.mengfei.learn.pojo.demo;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import io.swagger.annotations.ApiModelProperty;
 
 import javax.persistence.*;
 import java.io.Serializable;
@@ -20,24 +21,24 @@ public class UserBase implements Serializable{
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "oid",columnDefinition = "bigint COMMENT '主键自增'")
+    @Column(name = "oid")
     private Long oid;
 
-    @Column(name = "user_basename",columnDefinition = "varchar(50) COMMENT '用户名'")
+    @Column(name = "user_basename")
     private String userBasename;
 
-    @Column(name = "password",columnDefinition = "varchar(50) COMMENT '用户密码'")
+    @Column(name = "password")
     private String password;
 
-    @Column(name = "phone",columnDefinition = "varchar(20) COMMENT '用户电话'")
+    @Column(name = "phone")
     private String phone;
 
     @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss",timezone = "GMT+8")
-    @Column(name = "created",columnDefinition = "datetime COMMENT '创建时间'")
+    @ApiModelProperty(value = "创建时间", example = "2018-04-26 00:00:00")
+    @Column(name = "created")
     private Date created;
 
-    //记录是否逻辑删除的状态：0为已删除，1为未删除
-    @Column(name = "state",columnDefinition = "int COMMENT '记录是否删除的状态：0为已删除，1为正常'")
+    @Column(name = "state")
     private Integer state;
 
     public UserBase(){}

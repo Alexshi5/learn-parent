@@ -24,15 +24,15 @@ public class SwaggerConfig {
         //通过参数构造器为swagger添加对header参数的支持
         ParameterBuilder ticketPar = new ParameterBuilder();
         List<Parameter> pars = new ArrayList<Parameter>();
-        ticketPar.name("LoginToken").description("user token")
+        ticketPar.name("loginToken").description("用户的Token信息")
                 .modelRef(new ModelRef("string")).parameterType("header")
-                .required(false).build(); //header中的ticket参数非必填，传空也可以
+                .required(false).build(); //header中的loginToken参数现在设置为非必填，传空也可以
         pars.add(ticketPar.build());
 
         return new Docket(DocumentationType.SWAGGER_2)
                 .apiInfo(apiInfo())
                 .select()
-                .apis(RequestHandlerSelectors.basePackage("com.mengfei.learn.swaggercontroller"))
+                .apis(RequestHandlerSelectors.basePackage("com.mengfei.learn.swaggercontroller")) //扫描的swagger接口包路径
                 .paths(PathSelectors.any())
                 .build()
                 .globalOperationParameters(pars);
@@ -40,9 +40,9 @@ public class SwaggerConfig {
 
     private ApiInfo apiInfo() {
         return new ApiInfoBuilder()
-                .title("springboot利用swagger构建api文档")
-                .description("简单优雅的restful风格，http://blog.csdn.net/saytime")
-                .termsOfServiceUrl("http://blog.csdn.net/saytime")
+                .title("Springboot利用swagger构建api文档")
+                .description("简单优雅的restful风格 http://blog.csdn.net/")
+                .termsOfServiceUrl("http://blog.csdn.net/")
                 .version("1.0")
                 .build();
     }

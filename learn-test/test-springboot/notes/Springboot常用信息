@@ -292,10 +292,43 @@ SpringBoot2学习参考地址：https://blog.csdn.net/liubenlong007/article/deta
         @ApiResponses：HTTP响应整体描述
         @ApiIgnore：使用该注解忽略这个API
         @ApiError ：发生错误返回的信息
-        @ApiImplicitParam：一个请求参数
-        @ApiImplicitParams：多个请求参数
+        @ApiImplicitParam：一个请求参数描述
+        @ApiImplicitParams：多个请求参数描述
 
     7、问题一：时间格式化不对
 
-    解决：在实体属性上添加@JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss",timezone = "GMT+8")注解
+    解决：在实体属性上添加两个注解
+    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss",timezone = "GMT+8")
+    @ApiModelProperty(example = "2018-04-26 00:00:00")
+
+    8、在notes中进行换行
+
+    使用两个空格加一个\n来进行换行，比如：username 用户名  \npwd 密码
+
+    9、生成html文件和pdf文件
+
+    参考链接二：（可参考如何解决乱码问题）
+    https://blog.csdn.net/zhuyu19911016520/article/details/85048271
+    https://blog.csdn.net/qq_29534483/article/details/81235081
+
+    参考链接三：https://blog.csdn.net/qq_25215821/article/details/79175535（可以生成html和pdf）
+
+    10、解决中文乱码问题
+
+    (1) 下载别人已经处理好的jar包并替换
+    下载地址：https://download.csdn.net/download/lihuaijun/10313631
+    可以用，但要记得加上<pdf-style>cn</pdf-style>属性
+
+    <dependency>
+      <groupId>org.asciidoctor</groupId>
+      <artifactId>asciidoctorj-pdf</artifactId>
+      <version>1.5.0-alpha-zh.16</version>
+    </dependency>
+
+    jar安装的mvn命令：mvn install:install-file -Dfile=E:\asciidoctorj-pdf-1.5.0-alpha-zh.16.jar -DgroupId=org.asciidoctor -DartifactId=asciidoctorj-pdf -Dversion=1.5.0-alpha-zh.16 -Dpackaging=jar -DgeneratePom=true
+
+    (2) 自己对jar包中的文件进行处理
+
+    字客网下载字体：https://www.fontke.com/
+
 
