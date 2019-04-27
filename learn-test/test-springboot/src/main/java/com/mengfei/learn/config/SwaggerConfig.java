@@ -15,13 +15,12 @@ import springfox.documentation.spring.web.plugins.Docket;
 import java.util.ArrayList;
 import java.util.List;
 
-//Swagger相关的配置
 @Configuration
 public class SwaggerConfig {
 
     @Bean
     public Docket createRestApi() {
-        //通过参数构造器为swagger添加对header参数的支持
+        //通过参数构造器为swagger添加对header参数的支持，如果不需要的话可以删掉
         ParameterBuilder ticketPar = new ParameterBuilder();
         List<Parameter> pars = new ArrayList<Parameter>();
         ticketPar.name("loginToken").description("用户的Token信息")
@@ -35,7 +34,7 @@ public class SwaggerConfig {
                 .apis(RequestHandlerSelectors.basePackage("com.mengfei.learn.swaggercontroller")) //扫描的swagger接口包路径
                 .paths(PathSelectors.any())
                 .build()
-                .globalOperationParameters(pars);
+                .globalOperationParameters(pars);//不需要添加全局参数时这一行可以删掉
     }
 
     private ApiInfo apiInfo() {
