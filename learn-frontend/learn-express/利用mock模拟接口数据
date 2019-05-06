@@ -1,0 +1,46 @@
+参考：https://blog.csdn.net/bocongbo/article/details/81700843
+1、安装mock.js
+
+cnpm i mockjs -D
+
+2、在vue项目中的src目录下新建mock/json目录，并在目录中创建一个test.json文件
+
+3、在mock目录中添加index.js并在其中添加如下内容
+
+const Mock = require('mockjs');
+//格式： Mock.mock( url, post/get , 返回的数据)；
+Mock.mock('http://localhost:8080/test001', 'get', require('./json/test'));
+
+4、在test.json中添加如下内容
+
+{
+  "isSuccess": true,
+  "code": 200,
+  "msg": "OK",
+  "data": {
+    "username": "张强",
+    "pwd": "zhang001",
+    "age": 25,
+    "imgUrl": "https://avatar.csdn.net/8/5/D/3_bocongbo.jpg"
+  }
+}
+
+5、在main.js入口文件中引入mock数据，如果不需要则可以注释掉
+
+require('./mock'); //引入mock数据，关闭则注释该行
+
+6、获取mock数据
+
+//访问mock模拟数据
+Axios.get('http://localhost:8080/test001')
+  .then(function (response) {
+    console.log(response);
+  })
+  .catch(function (error) {
+    console.log(error);
+  });
+
+7、如何解决mock数据获取时的url问题？
+
+
+

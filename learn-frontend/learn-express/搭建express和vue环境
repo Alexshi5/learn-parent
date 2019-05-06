@@ -1,0 +1,150 @@
+参考链接：https://blog.csdn.net/yuyuking/article/details/82856944
+一、什么是Express
+
+Express 是一个基于 Node.js 平台的极简、灵活的 web 应用开发框架（集成web服务器+mvc），它帮助你创建各种 Web 应用(相当于原生js与jQuery的关系)，
+当然其实不用框架，使用node自己弄一个web服务器和mvc框架也可以，但是有优秀的express，封装了很多常用功能，推荐使用。
+
+二、搭建express开发环境
+
+1、安装express
+
+在项目根目录下执行：cnpm install express --save
+
+2、安装express应用程序生成器
+
+cnpm install express-generator -g
+
+3、创建一个名称为myapp的express程序
+
+express --view=pug myapp
+
+4、进入myapp安装依赖
+
+cd myapp
+cnpm install
+
+5、启动应用
+
+set DEBUG=myapp:* & npm start
+
+6、访问地址
+
+http://localhost:3000
+
+7、在routes目录下添加一个test.js内容如下
+
+var express = require('express');
+var router = express.Router();
+
+/* GET users listing. */
+router.get('/', function(req, res, next) {
+    var data={
+        code:0,
+        data:{name:'aaa',pwd:'123'},
+        isSuccess:true,
+        msg:"请求成功"
+    };
+    res.json(data);
+
+});
+
+module.exports = router;
+
+8、在app.js中添加如下内容
+
+var testRouter = require('./routes/test');
+
+9、重启myapp
+
+访问：http://localhost:3000/test
+
+三、搭建vue环境请参考cnpm vue with vue-cli
+
+四、集成
+
+1、安装axios和vue-axios
+
+cnpm install axios
+cnpm install vue-axios
+
+2、在main.js中添加如下内容
+
+import axios from 'axios'
+
+var url="http://localhost:3000"
+axios.get(url+'/test')
+  .then(function (response) {
+    console.log(response);
+  })
+  .catch(function (error) {
+    console.log(error);
+  })
+
+
+3、重启vue项目
+
+五、解决跨域问题
+
+https://segmentfault.com/a/1190000011715088?utm_source=tag-newest
+https://www.cnblogs.com/ldlx-mars/p/7816316.html
+
+1、在后端添加header
+
+header('Access-Control-Allow-Origin:*');//允许所有来源访问
+header('Access-Control-Allow-Method:POST,GET');//允许访问的方式 　　
+
+2、使用代理
+
+1) 首先，在config/index.js中的proxyTable中添加内容如下：
+
+proxyTable: {
+      '/api/**': {
+        target: 'http://localhost:3000',
+        pathRewrite:{
+          '^/api':'/'
+        }
+      }
+    },
+
+2) 其次，在config里面创建一个api.config.js配置文件,内容如下
+
+const isPro = Object.is(process.env.NODE_ENV, 'production')
+
+module.exports = {
+    baseUrl: isPro ? 'http://www.vnshop.cn/api/' : 'api/'
+}
+
+3) 在main.js中添加如下内容
+
+import apiConfig from '../config/api.config'
+
+import Axios from 'axios'
+import VueAxios from 'vue-axios'
+
+Vue.use(VueAxios, Axios)
+Axios.defaults.baseURL = apiConfig.baseUrl
+
+4) 注意
+
+当配置了上面的代理之后不要将url写死了，因为它会自动拼接前缀
+
+5) 在node.js层访问后台java接口数据示例如下：
+
+var axios = require('axios');
+
+/* GET users listing. */
+router.get('/', function(req, res, next) {
+
+    var url = "http://localhost:8090/api/hello";
+    axios.get(url)
+        .then(function (response) {
+            //console.log(response);
+            res.send(response.data);
+        })
+        .catch(function (error) {
+            //console.log(error);
+        });
+});
+
+
+

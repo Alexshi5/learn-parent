@@ -1,0 +1,8 @@
+{
+  "dependencies": {
+    "express": "^4.16.4"
+  },
+  "devDependencies": {
+    "mockjs": "^1.0.1-beta3"
+  }
+}

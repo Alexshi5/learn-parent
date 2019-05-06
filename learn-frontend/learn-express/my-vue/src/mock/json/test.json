@@ -1,0 +1,11 @@
+{
+  "isSuccess": true,
+  "code": 200,
+  "msg": "OK",
+  "data": {
+    "username": "张强",
+    "pwd": "zhang001",
+    "age": 25,
+    "imgUrl": "https://avatar.csdn.net/8/5/D/3_bocongbo.jpg"
+  }
+}

@@ -13,11 +13,13 @@
 
 4、创建一个vue工程
 
-    vue init webpack first-vue （项目名不能有大写字母） yes no no no
+    vue init webpack first-vue （项目名不能有大写字母） yes no no no yes
 
 5、获得启动命令
 
     进入到项目根目录：cd firstVue
-    安装：cnpm install
+    //安装：cnpm install
     启动：cnpm run dev
-    生成静态文件：cnpm run build
+    //生成静态文件：cnpm run build
+
+6、访问：http://localhost:8080
