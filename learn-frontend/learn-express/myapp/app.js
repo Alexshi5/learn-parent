@@ -10,6 +10,19 @@ var testRouter = require('./routes/test');
 
 var app = express();
 
+app.all('*', function (req, res, next) {
+    res.header('Access-Control-Allow-Origin', '*');//允许的域名
+    res.header('Access-Control-Allow-Headers', 'Content-Type, Content-Length, Authorization, Accept, X-Requested-With , yourHeaderFeild');//服务器支持的头信息
+    res.header('Access-Control-Allow-Methods', 'PUT, POST, GET, DELETE, OPTIONS');//允许的方法
+    res.header("X-Powered-By",' 3.2.1');
+    res.header("Content-Type", "application/json;charset=utf-8");
+    next();
+});
+
+//解决跨域问题方法之一，要安装cors
+/*var cors = require('cors');
+app.use(cors());*/
+
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'pug');

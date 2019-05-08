@@ -1,0 +1,93 @@
+
+
+一、在linux中部署node项目
+参考链接：
+https://www.jianshu.com/p/71e777b69883
+https://segmentfault.com/q/1010000007362524
+
+在linux下安装node：https://www.cnblogs.com/liuqi/p/6483317.html
+
+1、下载linux环境的node包上传到linux主机
+
+2、解压文件到/usr/local目录
+
+tar -xvf node-v10.15.3-linux-x64.tar.xz -C /usr/local
+
+3、进入解压目标重命名
+
+mv node-v10.15.3-linux-x64/ nodejs
+
+4、配置环境变量
+
+在/etc/profile文件中添加
+
+export NODEJS=/usr/local/nodejs
+
+如果有多个环境变量用:隔开即可（之前配置了java环境变量）
+
+export  PATH=${JAVA_HOME}/bin:$PATH:${NODEJS}/bin
+
+5、查看node版本
+
+node -v
+
+6、安装svn
+
+在linux中安装svn并将代码上传到服务器中
+
+7、安装cnpm
+
+npm install -g cnpm --registry=https://registry.npm.taobao.org
+
+8、进入项目将依赖安装到项目中
+
+cnpm install
+cnpm install axios
+
+如果有跨域的要安装cros
+cnpm install cros
+
+9、安装部署工具pm2
+
+cnpm install -g pm2
+
+pm2只是一个工具，可以守护你的应用。如果应用挂了，会0时延重启
+
+10、通过pm2启动项目
+
+ pm2 start bin/www
+
+11、设置开发环境启动
+参考链接：https://www.jianshu.com/p/3a2249cbc5bd
+
+在package.json文件中更新内容如下：
+
+"scripts": {
+    "start": "export NODE_ENV='development' && node ./bin/www",
+    "build": "export NODE_ENV='production' && node ./bin/www"
+  }
+
+生产环境启动可以使用：npm run build
+
+
+二、打包vue项目并与express一起进行发布（没实现）
+
+参考链接：
+https://www.cnblogs.com/e-cat/p/9002728.html（将dist下的文件复制到public下启动）
+https://segmentfault.com/a/1190000010205995?utm_source=tag-newest（同上，但是另一种实现思路）
+
+
+三、将vue项目与nginx一起部署
+
+参考链接：https://my.oschina.net/u/1760791/blog/1575808
+
+1、打包vue项目生成dist目录
+
+cnpm run build
+
+2、将dist中的文件直接复制到nignx的html目录中
+
+3、重启nginx
+
+4、访问linux主机
+

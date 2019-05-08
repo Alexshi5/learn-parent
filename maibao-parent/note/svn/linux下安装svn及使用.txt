@@ -61,9 +61,17 @@ svn://192.168.188.128
 
 svn co svn://localhost
 
+svn co svn://127.0.0.1/项目名/  /root/data/ --username 用户名  --password 密码;
+
+/root/data 是要更新的目录  不指定会更新到当前目录下
+
 13、在版本库创建新的目录并提交
 
 [root@192 db]# svn mkdir -m 'make new dir' svn://localhost/otherdir
+
+14、如果windows环境提交了文件然后进行更新
+
+[root@192 db]# svn up
 
 
 其他使用说明
@@ -76,4 +84,5 @@ svn co svn://localhost
 
 三、如何清除已经保存账号密码的svn地址？
 在settings中找到saved data，然后使用clear或clear all来进行清理
+
 

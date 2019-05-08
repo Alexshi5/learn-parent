@@ -10,6 +10,7 @@ router.get('/', function(req, res, next) {
     axios.get(url)
         .then(function (response) {
             //console.log(response);
+            console.log(req.app.get('env'));
             res.send(response.data);
         })
         .catch(function (error) {

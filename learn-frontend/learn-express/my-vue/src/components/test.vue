@@ -2,7 +2,7 @@
   <div class="hello">
     <h1>{{ msg }}</h1>
     <h2>Essential Links</h2>
-    <router-link to="/test">[跳转到test]</router-link>
+    <router-link to="/">[跳转到HelloWorld]</router-link>
     <ul>
       <li>
         <a
@@ -86,10 +86,10 @@
 
 <script>
 export default {
-  name: 'HelloWorld',
+  name: 'test',
   data () {
     return {
-      msg: 'Welcome to Your Vue.js App'
+      msg: '欢迎来到测试组件！'
     }
   }
 }

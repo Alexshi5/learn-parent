@@ -9,7 +9,7 @@ cnpm i mockjs -D
 
 const Mock = require('mockjs');
 //格式： Mock.mock( url, post/get , 返回的数据)；
-Mock.mock('http://localhost:8080/test001', 'get', require('./json/test'));
+Mock.mock('http://mock/test001', 'get', require('./json/test'));
 
 4、在test.json中添加如下内容
 
@@ -32,7 +32,7 @@ require('./mock'); //引入mock数据，关闭则注释该行
 6、获取mock数据
 
 //访问mock模拟数据
-Axios.get('http://localhost:8080/test001')
+Axios.get('http://mock/test001')
   .then(function (response) {
     console.log(response);
   })
@@ -40,7 +40,7 @@ Axios.get('http://localhost:8080/test001')
     console.log(error);
   });
 
-7、如何解决mock数据获取时的url问题？
+
 
 
 

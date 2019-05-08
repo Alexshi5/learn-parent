@@ -1,6 +1,8 @@
 1、jar包启动需要添加main方法所在类的路径，配置插件如下：
 
 <plugin>
+    <groupId>org.springframework.boot</groupId>
+    <artifactId>spring-boot-maven-plugin</artifactId>
     <configuration>
         <mainClass>com.mengfei.learn.SpringbootApplication</mainClass>
     </configuration>

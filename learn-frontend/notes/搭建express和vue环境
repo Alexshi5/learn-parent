@@ -2,7 +2,7 @@
 一、什么是Express
 
 Express 是一个基于 Node.js 平台的极简、灵活的 web 应用开发框架（集成web服务器+mvc），它帮助你创建各种 Web 应用(相当于原生js与jQuery的关系)，
-当然其实不用框架，使用node自己弄一个web服务器和mvc框架也可以，但是有优秀的express，封装了很多常用功能，推荐使用。
+其实不用框架，使用node自己弄一个web服务器和mvc框架也可以，但是有优秀的express，封装了很多常用功能，推荐使用。
 
 二、搭建express开发环境
 
@@ -23,9 +23,11 @@ express --view=pug myapp
 cd myapp
 cnpm install
 
-5、启动应用
+5、启动应用（两个命令都可以）
 
 set DEBUG=myapp:* & npm start
+
+npm run start
 
 6、访问地址
 
@@ -86,12 +88,21 @@ axios.get(url+'/test')
 五、解决跨域问题
 
 https://segmentfault.com/a/1190000011715088?utm_source=tag-newest
-https://www.cnblogs.com/ldlx-mars/p/7816316.html
 
 1、在后端添加header
 
-header('Access-Control-Allow-Origin:*');//允许所有来源访问
-header('Access-Control-Allow-Method:POST,GET');//允许访问的方式 　　
+app.all('*', function (req, res, next) {
+     res.header('Access-Control-Allow-Origin', '*');//允许的域名
+     res.header('Access-Control-Allow-Headers', 'Content-Type, Content-Length, Authorization, Accept, X-Requested-With , yourHeaderFeild');//服务器支持的头信息
+     res.header('Access-Control-Allow-Methods', 'PUT, POST, GET, DELETE, OPTIONS');//允许的方法
+     res.header("Content-Type", "application/json;charset=utf-8");
+     next();
+   });
+
+或者直接引入cors，要安装cors
+
+var cors = require('cors');
+app.use(cors());
 
 2、使用代理
 
@@ -145,6 +156,76 @@ router.get('/', function(req, res, next) {
             //console.log(error);
         });
 });
+
+六、将数据展示到index.html页面上
+
+1、在index.html中添加如下内容
+
+<div id="app2" style="margin-left:50%">{{username}}</div>
+
+2、在main.js中添加如下内容
+
+var app2 = new Vue({
+  el: '#app2',
+  data:{
+    username: '小红'
+  }
+});
+
+这时可以看到index.html中已经显示出用户的名称
+
+3、将mock模拟数据展示到html
+
+app2.username = response.data.data.username;
+
+七、通过vue-router和<router-link>标签实现vue的页面跳转
+
+vue页面之间的跳转实际上就是组件之间的跳转
+
+1、在src/components目录下将HellWord.vue复制一个命令为test.vue并修改script中的内容，修改的内容如下
+
+<script>
+export default {
+  name: 'test',
+  data () {
+    return {
+      msg: '欢迎来到测试组件！'
+    }
+  }
+}
+</script>
+
+2、分别在HelloWorld.vue和test.vue中添加两个跳转的链接（可以放在标题的下方）
+
+<router-link to="/test">[跳转到test]</router-link>
+
+<router-link to="/">[跳转到HelloWorld]</router-link>
+
+3、在router/index.js中添加路由设置
+
+import test from '@/components/test'
+
+routes: [
+    {
+      path: '/',
+      name: 'HelloWorld',
+      component: HelloWorld
+    },
+    {
+      path: '/test',
+      name: 'test',
+      component: test
+    }
+  ]
+
+
+
+
+
+
+
+
+
 
 
 
