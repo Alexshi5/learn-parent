@@ -15,7 +15,7 @@ app.all('*', function (req, res, next) {
     res.header('Access-Control-Allow-Headers', 'Content-Type, Content-Length, Authorization, Accept, X-Requested-With , yourHeaderFeild');//服务器支持的头信息
     res.header('Access-Control-Allow-Methods', 'PUT, POST, GET, DELETE, OPTIONS');//允许的方法
     res.header("X-Powered-By",' 3.2.1');
-    res.header("Content-Type", "application/json;charset=utf-8");
+    //res.header("Content-Type", "application/json;charset=utf-8");
     next();
 });
 

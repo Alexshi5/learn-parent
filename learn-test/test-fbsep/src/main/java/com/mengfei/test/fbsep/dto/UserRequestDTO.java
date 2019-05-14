@@ -19,6 +19,8 @@ public class UserRequestDTO {
     @Pattern(regexp = "^([0-9A-Za-z\\-_\\.]+)@([0-9a-z]+\\.[a-z]{2,3}(\\.[a-z]{2})?)$",message = "需要输入正确格式的邮箱")
     private String email;
 
+    //getter setter toString() ...
+
     public String getUsername() {
         return username;
     }

@@ -20,6 +20,11 @@ express --view=pug myapp
 
 4、进入myapp安装依赖
 
+
+
+
+
+
 cd myapp
 cnpm install
 

@@ -67,6 +67,8 @@ pm2只是一个工具，可以守护你的应用。如果应用挂了，会0时�
     "build": "export NODE_ENV='production' && node ./bin/www"
   }
 
+请注意：windows中是没有export命令的，所以在windows中不能使用export
+
 生产环境启动可以使用：npm run build
 
 

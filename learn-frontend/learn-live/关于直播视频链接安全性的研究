@@ -1,0 +1,99 @@
+前端》服务端》资源服务端
+参考链接：
+http://www.zhiboshequ.com/news/573.html （直播社区，如何搭建一个完整的视频直播运营平台，需要的投入多大？）
+https://blog.csdn.net/q386815991/article/details/80942155 （直播流源地址，可用来测试）
+
+一、前端隐藏下载链接
+
+    隐藏右键另存为和复制链接以及点击下载选项（或者直接禁用右键）
+
+二、对视频链接进行URL加密
+
+    采用加密算法对URL进行加密传输
+
+三、服务端进行Token验证，即鉴权（服务端）
+
+    使用Token验证来判断下载视频的是否是我们允许的用户，如果不是就禁止下载，如果是的话则允许下载。
+
+四、使用HTTP请求头Referer防盗链（资源服务端）
+
+    当浏览器向Web服务器发送请求的时候，头信息里面有包含Referer，Referer的内容会包含你当前域名的地址。如果我们请求是是资源服务器，那么
+只需要资源服务器判断一下请求的域名是否是自己公司的域名就可以了，如果是就允许访问，否则就拦截。
+
+五、关于七牛上传、下载高并发说明，以及七牛分片下载实际运用
+
+参考链接：https://blog.csdn.net/hgg923/article/details/52918367
+
+六、七牛直播云播放鉴权-时间戳防盗链
+
+https://developer.qiniu.com/pili/kb/1735/seven-cattle-live-broadcast-authentication-of-cloud-a-timestamp-hotlinking-prevention
+
+推流鉴权、云播放鉴权、点播鉴权
+
+七、七牛的私有空间方案
+
+八、流媒体播放器
+
+参考链接：https://www.cnblogs.com/babosa/p/7468280.html
+
+流媒体分HTTP渐进流式下载和实时流式传输。
+HTML5的video标签属于HTTP渐进流式下载，不需要流媒体服务器，普通HTTP服务器就可以。
+Apple公司的HLS也属于HTTP渐进流式下载。
+
+九、RTMP协议
+
+参考链接：https://www.jianshu.com/p/00aceabce944
+它是基于TCP的应用层协议，默认端口1935
+
+1、RTMP URL格式
+
+rtmp://ip:[port]/appName/streamName
+例如：rtmp://192.168.178.218:1935/live/devzhaoyou
+
+2、RTMP流数据传输过程
+
+1) 建立RTMP连接
+
+要进行RTMP握手，校验客户端和服务端协议版本号（发一堆随机数据，校验网络状况）
+
+2) 创建RTMP流
+
+    客户端向服务器发送一个createStream命令消息，解析服务器返回的消息会得到一个stream ID，这个ID就是后面跟服务器通信的message stream ID，
+一般返回的是1，但并不是固定的。
+
+3) 推流
+
+    客户端向服务器发送一个publish命令消息（消息中带有流名称字段，即rtmp url中的streamName），发送完这个命令后不用等待服务器返回的回应，
+直接发送音视频类型的RTMP数据包即可。
+
+3、音视频格式
+
+    音视频RTMP消息的Payload（消息体）中存放的都是按照FLV-TAG格式封装的音视频包，格式必须封装正确，否则会造成播放端不能正常拿到音视频
+数据，无法播放音视频。
+
+4、关于RTMP的时间戳
+
+    RTMP时间戳的单位是毫秒（ms），在发送音视频之前一直为零，发送音视频消息包后必须保证时间戳是单调递增的，否则播放端可能出现音视频不同步
+的情况。实时音视频传输的时候是先获取了某一时刻系统时间为基准，然后每次相机采集到的视频包，与起始的基准时间相减，得到时间戳，这样可以保证
+时间戳的正确性。
+
+5、关于Chunk Stream ID
+
+    RTMP的Chunk Stream ID是用于区分某一个chunk属于哪一个message的，0和1是保留的。每次在发送一个不同类型的RTMP消息时，都要有不同的
+Chunk Stream ID。比如上一个消息是Command类型的，之后要发送视频类型的消息，视频消息的Chunk Stream ID要保证和上面Command消息类型不同。
+每一种消息类型的起始chunk类型必须是Type_0类型的，表明新的消息的起始。
+
+十、利用RTMP实现直播系统
+
+参考链接：
+https://blog.csdn.net/kenny25/article/details/39346417 （[实战]利用RTMP实现直播系统）
+https://mp.weixin.qq.com/s/-GMchAP9WUrOK4WTDHjoMg （轻松入门直播相关技术 带你从0搭建直播系统）
+https://blog.csdn.net/weixin_33790053/article/details/87455552 （简单实现一个直播系统，它是根据上面一篇文章来实现的）
+https://blog.csdn.net/qq_40816360/article/details/84037877 （Windows10环境下 Nginx+ffmpeg 制作本地服务器HLS直播流）
+https://blog.csdn.net/qq_40816360/article/details/84071977 （video.js播放rtmp直播源和hls直播源）
+https://blog.csdn.net/baienguon/article/details/80985973 （videojs能播放mp4，不能播放rtmp流的问题解决）
+
+https://blog.csdn.net/eguid_1/article/details/51898912 （搭建直播流服务系列，可参考）
+https://blog.csdn.net/charleslei/article/details/46553619 （RTMP协议的FLASH视频直播方案所踩过的坑）
+
+https://www.imweb.io/topic/57acc19893d9938132cc8df1 （Web直播除了Flash，你还可以选择这些方案）

@@ -12,19 +12,19 @@
 
 3、配置linux安装环境
 
-    (1) 安装gcc编译环境：yum install gcc-c++
+    (1) nginx是用c语言编写的，需要安装gcc编译环境：yum install gcc-c++ -y
 
         使用命令：gcc -v 可查看安装的gcc编译器版本
 
-    (2) 安装perl库PCRE：yum install -y pcre pcre-devel
+    (2) 安装perl库PCRE：yum install pcre pcre-devel -y
 
         nginx的http使用pcre来解析正则表达式
 
-    (3) 安装zlib库：yum install -y zlib zlib-devel
+    (3) 安装zlib库：yum install zlib zlib-devel -y
 
         zlib库提供了很多压缩和解压缩的方式，nginx使用zlib对http包的内容进行gzip
 
-    (4) 安装套接字密码库：yum install -y openssl openssl-devel
+    (4) 安装套接字密码库：yum install openssl openssl-devel -y
 
         它是一个强大的套接字层密码库，nginx不仅支持http还支持https(即ssl协议上传输http)
 

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script type='text/javascript' src='js/jwplayer/jwplayer.js'></script>
+    <b>RTMP直播系统</b>
+    <div id='mediaspace'>This text will be replaced</div>
+    <script type='text/javascript'>
+        var server = window.location.hostname;
+        // mylive 对应nginx.conf配置项application的名字
+        // live_stream 对应Adobe Flash Stream Media Live Encoder配置的stream名称
+        //var live_url = 'rtmp://' + server + '/mylive' + '/live_stream';
+        //var live_url = 'rtmp://202.69.69.180:443/webcast/bshdlive-pc';
+        var live_url = 'rtmp://58.200.131.2:1935/livetv/hunantv';
+        jwplayer('mediaspace').setup({
+            'flashplayer': 'js/jwplayer/jwplayer.flash.swf',
+            'file': live_url,
+            'controlbar': 'bottom',
+            'width': '760',
+            'height': '428',
+            //autostart: true,  //如果打开此标志，在打开网页时会自动播放直播流
+        });
+    </script>
+</body>
+</html>

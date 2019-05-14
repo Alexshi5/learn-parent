@@ -1,0 +1,136 @@
+参考链接：
+https://blog.csdn.net/kenny25/article/details/39346417 （[实战]利用RTMP实现直播系统）
+
+技术选型如下：
+
+视音频源端：Adobe Flash Media Live Encoder 3.2    Adobe公司开发的产品
+RTMP Server：nignx-rtmp-module    它是nginx的一个第三方模块
+客户端：JW Media Player     一个开源的flash视音频播放器，利用它我们可以直接在浏览器观看直播
+另一个开源的网页播放器：https://justcoding.iteye.com/blog/2110275
+
+1、安装Adobe Flash Media Live Encoder 3.2
+
+下载地址：https://download.csdn.net/download/qq540061627/4891381
+
+2、安装wget
+
+yum install wget -y
+
+3、下载1.6版本的nignx（1.7以上版本貌似不能用，待测）
+
+wget http://nginx.org/download/nginx-1.6.2.tar.gz
+
+下载后记得要搭建一下nginx的编译环境和运行环境
+
+4、解压到当前工作目录
+
+tar -zxvf nginx-1.6.2.tar.gz
+
+5、安装git
+
+yum install git -y
+
+6、克隆git开源项目到当前目录
+
+git clone https://github.com/arut/nginx-rtmp-module.git
+
+7、将nginx-rtmp-module模块添加到nginx中
+
+./configure --add-module=../nginx-rtmp-module --with-http_ssl_module
+
+之后执行make 和make install命令
+
+8、在nginx.config中添加rtmp模块
+
+rtmp {
+
+server {
+
+listen 1935;
+
+chunk_size 4000;
+
+#可以将mylive改成你想要的名字
+
+application mylive {
+
+live on;
+
+}
+
+    }
+
+}
+
+9、在http模块中的server中添加配置
+
+location /stat{
+
+    rtmp_stat all;
+
+    rtmp_stat_stylesheet stat.xsl;
+
+}
+
+
+
+location /stat.xsl{
+
+     root html;
+
+}
+
+10、将nginx-rtmp-module项目目录下的stat.xsl文件复制到nginx/html目录下
+
+cp stat.xsl /usr/local/nginx/html/stat.xsl
+
+11、启动nginx查看RTMP的服务器状态
+
+访问地址：192.168.138.133/stat
+
+12、下载JW Media Player
+
+下载地址：https://download.csdn.net/download/misswell/10813362
+
+13、将jwplayer解压并上传到nginx/html目录下
+
+14、创建一个live.html放到nginx/html目录下，内容如下：
+
+<script type='text/javascript' src='jwplayer/jwplayer.js'></script>
+    <b>RTMP直播系统</b>
+    <div id='mediaspace'>This text will be replaced</div>
+    <script type='text/javascript'>
+        var server = window.location.hostname;
+        // mylive 对应nginx.conf配置项application的名字
+        // live_stream 对应Adobe Flash Stream Media Live Encoder配置的stream名称
+        var live_url = 'rtmp://' + server + '/mylive' + '/live_stream';
+        jwplayer('mediaspace').setup({
+            'flashplayer': 'jwplayer/jwplayer.flash.swf',
+            'file': live_url,
+            'controlbar': 'bottom',
+            'width': '760',
+            'height': '428',
+            //autostart: true,  //如果打开此标志，在打开网页时会自动播放直播流
+        });
+    </script>
+
+15、重启nginx，浏览器访问live.html
+
+访问地址：192.168.138.133/live.html
+
+16、修改Adobe Flash Media Live Encoder相关内容
+
+1) FMS URL修改为：rtmp://192.168.138.133/mylive
+
+2) 将Stream修改为：live_stream
+
+点击Connect如果没有错误就代表连接成功
+
+17、手机当作电脑摄像头
+
+实现地址：https://jingyan.baidu.com/article/7c6fb428d90e9380642c9090.html
+下载地址：https://download.csdn.net/download/weixin_43222801/10672043
+
+
+
+

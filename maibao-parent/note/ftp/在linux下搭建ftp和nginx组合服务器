@@ -6,7 +6,7 @@
 
 2、使用yum安装ftp服务器（安装目录在/usr/sbin/vsftpd下，工作目录在/home/ftpuser下）
 
-    [root@localhost ~]# yum install vsftpd -y
+    [root@localhost ~]# yum install vsftpd -y   (-y参数代表全自动选择y)
 
 3、创建一个ftp用户：ftpuser
 
@@ -54,7 +54,7 @@
 
 2、创建ftp上传图片的工作目录
 
-    [root@localhost ~]# mkdir /home/ftpuser/www/images -p
+    [root@localhost ~]# mkdir /home/ftpuser/www/images -p  （-p参数为了在上层目录不存在时创建上层目录）
 
 3、给工作目录赋予使用权限
 
