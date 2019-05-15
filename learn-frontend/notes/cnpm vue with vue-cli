@@ -1,5 +1,5 @@
 参考链接：https://www.cnblogs.com/liluxiang/p/9592003.html
-1、安装vue
+1、安装vue（这一步可以省略，直接安装全局脚手架即可）
 
     cnpm install vue
 
@@ -13,7 +13,7 @@
 
 4、创建一个vue工程
 
-    vue init webpack first-vue （项目名不能有大写字母） yes no no no yes
+    vue init webpack first-vue （项目名不能有大写字母）first yes no no no first
 
 5、获得启动命令
 

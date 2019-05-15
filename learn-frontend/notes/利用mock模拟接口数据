@@ -1,7 +1,7 @@
 参考：https://blog.csdn.net/bocongbo/article/details/81700843
 1、安装mock.js
 
-cnpm i mockjs -D
+cnpm install mockjs -D
 
 2、在vue项目中的src目录下新建mock/json目录，并在目录中创建一个test.json文件
 

@@ -6,7 +6,7 @@ Express 是一个基于 Node.js 平台的极简、灵活的 web 应用开发框�
 
 二、搭建express开发环境
 
-1、安装express
+1、安装express（这一步可以省略，直接安装express生成器即可）
 
 在项目根目录下执行：cnpm install express --save
 
@@ -16,7 +16,7 @@ cnpm install express-generator -g
 
 3、创建一个名称为myapp的express程序
 
-express --view=pug myapp
+express --view=pug myapp   (--view=pug是指视图引擎使用pug，express有两种视图引擎pug和ejs)
 
 4、进入myapp安装依赖
 
@@ -30,7 +30,7 @@ cnpm install
 
 5、启动应用（两个命令都可以）
 
-set DEBUG=myapp:* & npm start
+set DEBUG=myapp:* & cnpm start  （启用debug模块来启动应用）
 
 npm run start
 

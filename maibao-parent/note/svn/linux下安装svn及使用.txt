@@ -69,6 +69,8 @@ svn co svn://127.0.0.1/项目名/  /root/data/ --username 用户名  --password 
 
 [root@192 db]# svn mkdir -m 'make new dir' svn://localhost/otherdir
 
+[root@192 db]# svn mkdir -m 'create a new dir' svn://localhost/fbsep --username alex --password 123
+
 14、如果windows环境提交了文件然后进行更新
 
 [root@192 db]# svn up
