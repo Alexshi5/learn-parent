@@ -43,11 +43,12 @@
 
 参考链接springboot进行参数验证
 https://blog.csdn.net/xuhuanfeng232/article/details/83894822
-https://www.cnblogs.com/mr-yang-localhost/p/7812038.html (详细使用)
 https://blog.csdn.net/Anenan/article/details/84313934 (异常处理)
 https:// https://blog.csdn.net/aiyaya_/article/details/78588200（验证枚举一）
 https:// https://blog.csdn.net/aiyaya_/article/details/78588200（验证枚举二）
 https://blog.csdn.net/liu19900205/article/details/81503511（验证日期时间）
+https://blog.csdn.net/m0_37499059/article/details/81431562（服务端进行参数验证的几种方法）
+https://blog.csdn.net/m0_37499059/article/details/81431562（方法中验证参数列表）
 参考：ValidatorConfig.java
 
 注意：对于@PathVariable以及@RequestParam的入参是不生效的，可以直接在参数上使用验证注解，但是它抛出的是ConstraintViolationException
