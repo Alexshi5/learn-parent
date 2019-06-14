@@ -131,6 +131,10 @@ cp stat.xsl /usr/local/nginx/html/stat.xsl
 实现地址：https://jingyan.baidu.com/article/7c6fb428d90e9380642c9090.html
 下载地址：https://download.csdn.net/download/weixin_43222801/10672043
 
+18、请注意：
+
+由于浏览器对flash支持的不是很友好，即使将flash设置为询问也无效，应将flash设置为允许才可以
+
 
 
 

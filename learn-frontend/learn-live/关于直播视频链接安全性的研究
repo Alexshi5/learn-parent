@@ -92,8 +92,12 @@ https://blog.csdn.net/weixin_33790053/article/details/87455552 （简单实现�
 https://blog.csdn.net/qq_40816360/article/details/84037877 （Windows10环境下 Nginx+ffmpeg 制作本地服务器HLS直播流）
 https://blog.csdn.net/qq_40816360/article/details/84071977 （video.js播放rtmp直播源和hls直播源）
 https://blog.csdn.net/baienguon/article/details/80985973 （videojs能播放mp4，不能播放rtmp流的问题解决）
+https://blog.csdn.net/weixin_34179968/article/details/86922152 （解决由于浏览器对flash的限制导致的播放问题）
+https://blog.csdn.net/hb_zhouyj/article/details/81115762 （如何将浏览器的falsh设置为允许）
 
 https://blog.csdn.net/eguid_1/article/details/51898912 （搭建直播流服务系列，可参考）
 https://blog.csdn.net/charleslei/article/details/46553619 （RTMP协议的FLASH视频直播方案所踩过的坑）
 
 https://www.imweb.io/topic/57acc19893d9938132cc8df1 （Web直播除了Flash，你还可以选择这些方案）
+
+https://blog.csdn.net/luoqiang616477607/article/details/80504716（阿里云直播的坑）

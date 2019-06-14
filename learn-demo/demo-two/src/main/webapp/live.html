@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <title >使用jwplayer.js实现rtmp流的直播播放 </title>
     <title>Title</title>
 </head>
 <body>
@@ -14,7 +15,8 @@
         // live_stream 对应Adobe Flash Stream Media Live Encoder配置的stream名称
         //var live_url = 'rtmp://' + server + '/mylive' + '/live_stream';
         //var live_url = 'rtmp://202.69.69.180:443/webcast/bshdlive-pc';
-        var live_url = 'rtmp://58.200.131.2:1935/livetv/hunantv';
+        //var live_url = 'rtmp://58.200.131.2:1935/livetv/hunantv';
+        var live_url = 'rtmp://p.v.capwhale.com/cwevent/testStream?auth_key=1560600000-0-0-184ee194be7df100aa535a6a428b38eb';
         jwplayer('mediaspace').setup({
             'flashplayer': 'js/jwplayer/jwplayer.flash.swf',
             'file': live_url,

@@ -1,0 +1,984 @@
+/*弹出层的所有样式集合*/
+
+/*当文本框不可输入时样式*/
+.el-input.is-disabled .el-input__inner{
+    background-color: #ebf2f7;
+    border-color: #ebf2f7;
+    color: #5e6d80!important;
+}
+.el-textarea.is-disabled .el-textarea__inner{
+    background-color: #ebf2f7;
+    border-color: #ebf2f7;
+    color: #5e6d80!important;
+    resize:none;
+}
+.el-textarea__inner{
+    resize:none;
+}
+::-moz-placeholder {
+    color: #5e6d80;
+}
+:-ms-input-placeholder {
+    color: #5e6d80;
+}
+::-webkit-input-placeholder {
+    color: #5e6d80;
+}
+
+/*-----------tab标签间距更改------------*/
+.el-tabs__item{
+    padding: 0 16px;
+}
+/*弹出层的标题样式*/
+.layui-layer-title {
+    background-color: #2d97f6!important;
+    color: #fff!important;
+}
+/*弹出层表格样式Start*/
+.el-table th {
+    background: #e3e7ee;
+    padding: 10px;
+    font-weight: bold;
+}
+.el-table--border td {
+    padding: 6px;
+    height: 36px;
+}
+.el-table__row:hover {
+    cursor: pointer;
+}
+.el-table--border td, .el-table--border th {
+    border-right: 1px solid #eff6fb;
+}
+.el-table td, .el-table th.is-leaf {
+    border-bottom: 1px solid #eff6fb;
+    color: #5e6d80;
+    text-align: center;
+}
+.block {
+    height: 49px;
+    text-align: right;
+}
+.patientFile_BiaoQian{
+    background: #ecf0f7;
+    padding-left: 10px;
+}
+.normalTable{
+    margin-top: 15px;
+}
+.patientFile_BiaoQianLeft{
+    margin-top: -10px;
+}
+/*弹出层表格样式End*/
+
+/*弹出框样式*/
+.popup_wrap{
+    width: 100%;
+    margin: 0 auto;
+    padding-bottom: 8px;
+    display: flex;
+    flex-flow: column;
+}
+.oneColumnAdd{
+    width: 80%;
+    margin: 25px auto;
+}
+.oneColumnAdd .el-select{
+    width: 100%;
+}
+.save_btn{
+    width:100%;
+    height: 43px;
+    line-height: 40px;
+    background: #ebf2f7;
+    padding-left: 13px;
+    margin-bottom: 8px;
+}
+.save_btn .popBtn{
+    height: 18px;
+    line-height: 18px;
+    border: 1px solid #2c98f6;
+    color: #2c98f6;
+    padding: 4px 12px;
+    cursor: pointer;
+    display: inline-block;
+    border-radius: 5px;
+    margin-right: 10px;
+}
+.save_btn .active {
+    color: #2c98f6;
+}
+.save_btn .popBtn:hover{
+    background-color: #2c98f6;
+    color: #fff;
+}
+.save_btn img{
+    vertical-align: middle;
+    cursor: pointer;
+}
+.pop_row{
+    width: 100%;
+    padding-top: 15px;
+    padding-bottom: 6px;
+    height: auto;
+    border-bottom: 1px solid #e2e9ee;
+    display: inline-table;
+}
+.pop_row .el-input__inner{
+    width: 190px;
+    height: 30px;
+    box-sizing: border-box;
+    padding-left: 5px;
+    border: 1px solid #e4e8ee;
+    border-radius: 5px;
+}
+.pop_row  .role .el-input__inner {
+    width: 100%!important;
+}
+.pop_row select{
+    width: 190px;
+    height: 30px;
+}
+.pop_row label{
+    width: 78px;
+    display: inline-block;
+}
+.pop_row select{
+    padding-left: 10px;
+    border: 1px solid #e4e8ee;
+    border-radius: 5px;
+    color: #5b6e81;
+}
+.pop_row select option{
+    background: #fff;
+    color: #5b6e81;
+}
+.sendImg_column input{
+    width: 110px;
+    height: 110px;
+}
+.pop_row .el-col-12,.pop_row .el-col-24{
+    padding-left: 15px;
+}
+/*------------分配角色--------------*/
+.table_box{
+    padding: 7px;
+}
+.table_box>div{
+    float: left;
+    width: 49%;
+}
+.leftTable .topType{
+    width: 100%;
+    height: auto;
+    border: 1px solid #eff6fc;
+}
+.leftTable .topType p{
+    height: 35px;
+    line-height: 35px;
+    padding-left: 15px;
+    background-color: #ebf2f7;
+    font-weight: bold;
+}
+.leftTable .radioBox{
+    padding: 20px 20px;
+    line-height: 25px;
+}
+.table_box .rightTable{
+    float: right;
+    margin-top: -15px;
+}
+
+/*element自带全选*/
+.checkBox{
+    margin-top: 15px;
+    position: relative;
+}
+.checkBox .role_list{
+    position: absolute;
+    top:8px;
+    left: 15px;
+    font-weight: bold;
+    z-index: 999;
+}
+.checkBox .selectAllBtn{
+    text-align: right;
+    padding-left: 0!important;
+    background-color: #ebf2f7!important;
+}
+.selectAllBtn .el-checkbox__label{
+    padding-right: 15px;
+}
+.table_box .el-checkbox{
+    width: 100%;
+    height: 35px;
+    line-height: 35px;
+    border-right: 1px solid #eff6fc;
+    border-left: 1px solid #eff6fc;
+}
+.table_box .el-checkbox__input{
+    padding-left: 15px;
+}
+.table_box .el-checkbox:last-child{
+    border-bottom: 1px solid #eff6fc;
+}
+.table_box .el-checkbox:nth-child(2n){
+    background-color: #fafbfc;
+}
+.table_box .el-checkbox+.el-checkbox{
+    margin-left: 0;
+}
+
+/*------------增加浆员样式--------------*/
+.el-form-item__error{
+    padding-top: 0;
+}
+.el-form-item{
+    margin-bottom: 12px;
+}
+/*.pop_row .el-row{*/
+    /*padding-top: 20px;*/
+/*}*/
+/*字体颜色更改*/
+.el-form-item__label{
+    color: #8898ac!important;
+}
+.grid-content .el-tabs__item{
+    font-weight: bold;
+}
+/*增加浆员*/
+/*采浆区域样式*/
+.el-button{
+    width: 0%;
+    /*border: none;*/
+    height: 30px;
+    margin-top: 5px;
+    background-color: #ebf2f7;
+    padding: 0 18px;
+    border-radius: 0;
+    border: 1px solid #ebf2f7;
+    border-left: none;
+    /* padding-left: 27px; */
+    margin-left: -52%;
+}
+.el-button:focus, .el-button:hover{
+    background-color: #ebf2f7;
+    border-color: #ebf2f7;
+}
+.el-button:active{
+    border-color: #ebf2f7;
+}
+.area_box .el-input__inner{
+    border-right: none;
+}
+/*弹出框样式*/
+.el-popover{
+    width: 220px!important;
+}
+.el-tooltip__popper[x-placement^=right] .popper__arrow::after {
+    bottom: -5px;
+    left: 1px;
+    border-right-color: #e6a23c;
+    border-left-width: 0;
+}
+.scanningId{
+    width: 100px;
+    height: 29px;
+    line-height: 28px;
+    text-align: center;
+    border: 1px solid #2d97f6;
+    color: #2d97f6;
+    display: inline-block;
+    float: right;
+    margin-top: 5px;
+}
+.pulpAdd .el-input__inner{
+    height: 30px;
+}
+.el-tabs__nav-wrap::after {
+    height: 1px;
+    background-color: #fff;
+    z-index: 1;
+}
+.el-tabs__nav-wrap::after{
+    background-color: #fff;
+}
+/*出生日期样式*/
+.calendar{
+    width: 100%;
+}
+/*日期输入框的padding-left*/
+.el-input--prefix .el-input__inner{
+    padding-left: 5px;
+}
+.age{
+    width: 100%;
+    height: 30px;
+    line-height: 30px;
+    background-color: #e5e9ef;
+    text-align: right;
+    padding-right: 10px;
+    margin-top: -6px;
+}
+#tree .tree_wrap{
+    height: 36px;
+    line-height: 36px;
+    margin-top: -9px;
+}
+#tree .tree_wrap .treeNew{
+    float: right;
+}
+.form_title{
+    font-weight: bold;
+    padding-bottom: 10px;
+    padding-top: 5px;
+    display: inline-block;
+    padding-left: 5%;
+    font-size: 15px;
+}
+/*右侧*/
+.add_wrap .left_form{
+    border-right:1px solid #e2e9ee;
+    padding-right: 20px;
+}
+/*上面部分*/
+.pulpAdd_top,.pulpAdd_bottom{
+    height: 280px;
+    /*padding-bottom: 10px;*/
+}
+.person_photo{
+    width: 97%;
+    height: 160px;
+    border: 1px dashed #e3e7ee;
+    position: relative;
+}
+.person_photoTop,.person_show{
+    height: 220px;
+}
+.preview{
+    width:126px;
+    height:163px;
+    margin: 0 auto;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+.bottomBtn{
+    padding-top: 10px;
+    text-align: center;
+}
+.bottomBtn span{
+    width: 136px;
+    height: 26px;
+    border:1px solid #e2e9ee;
+    line-height: 26px;
+    text-align: center;
+    border-radius: 3px;
+    display: inline-block;
+    cursor: pointer;
+    margin-right: 10px;
+}
+.uploadBtn{
+    width: 136px;
+    opacity: 0;
+    position: absolute;
+    left: 10px;
+    cursor: pointer;
+}
+.imghead {
+    width: 126px;
+    height: 163px;
+    margin-top: 18px!important;
+    filter:progid:
+    DXImageTransform.Microsoft.AlphaImageLoader(sizingMethod=image);
+}
+.imghead1{
+    width: 253px;
+    height: 163px;
+    margin-top: 35px!important;
+    filter:progid:
+    DXImageTransform.Microsoft.AlphaImageLoader(sizingMethod=image);
+}
+.imghead2{
+    width: 253px;
+    height: 163px;
+    margin-top: 35px!important;
+    filter:progid:
+    DXImageTransform.Microsoft.AlphaImageLoader(sizingMethod=image);
+}
+.bottomBtn span img{
+    margin-top: -3px;
+}
+.bottomBtn span b{
+    font-weight: normal;
+    padding-left: 5px;
+}
+/*身份证样式*/
+#tab-zheng,#tab-fan{
+    width: 50px;
+    height: 25px!important;
+    line-height: 23px!important;
+    border: 1px solid #e5e5e5;
+    text-align: center;
+    margin-left: 10px;
+    margin-top: 8px;
+    padding: 0 0;
+    font-weight: normal;
+    color: #5e6d80;
+}
+#tab-zheng:hover, #tab-zheng.is-active,#tab-fan:hover, #tab-fan.is-active{
+    color: #5e6d80!important;
+    background-color:#edf1f7;
+}
+.idCardPhoto .el-tabs__content{
+    overflow: visible;
+}
+.IDCard_select .el-tabs__header {
+    position: absolute;
+}
+.photoBtn{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    /*margin-top: -34px;*/
+    /*margin-left: -30px;*/
+}
+.photoBtn p{
+    color: #8898ac;
+    padding-top: 6px;
+}
+.fingerMark{
+    margin-top: -12px;
+}
+.fingerMark img{
+    width: 84px;
+    height: 116px;
+    overflow: hidden;
+}
+/*提示框背景色更改*/
+.page-login-toolTipClass{
+    background-color: #fcf8ec!important;
+    color: #e8a23d!important;
+}
+.el-tooltip__popper{
+    line-height: 25px;
+}
+/*拍照页面*/
+.take_wrap .tips{
+    height: 26px;
+    line-height: 26px;
+    padding-left: 10px;
+    background: #fefde1;
+    color: #ff0119;
+}
+.take_wrap .tips a{
+    color: #2d96f7;
+}
+.take_list li{
+    width: 250px;
+    height: 346px;
+    border: 1px dashed #e3e7ee;
+    float: left;
+    margin-left: 20px;
+    margin-right: 20px;
+    margin-top: 10px;
+    text-align: center;
+}
+.take_list li>img{
+    width: 235px;
+    height: 289px;
+    overflow: hidden;
+    padding-top: 10px;
+}
+.take_list .takeBtn{
+    width: 130px;
+    height: 30px;
+    line-height: 30px;
+    border-radius: 5px;
+    background: #6aa7f0;
+    color: #fff;
+    margin: 10px auto;
+    cursor: pointer;
+}
+.take_list .takeBtn span{
+    padding-left: 6px;
+}
+.take_list .takeBtn>img{
+    margin-top: -5px;
+}
+/*---------------指纹识别样式------------*/
+.finger_wrap{
+    width: 98%;
+    height: 325px;
+    margin: 0 auto;
+    border: 1px dashed #e2e9ee;
+}
+.finger_left{
+    height: 100%;
+    padding-top: 35px;
+    border-right: 1px dashed #e2e9ee;
+}
+.finger_right{
+    width: 250px;
+    padding-top: 10px;
+    position: relative;
+    left: 50%;
+    margin-left: -125px;
+}
+.finger_right>img{
+    width: 230px;
+    height: 230px;
+    overflow: hidden;
+}
+.handTips{
+    height: 40px;
+    padding-top: 0;
+    display: inline-block;
+}
+.handTipsComplete{
+    width: 130px;
+    height: 30px;
+    border-radius: 5px;
+    line-height: 30px;
+    color: #fff;
+    background-color: #6aa7f0;
+    text-align: center;
+    cursor: pointer;
+    display: block;
+    margin: 0 auto;
+}
+.fingerTips{
+    margin-top: 10px;
+    display: inline-block;
+}
+.fingerTips span{
+    border-radius: 20px;
+    display: block;
+    color: red;
+    background: #edf1f7;
+    padding: 4px 15px;
+}
+.startTips span{
+    visibility: hidden;
+}
+.completeCollection{
+    width: 120px;
+    height: 30px;
+    border-radius: 5px;
+    line-height: 30px;
+    text-align: center;
+    background: #2d96f7;
+    color: #fff;
+    margin: 0 auto;
+    cursor: pointer;
+    display: block;
+}
+.hands{
+    width: 335px;
+    height: 207px;
+    background: url("../../res/image/addPulp/bothHands.png")no-repeat;
+    position: relative;
+    margin: 0 auto;
+}
+.finBtn span{
+    position: absolute;
+    top:-17px;
+    cursor: pointer;
+}
+.finBtn span b{
+    position: absolute;
+    top: 0;
+    display: none;
+}
+.one{
+    left: -2px;
+}
+.two{
+    left: 31px;
+}
+.three{
+    left: 68px;
+}
+.four{
+    left: 101px;
+}
+.five{
+    left: 130px;
+}
+.six{
+    right: 130px;
+}
+.seven{
+   right: 101px;
+}
+.eight{
+    right: 68px;
+}
+.nine{
+    right: 30px;
+}
+.ten{
+    right: -3px;
+}
+.finColor span{
+    position: absolute;
+    top:45px;
+    display: none;
+}
+.finColor .active{
+    display: block!important;
+}
+
+.finBtn .active{
+    display: block!important;
+}
+.handOne{
+    top: 82px!important;
+    left: 0;
+}
+.handTwo{
+    top: 53px!important;
+    left:30px;
+}
+.handFour{
+    top: 50px!important;
+    left:100px;
+}
+.handFive{
+    top: 111px!important;
+    left: 118px;
+}
+.handSix{
+    top: 111px!important;
+    left: 194px;
+}
+.handSeven{
+    top: 52px!important;
+    right: 99px;
+}
+.handNine{
+    top: 53px!important;
+}
+.handTen{
+    top: 81px!important;
+    right: 0;
+}
+.fingerBtn_box{
+    margin-top: 10px;
+}
+.start span{
+    width: 130px;
+    height: 30px;
+    border-radius: 5px;
+    line-height: 30px;
+    color: #fff;
+    background-color:#6aa7f0;
+    text-align: center;
+    cursor: pointer;
+    display: none;
+}
+.done span{
+    width: 67px;
+    height: 26px;
+    border-radius: 5px;
+    line-height: 26px;
+    color: #fff;
+    background-color:#6aa7f0;
+    text-align: center;
+    margin-left: 10px;
+    cursor: pointer;
+    display: none;
+}
+.done .giveUp{
+    color: #5e6d80;
+    background-color:#e2e9ee;
+}
+.haveFinger span{
+    display: none;
+}
+.haveFinger .remark{
+    width: 67px;
+    height: 26px;
+    border-radius: 5px;
+    line-height: 26px;
+    color: #fff;
+    background-color:#6aa7f0;
+    text-align: center;
+    cursor: pointer;
+    display: none;
+}
+.haveFinger .delete .el-button{
+    width: 67px;
+    height: 27px;
+    border-radius: 5px;
+    line-height: 27px;
+    color: #5e6d80;
+    background-color:#e2e9ee;
+    margin-left: 10px;
+}
+/*---指纹删除按钮element样式更改---*/
+.el-message-box__header{
+    display: none;
+}
+.el-message-box__status.el-icon-warning{
+    display: none;
+}
+.el-message-box{
+    width: 240px!important;
+    padding-top: 6px;
+}
+.el-message-box__message p{
+    color: red;
+    text-align: center;
+}
+.el-message-box__btns{
+    text-align: center;
+}
+.el-message-box__btns .el-button{
+    width: 67px;
+    height: 27px;
+    border-radius: 5px;
+    line-height: 27px;
+    color: #5e6d80;
+    background-color:#e2e9ee;
+    margin-left: 10px;
+}
+.el-message-box__btns .el-button--primary{
+    background-color: #6aa7f0!important;
+    color: #fff;
+    border: none;
+}
+.el-message-box__btns .el-button:focus, .el-message-box__btns .el-button:hover{
+    color: #fff;
+    border-color: #6aa7f0;
+    background-color: #6aa7f0;
+}
+/*确定按钮*/
+.popup_wrap .confirm_btn{
+    width: 130px;
+    height: 30px;
+    line-height: 30px;
+    background-color: #2d96f7;
+    color: #fff;
+    text-align: center;
+    border-radius: 5px;
+    margin: 20px auto;
+    cursor: pointer;
+}
+/*---------输入了内容后取消绿色边框----------*/
+.el-form-item.is-success .el-input__inner, .el-form-item.is-success .el-input__inner:focus, .el-form-item.is-success .el-textarea__inner, .el-form-item.is-success .el-textarea__inner:focus{
+    border-color: #e4e8ee;
+}
+
+/*---------定量试剂（初检）----------*/
+.reagent_wrap{
+    margin-top: 20px;
+}
+.reagent_wrap>div{
+    line-height: 25px;
+    margin-top: 10px;
+}
+.reagentTitle{
+    font-weight: bold;
+}
+.reagentLeft{
+    width: 20%;
+    display: inline-block;
+}
+.reagent_wrap .lowerLimit{
+    padding-left: 20px;
+}
+.reagent_wrap input,.reagent_wrap select{
+    width: 80px;
+    height: 25px;
+    padding-left: 5px;
+    margin-left: 5px;
+    color: #5e6d80;
+}
+.reagent_wrap .area{
+    display: inline-block;
+    padding-left: 40px;
+}
+.explainText{
+    color: #ff4b4b;
+}
+.reagent_wrap .formula input{
+    width: 150px;
+}
+/*保存按钮*/
+.form-item .save{
+    width: 60px;
+    height: 24px;
+    border: 1px solid #409eff;
+    color: #409eff;
+    font-size: 13px;
+    line-height: 24px;
+    cursor: pointer;
+    padding: 0 12px;
+    border-radius: 3px;
+    text-align: center;
+    margin: 5% auto;
+}
+.form-item .save:hover{
+    background: #409eff;
+    color: #fff;
+}
+/*--------------------浆员费用发放（付款）----------------------*/
+.payment{
+    font-size: 24px;
+    text-align: center;
+    margin-top: 30px;
+}
+.payment span{
+    font-size: 24px;
+    color: #ff0000;
+}
+.payment_list{
+    margin-top: 30px;
+}
+.payment_btn{
+    margin-top: 50px;
+    text-align: center;
+}
+.payment_btn .top_button{
+    margin-left: 15px;
+}
+.payment_btn .top_button:first-child{
+    margin-left: 0;
+}
+.payment_list .el-date-editor.el-input, .el-date-editor.el-input__inner{
+    width:100%;
+}
+/*--------------------费用设置-浆员费用设置（新增）----------------------*/
+.pulpingCost  .specimen{
+    border-bottom: 2px solid #e2e9ee;
+    padding: 0;
+}
+.cost_wrap>div{
+    float: left;
+}
+.cost_wrap .leftCost{
+    width: 58%;
+}
+.cost_wrap .rightCost{
+    float: right;
+    width: 40%;
+}
+.cost_wrap .table_title{
+    border-bottom: 2px solid #e2e9ee;
+}
+.cost_wrap .save_btn{
+    background: #fff;
+}
+.cost_wrap .save_btn .popBtn{
+    margin-top: 11px;
+}
+.cost_wrap .normalTable{
+    margin-top: 0;
+}
+.form_addBox{
+    width: 95%;
+    margin: 0 auto;
+}
+/*--------------------免疫反馈（批量导入）--------------------*/
+.batchImport{
+    width: 90%;
+    margin: 10px auto;
+}
+.batchImport p{
+    line-height: 30px;
+}
+.batchImport p:first-child{
+    margin-top: -15px;
+}
+.batchImport p a{
+    margin-left: 5px;
+    color: #40AFFE;
+    text-decoration: underline;
+}
+.batchImport .box{
+    margin-top: 10px;
+}
+.batchImport input{
+    width: 75%;
+    height: 25px;
+    padding-left: 5px;
+    float: left;
+}
+.batchImport .file-box{
+    height: 25px;
+    line-height: 23px;
+    display: inline-block;
+    position: relative;
+    padding: 0 12px;
+    border-radius: 5px;
+    overflow: hidden;
+    color:#40AFFE;
+    border: 1px solid #40AFFE;
+    background-color: #fff;
+    cursor: pointer;
+    margin-left: 15px;
+}
+.file-btn{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    outline: none;
+    background-color: transparent;
+    filter:alpha(opacity=0);
+    -moz-opacity:0;
+    -khtml-opacity: 0;
+    opacity: 0;
+}
+/*--------------------免疫设置-免疫类别（新增）--------------------*/
+.immuneBoxForm .el-col{
+    padding-left: 10px;
+    padding-right: 10px;
+}
+/*-------------------------盘点审核（盘点明细）-----------------------------*/
+.bottomFixed{
+    width: 100%;
+    position: fixed;
+    bottom: 11px;
+    background: #fff;
+}
+.bottomFixedBtn span{
+    border: 1px solid #2d97f6;
+    border-radius: 5px;
+    color: #2d97f6;
+    display: inline-block;
+    padding: 5px 15px;
+    margin-top: 5px;
+}
+.bottomFixedBtn span:hover{
+    background: #2d97f6;
+    color: #fff;
+    cursor: pointer;
+}
+.bottomForm{
+    width: 100%;
+    position: fixed;
+    bottom: 5px;
+    background: #fff;
+}
+.bottomForm .el-form-item__label{
+    width: 107px!important;
+}
+.bottomForm .el-form-item__content{
+    margin-left: 107px!important;
+}
+.bottomForm .cancel{
+    margin-left: 6px;
+}
+.switch_wrap{
+    border-top: 2px solid #e2e9ee;
+    margin-top: 15px;
+}
+.switch_wrap .el-row{
+    width: 70%;
+    margin: 0 auto;
+    height: 50px;
+    line-height: 50px;
+}

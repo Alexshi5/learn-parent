@@ -1,0 +1,906 @@
+﻿*{
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    list-style-position: inherit;
+}
+body{
+    font-size: 14px;
+    font-family: 微软雅黑;
+    color: #5e6d80;
+}
+
+/*.el-tabs__header{*/
+    /*height:40px !important;*/
+/*}*/
+body,html,#app{
+    width:auto;
+    height: 100%;
+    overflow: hidden;
+    position: relative;
+}
+/*右边iframe*/
+.el-tabs__header{
+    padding: 0 0 0;
+}
+.body_left{
+    height:100%;
+    /*width: 100%;*/
+    /*max-width: 135px;*/
+    float: left;
+    min-width: 135px;
+    max-width: 145px;
+    display: inline-block;
+    _width: expression(this.offsetWidth < 100 ? '100px' : (this.offsetWidth < 135 ? 'auto' : '135px'));
+}
+
+.body_left_one{
+    left:0;
+}
+.body_left_two{
+    left:135px;
+    display: none;
+}
+input:-webkit-autofill, textarea:-webkit-autofill, select:-webkit-autofill {
+    background-color: transparent;;
+    background-image: none;
+    color: rgb(0, 0, 0);
+}
+.content {
+    padding: 7px;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+/*左侧菜单*/
+.menuShowHide{
+    display: none;
+}
+.NavMenu {
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: #2C2F38;
+}
+.el-menu-vertical-one .el-menu-item:focus, .el-menu-vertical-one .el-menu-item:hover{
+    background-color: #3B4053;
+    /*border-left: 3px solid #2c98f6;*/
+    /*padding-left: 12px!important;*/
+}
+.el-menu-vertical-one .el-submenu__title:hover{
+    background-color: #3B4053;
+}
+.el-menu-vertical-one .el-menu,.el-menu-vertical-one{
+    background-color: #2C2F38 !important;
+}
+.el-menu-vertical-one .one.is-active,.el-menu-vertical-one .one:hover{
+    background-color: #3B4053;
+    border-left: 3px solid #2c98f6;
+    color: #FFF !important;
+    padding-left: 17px!important;
+}
+/*------有二级菜单时------*/
+.el-menu-vertical-one .el-submenu.is-active,.el-menu-vertical-one .el-submenu:hover{
+    padding-left: 0!important;
+    padding-right: 0!important;
+}
+/*.el-menu-vertical-one .one:hover{*/
+    /*border-left: 3px solid #2c98f6;*/
+    /*/!*padding-left: 12px!important;*!/*/
+/*}*/
+.el-menu-item.is-active{
+    color: #2b82ef!important;
+}
+.body_left_two .NavMenu{
+    background-color: #FFF;
+}
+.leftNavMenu .el-submenu__title{
+    background-color: #fff;
+    color: #5b6e81!important;
+}
+.leftNavMenu .is-active{
+    background-color: #E3E8EE;
+    color: #5e6d80!important;
+}
+.NavMenu::-webkit-scrollbar{
+    display:none;
+}
+.el-icon-menu{
+    width:14px !important;
+    margin-right: 10px !important;
+}
+.menuitem{
+    padding:0 !important;
+}
+.el-submenu .el-menu-item{
+    min-width: 0;
+}
+.el-menu{
+    border-right: none;
+}
+/*日期图标消失*/
+.el-date-editor .el-input__icon {
+    position: absolute;
+    right: 0;
+    display: none;
+}
+.el-date-editor--daterange.el-input, .el-date-editor--daterange.el-input__inner, .el-date-editor--timerange.el-input, .el-date-editor--timerange.el-input__inner{
+    width: 100%;
+}
+/*内容*/
+.Content{
+    width:100%;
+    height:100%;
+    padding-left: 136px;
+    overflow: hidden;
+    box-sizing: border-box !important;
+}
+/*登录页loading图标*/
+.loadingType2 {
+    position: absolute;
+    z-index: 999;
+    background: rgba(0,0,0,.5);
+    left: 50%;
+    color: white;
+    top: 50%;
+    transform: translate(-50%,-50%);
+    border-radius: 5px;
+    text-align: center;
+    display: block;
+    width: 110px;
+    height: 110px;
+    padding: 10px;
+}
+.loadingWrapper {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 100%;
+    transform: translate(-50%,-50%);
+}
+.loadingWrapper>img {
+    display: block;
+    margin: 0 auto;
+    width: 55px;
+    margin-bottom: 10px;
+}
+img {
+    border: none;
+}
+
+/*---------------icon按钮添加------------*/
+/*---------------二级按钮------------*/
+.secIcon{
+    background: url(../image/icon/secIcon.png) no-repeat;
+    width: 7px;
+    height: 7px;
+    display: inline-block;
+}
+.threeIcon{
+    background: url(../image/icon/threeIcon.png) no-repeat;
+    width: 7px;
+    height: 7px;
+    display: inline-block;
+}
+.threeIconDown{
+    background: url(../image/icon/threeIconDown.png) no-repeat;
+    width: 7px;
+    height: 7px;
+    display: inline-block;
+}
+/*---------------按钮1------------*/
+.icon_gray01{
+    background: url(../image/icon/icon_black01.png) no-repeat;
+    width: 16px;
+    height: 16px;
+    display: inline-block;
+}
+.icon_white01{
+    background: url(../image/icon/icon_white01.png) no-repeat;
+    width: 16px;
+    height: 16px;
+    display: inline-block;
+}
+/*---------------按钮2------------*/
+.icon_gray02{
+    background: url(../image/icon/icon_black02.png) no-repeat;
+    width: 16px;
+    height: 16px;
+    display: inline-block;
+}
+.icon_white02{
+    background: url(../image/icon/icon_white02.png) no-repeat;
+    width: 16px;
+    height: 16px;
+    display: inline-block;
+}
+/*---------------按钮3------------*/
+.icon_gray03{
+    background: url(../image/icon/icon_black03.png) no-repeat;
+    width: 16px;
+    height: 16px;
+    display: inline-block;
+}
+.icon_white03{
+    background: url(../image/icon/icon_white03.png) no-repeat;
+    width: 16px;
+    height: 16px;
+    display: inline-block;
+}
+/*---------------按钮4------------*/
+.icon_gray04{
+    background: url(../image/icon/icon_black04.png) no-repeat;
+    width: 16px;
+    height: 16px;
+    display: inline-block;
+}
+.icon_white04{
+    background: url(../image/icon/icon_white04.png) no-repeat;
+    width: 16px;
+    height: 16px;
+    display: inline-block;
+}
+/*---------------按钮5------------*/
+.icon_gray05{
+    background: url(../image/icon/icon_black05.png) no-repeat;
+    width: 16px;
+    height: 16px;
+    display: inline-block;
+}
+.icon_white05{
+    background: url(../image/icon/icon_white05.png) no-repeat;
+    width: 16px;
+    height: 16px;
+    display: inline-block;
+}
+/*---------------按钮6------------*/
+.icon_gray06{
+    background: url(../image/icon/icon_black06.png) no-repeat;
+    width: 16px;
+    height: 16px;
+    display: inline-block;
+}
+.icon_white06{
+    background: url(../image/icon/icon_white06.png) no-repeat;
+    width: 16px;
+    height: 16px;
+    display: inline-block;
+}
+/*---------------按钮7------------*/
+.icon_gray07{
+    background: url(../image/icon/icon_black07.png) no-repeat;
+    width: 16px;
+    height: 16px;
+    display: inline-block;
+}
+.icon_white07{
+    background: url(../image/icon/icon_white07.png) no-repeat;
+    width: 16px;
+    height: 16px;
+    display: inline-block;
+}
+/*---------------按钮8------------*/
+.icon_gray08{
+    background: url(../image/icon/icon_black08.png) no-repeat;
+    width: 16px;
+    height: 16px;
+    display: inline-block;
+}
+.icon_white08{
+    background: url(../image/icon/icon_white08.png) no-repeat;
+    width: 16px;
+    height: 16px;
+    display: inline-block;
+}
+/*---------------按钮9------------*/
+.icon_gray09{
+    background: url(../image/icon/icon_black09.png) no-repeat;
+    width: 16px;
+    height: 16px;
+    display: inline-block;
+}
+.icon_white09{
+    background: url(../image/icon/icon_white09.png) no-repeat;
+    width: 16px;
+    height: 16px;
+    display: inline-block;
+}
+/*---------------按钮10------------*/
+.icon_gray10{
+    background: url(../image/icon/icon_black10.png) no-repeat;
+    width: 16px;
+    height: 16px;
+    display: inline-block;
+}
+.icon_white10{
+    background: url(../image/icon/icon_white10.png) no-repeat;
+    width: 16px;
+    height: 16px;
+    display: inline-block;
+}
+/*---------------按钮11------------*/
+.icon_gray11{
+    background: url(../image/icon/icon_black11.png) no-repeat;
+    width: 16px;
+    height: 16px;
+    display: inline-block;
+}
+.icon_white11{
+    background: url(../image/icon/icon_white11.png) no-repeat;
+    width: 16px;
+    height: 16px;
+    display: inline-block;
+}
+/*---------------按钮12------------*/
+.icon_gray12{
+    background: url(../image/icon/icon_black12.png) no-repeat;
+    width: 16px;
+    height: 16px;
+    display: inline-block;
+}
+.icon_white12{
+    background: url(../image/icon/icon_white12.png) no-repeat;
+    width: 16px;
+    height: 16px;
+    display: inline-block;
+}
+/*---------------按钮13------------*/
+.icon_gray13{
+    background: url(../image/icon/icon_black13.png) no-repeat;
+    width: 16px;
+    height: 16px;
+    display: inline-block;
+}
+.icon_white13{
+    background: url(../image/icon/icon_white13.png) no-repeat;
+    width: 16px;
+    height: 16px;
+    display: inline-block;
+}
+/*---------------按钮14------------*/
+.icon_gray14{
+    background: url(../image/icon/icon_black14.png) no-repeat;
+    width: 16px;
+    height: 16px;
+    display: inline-block;
+}
+.icon_white14{
+    background: url(../image/icon/icon_white14.png) no-repeat;
+    width: 16px;
+    height: 16px;
+    display: inline-block;
+}
+/*---------------按钮15------------*/
+.icon_gray15{
+    background: url(../image/icon/icon_black15.png) no-repeat;
+    width: 16px;
+    height: 16px;
+    display: inline-block;
+}
+.icon_white15{
+    background: url(../image/icon/icon_white15.png) no-repeat;
+    width: 16px;
+    height: 16px;
+    display: inline-block;
+}
+/*---------------按钮16------------*/
+.icon_gray16{
+    background: url(../image/icon/icon_black16.png) no-repeat;
+    width: 16px;
+    height: 16px;
+    display: inline-block;
+}
+.icon_white16{
+    background: url(../image/icon/icon_white16.png) no-repeat;
+    width: 16px;
+    height: 16px;
+    display: inline-block;
+}
+/*---------------按钮17------------*/
+.icon_gray17{
+    background: url(../image/icon/icon_black17.png) no-repeat;
+    width: 16px;
+    height: 16px;
+    display: inline-block;
+}
+.icon_white17{
+    background: url(../image/icon/icon_white17.png) no-repeat;
+    width: 16px;
+    height: 16px;
+    display: inline-block;
+}
+/*---------------按钮18------------*/
+.icon_gray18{
+    background: url(../image/icon/icon_black18.png) no-repeat;
+    width: 16px;
+    height: 16px;
+    display: inline-block;
+}
+.icon_white18{
+    background: url(../image/icon/icon_white18.png) no-repeat;
+    width: 16px;
+    height: 16px;
+    display: inline-block;
+}
+/*---------------按钮19------------*/
+.icon_gray19{
+    background: url(../image/icon/icon_black19.png) no-repeat;
+    width: 16px;
+    height: 16px;
+    display: inline-block;
+}
+.icon_white19{
+    background: url(../image/icon/icon_white19.png) no-repeat;
+    width: 16px;
+    height: 16px;
+    display: inline-block;
+}
+/*---------------按钮20------------*/
+.icon_gray20{
+    background: url(../image/icon/icon_black20.png) no-repeat;
+    width: 16px;
+    height: 16px;
+    display: inline-block;
+}
+.icon_white20{
+    background: url(../image/icon/icon_white20.png) no-repeat;
+    width: 16px;
+    height: 16px;
+    display: inline-block;
+}
+/*---------------按钮21------------*/
+.icon_gray21{
+    background: url(../image/icon/icon_black21.png) no-repeat;
+    width: 16px;
+    height: 16px;
+    display: inline-block;
+}
+.icon_white21{
+    background: url(../image/icon/icon_white21.png) no-repeat;
+    width: 16px;
+    height: 16px;
+    display: inline-block;
+}
+/*---------------按钮22------------*/
+.icon_gray22{
+    background: url(../image/icon/icon_black22.png) no-repeat;
+    width: 16px;
+    height: 16px;
+    display: inline-block;
+}
+.icon_white22{
+    background: url(../image/icon/icon_white22.png) no-repeat;
+    width: 16px;
+    height: 16px;
+    display: inline-block;
+}
+/*---------------按钮23------------*/
+.icon_gray23{
+    background: url(../image/icon/icon_black23.png) no-repeat;
+    width: 16px;
+    height: 16px;
+    display: inline-block;
+}
+.icon_white23{
+    background: url(../image/icon/icon_white23.png) no-repeat;
+    width: 16px;
+    height: 16px;
+    display: inline-block;
+}
+/*---------------按钮24------------*/
+.icon_gray24{
+    background: url(../image/icon/icon_black24.png) no-repeat;
+    width: 16px;
+    height: 16px;
+    display: inline-block;
+}
+.icon_white24{
+    background: url(../image/icon/icon_white24.png) no-repeat;
+    width: 16px;
+    height: 16px;
+    display: inline-block;
+}
+/*---------------按钮25------------*/
+.icon_gray25{
+    background: url(../image/icon/icon_black25.png) no-repeat;
+    width: 16px;
+    height: 16px;
+    display: inline-block;
+}
+.icon_white25{
+    background: url(../image/icon/icon_white25.png) no-repeat;
+    width: 16px;
+    height: 16px;
+    display: inline-block;
+}
+/*---------------按钮26------------*/
+.icon_gray26{
+    background: url(../image/icon/icon_black26.png) no-repeat;
+    width: 16px;
+    height: 16px;
+    display: inline-block;
+}
+.icon_white26{
+    background: url(../image/icon/icon_white26.png) no-repeat;
+    width: 16px;
+    height: 16px;
+    display: inline-block;
+}
+/*---------------按钮27------------*/
+.icon_gray27{
+    background: url(../image/icon/icon_black27.png) no-repeat;
+    width: 16px;
+    height: 16px;
+    display: inline-block;
+}
+.icon_white27{
+    background: url(../image/icon/icon_white27.png) no-repeat;
+    width: 16px;
+    height: 16px;
+    display: inline-block;
+}
+/*---------------按钮28------------*/
+.icon_gray28{
+    background: url(../image/icon/icon_black28.png) no-repeat;
+    width: 16px;
+    height: 16px;
+    display: inline-block;
+}
+.icon_white28{
+    background: url(../image/icon/icon_white28.png) no-repeat;
+    width: 16px;
+    height: 16px;
+    display: inline-block;
+}
+/*---------------按钮29------------*/
+.icon_gray29{
+    background: url(../image/icon/icon_black29.png) no-repeat;
+    width: 16px;
+    height: 16px;
+    display: inline-block;
+}
+.icon_white29{
+    background: url(../image/icon/icon_white29.png) no-repeat;
+    width: 16px;
+    height: 16px;
+    display: inline-block;
+}
+/*---------------按钮30------------*/
+.icon_gray30{
+    background: url(../image/icon/icon_black30.png) no-repeat;
+    width: 16px;
+    height: 16px;
+    display: inline-block;
+}
+.icon_white30{
+    background: url(../image/icon/icon_white30.png) no-repeat;
+    width: 16px;
+    height: 16px;
+    display: inline-block;
+}
+/*---------------按钮31------------*/
+.icon_gray31{
+    background: url(../image/icon/icon_black31.png) no-repeat;
+    width: 16px;
+    height: 16px;
+    display: inline-block;
+}
+.icon_white31{
+    background: url(../image/icon/icon_white31.png) no-repeat;
+    width: 16px;
+    height: 16px;
+    display: inline-block;
+}
+/*---------------按钮32------------*/
+.icon_gray32{
+    background: url(../image/icon/icon_black32.png) no-repeat;
+    width: 16px;
+    height: 16px;
+    display: inline-block;
+}
+.icon_white32{
+    background: url(../image/icon/icon_white32.png) no-repeat;
+    width: 16px;
+    height: 16px;
+    display: inline-block;
+}
+/*---------------按钮33------------*/
+.icon_gray33{
+    background: url(../image/icon/icon_black33.png) no-repeat;
+    width: 16px;
+    height: 16px;
+    display: inline-block;
+}
+.icon_white33{
+    background: url(../image/icon/icon_white33.png) no-repeat;
+    width: 16px;
+    height: 16px;
+    display: inline-block;
+}
+/*---------------按钮34------------*/
+.icon_gray34{
+    background: url(../image/icon/icon_black34.png) no-repeat;
+    width: 16px;
+    height: 16px;
+    display: inline-block;
+}
+.icon_white34{
+    background: url(../image/icon/icon_white34.png) no-repeat;
+    width: 16px;
+    height: 16px;
+    display: inline-block;
+}
+/*---------------按钮35------------*/
+.icon_gray35{
+    background: url(../image/icon/icon_black35.png) no-repeat;
+    width: 16px;
+    height: 16px;
+    display: inline-block;
+}
+.icon_white35{
+    background: url(../image/icon/icon_white35.png) no-repeat;
+    width: 16px;
+    height: 16px;
+    display: inline-block;
+}
+/*---------------按钮36------------*/
+.icon_gray36{
+    background: url(../image/icon/icon_black36.png) no-repeat;
+    width: 16px;
+    height: 16px;
+    display: inline-block;
+}
+.icon_white36{
+    background: url(../image/icon/icon_white36.png) no-repeat;
+    width: 16px;
+    height: 16px;
+    display: inline-block;
+}
+/*---------------按钮37------------*/
+.icon_gray37{
+    background: url(../image/icon/icon_black37.png) no-repeat;
+    width: 16px;
+    height: 16px;
+    display: inline-block;
+}
+.icon_white37{
+    background: url(../image/icon/icon_white37.png) no-repeat;
+    width: 16px;
+    height: 16px;
+    display: inline-block;
+}
+/*---------------按钮38------------*/
+.icon_gray38{
+    background: url(../image/icon/icon_black38.png) no-repeat;
+    width: 16px;
+    height: 16px;
+    display: inline-block;
+}
+.icon_white38{
+    background: url(../image/icon/icon_white38.png) no-repeat;
+    width: 16px;
+    height: 16px;
+    display: inline-block;
+}
+/*---------------按钮39------------*/
+.icon_gray39{
+    background: url(../image/icon/icon_black39.png) no-repeat;
+    width: 16px;
+    height: 16px;
+    display: inline-block;
+}
+.icon_white39{
+    background: url(../image/icon/icon_white39.png) no-repeat;
+    width: 16px;
+    height: 16px;
+    display: inline-block;
+}
+/*---------------按钮40------------*/
+.icon_gray40{
+    background: url(../image/icon/icon_black40.png) no-repeat;
+    width: 16px;
+    height: 16px;
+    display: inline-block;
+}
+.icon_white40{
+    background: url(../image/icon/icon_white40.png) no-repeat;
+    width: 16px;
+    height: 16px;
+    display: inline-block;
+}
+/*---------------按钮41------------*/
+.icon_gray41{
+    background: url(../image/icon/icon_black41.png) no-repeat;
+    width: 16px;
+    height: 16px;
+    display: inline-block;
+}
+.icon_white41{
+    background: url(../image/icon/icon_white41.png) no-repeat;
+    width: 16px;
+    height: 16px;
+    display: inline-block;
+}
+/*---------------按钮42------------*/
+.icon_gray42{
+    background: url(../image/icon/icon_black42.png) no-repeat;
+    width: 16px;
+    height: 16px;
+    display: inline-block;
+}
+.icon_white42{
+    background: url(../image/icon/icon_white42.png) no-repeat;
+    width: 16px;
+    height: 16px;
+    display: inline-block;
+}
+/*---------------按钮43------------*/
+.icon_gray43{
+    background: url(../image/icon/icon_black43.png) no-repeat;
+    width: 16px;
+    height: 16px;
+    display: inline-block;
+}
+.icon_white43{
+    background: url(../image/icon/icon_white43.png) no-repeat;
+    width: 16px;
+    height: 16px;
+    display: inline-block;
+}
+/*---------------按钮44------------*/
+.icon_gray44{
+    background: url(../image/icon/icon_black44.png) no-repeat;
+    width: 16px;
+    height: 16px;
+    display: inline-block;
+}
+.icon_white44{
+    background: url(../image/icon/icon_white44.png) no-repeat;
+    width: 16px;
+    height: 16px;
+    display: inline-block;
+}
+/*---------------按钮45------------*/
+.icon_gray45{
+    background: url(../image/icon/icon_black45.png) no-repeat;
+    width: 16px;
+    height: 16px;
+    display: inline-block;
+}
+.icon_white45{
+    background: url(../image/icon/icon_white45.png) no-repeat;
+    width: 16px;
+    height: 16px;
+    display: inline-block;
+}
+/*---------------按钮46------------*/
+.icon_gray46{
+    background: url(../image/icon/icon_black46.png) no-repeat;
+    width: 16px;
+    height: 16px;
+    display: inline-block;
+}
+.icon_white46{
+    background: url(../image/icon/icon_white46.png) no-repeat;
+    width: 16px;
+    height: 16px;
+    display: inline-block;
+}
+/*---------------按钮47------------*/
+.icon_gray47{
+    background: url(../image/icon/icon_black47.png) no-repeat;
+    width: 16px;
+    height: 16px;
+    display: inline-block;
+}
+.icon_white47{
+    background: url(../image/icon/icon_white47.png) no-repeat;
+    width: 16px;
+    height: 16px;
+    display: inline-block;
+}
+/*---------------按钮48------------*/
+.icon_gray48{
+    background: url(../image/icon/icon_black48.png) no-repeat;
+    width: 16px;
+    height: 16px;
+    display: inline-block;
+}
+.icon_white48{
+    background: url(../image/icon/icon_white48.png) no-repeat;
+    width: 16px;
+    height: 16px;
+    display: inline-block;
+}
+/*---------------按钮49------------*/
+.icon_gray49{
+    background: url(../image/icon/icon_black49.png) no-repeat;
+    width: 16px;
+    height: 16px;
+    display: inline-block;
+}
+.icon_white49{
+    background: url(../image/icon/icon_white49.png) no-repeat;
+    width: 16px;
+    height: 16px;
+    display: inline-block;
+}
+/*---------------按钮50------------*/
+.icon_gray50{
+    background: url(../image/icon/icon_black50.png) no-repeat;
+    width: 16px;
+    height: 16px;
+    display: inline-block;
+}
+.icon_white50{
+    background: url(../image/icon/icon_white50.png) no-repeat;
+    width: 16px;
+    height: 16px;
+    display: inline-block;
+}
+/*---------------按钮51------------*/
+.icon_gray51{
+    background: url(../image/icon/icon_black51.png) no-repeat;
+    width: 16px;
+    height: 16px;
+    display: inline-block;
+}
+.icon_white51{
+    background: url(../image/icon/icon_white51.png) no-repeat;
+    width: 16px;
+    height: 16px;
+    display: inline-block;
+}
+/*---------------按钮52------------*/
+.icon_gray52{
+    background: url(../image/icon/icon_black52.png) no-repeat;
+    width: 16px;
+    height: 16px;
+    display: inline-block;
+}
+.icon_white52{
+    background: url(../image/icon/icon_white52.png) no-repeat;
+    width: 16px;
+    height: 16px;
+    display: inline-block;
+}
+/*---------------按钮53------------*/
+.icon_gray53{
+    background: url(../image/icon/icon_black53.png) no-repeat;
+    width: 16px;
+    height: 16px;
+    display: inline-block;
+}
+.icon_white53{
+    background: url(../image/icon/icon_white53.png) no-repeat;
+    width: 16px;
+    height: 16px;
+    display: inline-block;
+}
+/*---------------按钮54------------*/
+.icon_gray54{
+    background: url(../image/icon/icon_black54.png) no-repeat;
+    width: 16px;
+    height: 16px;
+    display: inline-block;
+}
+.icon_white54{
+    background: url(../image/icon/icon_white54.png) no-repeat;
+    width: 16px;
+    height: 16px;
+    display: inline-block;
+}
+/*---------------按钮55------------*/
+.icon_gray55{
+    background: url(../image/icon/icon_black55.png) no-repeat;
+    width: 16px;
+    height: 16px;
+    display: inline-block;
+}
+.icon_white55{
+    background: url(../image/icon/icon_white55.png) no-repeat;
+    width: 16px;
+    height: 16px;
+    display: inline-block;
+}
+.el-tabs__item .el-icon-close:hover{color:#409EFF}
