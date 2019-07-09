@@ -2,6 +2,7 @@ package com.mengfei.security.controller;
 
 import com.google.gson.JsonArray;
 import com.google.gson.JsonObject;
+import com.mengfei.security.RestResponse;
 import com.mengfei.security.ReturnMessage;
 import com.mengfei.security.pojo.Menulist;
 import com.mengfei.security.pojo.Rolepriinfo;
@@ -91,13 +92,13 @@ public class PermissionController {
 
     @RequestMapping("/account/update")
     @RequiresPermissions("/api/account/update")
-    public String update(){
-        return "update sucess";
+    public RestResponse update(){
+        return RestResponse.success("update sucess");
     }
 
     @RequestMapping("/account/delete")
     @RequiresPermissions("/api/account/delete")
-    public String delete(){
-        return "delete sucess";
+    public RestResponse delete(){
+        return RestResponse.success("update delete");
     }
 }

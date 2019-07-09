@@ -5,7 +5,10 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
+
 import java.sql.Timestamp;
+import java.util.List;
+import java.util.Set;
 
 public interface MenufunctionlistRepository extends JpaRepository<Menufunctionlist, Long>
 {
@@ -35,6 +38,10 @@ public interface MenufunctionlistRepository extends JpaRepository<Menufunctionli
 	**/
 	Menufunctionlist findTop1ByFuncno(String funcno);
 	//endregion
+
+	List<Menufunctionlist> findByFuncnoIn(Set<String> funcnoSet);
+
+	List<Menufunctionlist> findByIdIn(Set<Long> funcids);
 
 	//region 根据功能名称funcname查找记录
 	/**

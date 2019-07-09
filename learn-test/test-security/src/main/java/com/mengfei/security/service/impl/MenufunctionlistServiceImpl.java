@@ -11,6 +11,8 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.sql.Timestamp;
+import java.util.List;
+import java.util.Set;
 
 @Service
 public class MenufunctionlistServiceImpl implements MenufunctionlistService {
@@ -64,7 +66,25 @@ public class MenufunctionlistServiceImpl implements MenufunctionlistService {
 		}
 		return new ReturnMessage<Menufunctionlist>("00","获取成功",model);
 	}
+
+	@Override
+	public ReturnMessage<Menufunctionlist> findByFuncnos(Set<String> funcnoSet) {
+		List<Menufunctionlist> model= menufunctionlistRepository.findByFuncnoIn(funcnoSet);
+		if(model==null){
+			return new ReturnMessage<Menufunctionlist>(true,"99","信息错误");
+		}
+		return new ReturnMessage<Menufunctionlist>("00","获取成功",model);
+	}
 	//endregion
+
+	@Override
+	public ReturnMessage<Menufunctionlist> findByFuncids(Set<Long> funcids) {
+		List<Menufunctionlist> model= menufunctionlistRepository.findByIdIn(funcids);
+		if(model==null){
+			return new ReturnMessage<Menufunctionlist>(true,"99","信息错误");
+		}
+		return new ReturnMessage<Menufunctionlist>("00","获取成功",model);
+	}
 
 	//region 根据功能名称funcname查找记录
 	/**

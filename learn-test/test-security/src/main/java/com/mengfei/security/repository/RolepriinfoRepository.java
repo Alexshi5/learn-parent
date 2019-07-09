@@ -90,5 +90,7 @@ public interface RolepriinfoRepository extends JpaRepository<Rolepriinfo, Long>
 
 	List<Rolepriinfo> findByRoleidInAndFuncid(Set<Long> roleIdSet, long funcid);
 
+	List<Rolepriinfo> findByRoleidIn(Set<Long> roleIdSet);
+
 	List<Rolepriinfo> findByMenuidInAndFuncidNot(Set<Long> menuIdSet, long funcid);
 }

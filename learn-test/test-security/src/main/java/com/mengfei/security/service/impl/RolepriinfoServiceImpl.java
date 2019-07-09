@@ -152,6 +152,16 @@ public class RolepriinfoServiceImpl implements RolepriinfoService {
 	//endregion
 
 	@Override
+	public ReturnMessage<Rolepriinfo> findByRoleIdSet(Set<Long> roleIdSet) {
+		List<Rolepriinfo> model = this.rolepriinfoRepository.findByRoleidIn(roleIdSet);
+		if(model==null){
+			return new ReturnMessage<Rolepriinfo>(true,"99","信息错误");
+		}
+		return new ReturnMessage<Rolepriinfo>("00","获取成功",model);
+	}
+	//endregion
+
+	@Override
 	public ReturnMessage<Rolepriinfo> findByMenuidInAndFuncidNot(Set<Long> roleIdSet, long funcid) {
 		List<Rolepriinfo> model = this.rolepriinfoRepository.findByMenuidInAndFuncidNot(roleIdSet, funcid);
 		if(model==null){
@@ -159,6 +169,6 @@ public class RolepriinfoServiceImpl implements RolepriinfoService {
 		}
 		return new ReturnMessage<Rolepriinfo>("00","获取成功",model);
 	}
-	//endregion
+
 
 }

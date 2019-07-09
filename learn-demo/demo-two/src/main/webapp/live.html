@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <title >使用jwplayer.js实现rtmp流的直播播放 </title>
     <title>Title</title>
+    <!--如果无法播放请尝试开启浏览器的flash功能-->
 </head>
 <body>
 <script type='text/javascript' src='js/jwplayer/jwplayer.js'></script>
@@ -16,7 +17,7 @@
         //var live_url = 'rtmp://' + server + '/mylive' + '/live_stream';
         //var live_url = 'rtmp://202.69.69.180:443/webcast/bshdlive-pc';
         //var live_url = 'rtmp://58.200.131.2:1935/livetv/hunantv';
-        var live_url = 'rtmp://p.v.capwhale.com/cwevent/testStream?auth_key=1560600000-0-0-184ee194be7df100aa535a6a428b38eb';
+        var live_url = 'rtmp://p.v.capwhale.com/cwkmc/1100010_25?auth_key=1562139684607-0-0-ef9f24079b1bac3355344ab1f696fa7d';
         jwplayer('mediaspace').setup({
             'flashplayer': 'js/jwplayer/jwplayer.flash.swf',
             'file': live_url,

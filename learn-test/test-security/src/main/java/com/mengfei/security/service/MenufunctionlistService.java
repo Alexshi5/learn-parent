@@ -3,7 +3,10 @@ package com.mengfei.security.service;
 import com.mengfei.security.ReturnMessage;
 import com.mengfei.security.pojo.Menufunctionlist;
 import org.springframework.stereotype.Service;
+
 import java.sql.Timestamp;
+import java.util.Set;
+
 @Service
 public interface MenufunctionlistService{
 	//region 根据序号id查找记录
@@ -32,6 +35,10 @@ public interface MenufunctionlistService{
 	**/
 	ReturnMessage<Menufunctionlist> findByFuncno(String funcno);
 	//endregion
+
+	ReturnMessage<Menufunctionlist> findByFuncnos(Set<String> funcnoSet);
+
+	ReturnMessage<Menufunctionlist> findByFuncids(Set<Long> funcids);
 
 	//region 根据功能名称funcname查找记录
 	/**

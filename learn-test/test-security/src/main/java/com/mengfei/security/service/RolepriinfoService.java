@@ -85,4 +85,7 @@ public interface RolepriinfoService{
 
 	//通过菜单ID集合查询功能列表
 	ReturnMessage<Rolepriinfo> findByMenuidInAndFuncidNot(Set<Long> roleIdSet, long funcid);
+
+	//通过角色集合查询所有
+	ReturnMessage<Rolepriinfo> findByRoleIdSet(Set<Long> roleIdSet);
 }
