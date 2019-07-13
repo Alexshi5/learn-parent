@@ -11,6 +11,7 @@ import java.util.Map;
  * description 利用反射来循环获取对象的属性以及属性值
  */
 public class Student {
+    public String test;
     private String name;
     private String age;
     private String phone;
@@ -42,6 +43,12 @@ public class Student {
 
 class StudentTest{
     public static void main(String[] args) {
+        StudentTest test = new StudentTest();
+        //test.example1();
+        test.example2();
+    }
+
+    public void example1(){
         try {
             Student student = new Student();
             student.setName("zhangsan");
@@ -61,6 +68,36 @@ class StudentTest{
             System.out.println(map.size() + map.get("name"));
         }catch (Exception e){
             e.getStackTrace();
+        }
+    }
+
+    public void example2(){
+        Integer a = 10, b = 5;
+        System.out.println("a=" + a + ",b=" + b);
+        this.example3(a,b);
+        System.out.println("a=" + a + ",b=" + b);
+    }
+
+    private void example3(int a, int b){
+       // Class<Integer> integerClass1 = int.class;
+        //Class<Integer> integerClass2 = Integer.TYPE;
+
+        /*Class<Integer> studentClass = Integer.class;
+        Field[] fields = studentClass.getDeclaredFields();
+        for(Field field : fields){
+            System.out.println(field.getName());
+        }*/
+
+        try {
+            int temp = a;
+            Field value = Integer.class.getDeclaredField("value");
+            value.setAccessible(true);
+            value.setInt(a, b);
+            value.setInt(b, temp);
+
+            System.in.read();
+        } catch (Exception e) {
+            e.printStackTrace();
         }
     }
 }
