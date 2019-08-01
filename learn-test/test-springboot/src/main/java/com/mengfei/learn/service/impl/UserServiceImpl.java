@@ -100,4 +100,14 @@ public class UserServiceImpl implements UserService {
         userInfo1.setState(1);
         userInfo1.setUserInfoDesc("使用实体管理器对托管态用户信息进行更新");
     }
+
+    @Override
+    @Transactional(value = "demo2TransactionManager",rollbackFor = CustomException.class)
+    public void save7(UserInfo userInfo) throws CustomException {
+        UserInfo userInfo1 = this.userInfoRepository.findById(userInfo.getOid()).get();
+        userInfo1.setState(1);
+        userInfo1.setUserInfoDesc("使用实体管理器对托管态用户信息进行更新");
+
+        //int i = 10/0;
+    }
 }

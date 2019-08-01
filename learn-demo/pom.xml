@@ -17,6 +17,8 @@
     <modules>
         <module>demo-one</module>
         <module>demo-two</module>
+        <module>springboot-demo1</module>
+        <module>springboot-demo2</module>
     </modules>
 
     <dependencies>

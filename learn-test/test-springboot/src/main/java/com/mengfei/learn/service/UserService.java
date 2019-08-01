@@ -19,4 +19,6 @@ public interface UserService {
     Integer save5(UserInfo userInfo) throws CustomException;
 
     void save6(UserInfo userInfo) throws CustomException;
+
+    void save7(UserInfo userInfo) throws CustomException;
 }

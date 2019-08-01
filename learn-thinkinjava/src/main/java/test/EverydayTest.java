@@ -1,7 +1,11 @@
 package test;
 
+import org.apache.commons.lang3.StringUtils;
+import org.codehaus.jettison.json.JSONException;
+import org.codehaus.jettison.json.JSONObject;
 import org.junit.Test;
 
+import java.lang.reflect.Method;
 import java.util.*;
 
 public class EverydayTest {
@@ -140,5 +144,116 @@ public class EverydayTest {
         for(String s : list){
             System.out.println(s);
         }
+    }
+
+    @Test
+    public void example8(){
+        String clienttype = "pc";
+        short enumValue = this.getEnumValue(clienttype, EnumClientType.class);
+        System.out.println(enumValue);
+    }
+    private short getEnumValue(String enumCode, Class<?> clz){
+        short enumValue = -1;
+        if(StringUtils.isNotBlank(enumCode)){
+            enumCode = enumCode.toUpperCase();
+            try {
+                Method method = clz.getMethod("getValue");
+                Object[] enumConstants = clz.getEnumConstants();
+                for(Object val : enumConstants){
+                    if(val.toString().equals(enumCode)){
+                        enumValue = Short.valueOf(method.invoke(val).toString());
+                        break;
+                    }
+                }
+            }catch (Exception e){
+                e.printStackTrace();
+            }
+        }
+        return enumValue;
+    }
+    enum EnumClientType{
+        None((short) 0, "无"),
+        PC((short) 1, "PC"),
+        Mobile((short) 2, "移动"),
+        WeiXin((short) 3, "微信"),
+        MiniProgram((short) 4, "小程序"),
+        SmallRoutine((short) 5, "App");
+        private short value;
+        private String text;
+
+        EnumClientType(short value, String text) {
+            this.value = value;
+            this.text = text;
+        }
+
+        public static EnumClientType get(short v) {
+            for (EnumClientType e : values()) {
+                if (e.getValue() == v) {
+                    return e;
+                }
+            }
+            return null;
+        }
+
+        public short getValue() {
+            return value;
+        }
+
+        public String getText() {
+            return text;
+        }
+
+        public Object getEnumValue() {
+            return value;
+        }
+
+        public Object getEnumText() {
+            return text;
+        }
+    }
+
+    @Test
+    public void example9() throws JSONException {
+        JSONObject jsonObject = new JSONObject();
+        jsonObject.put("val","1");
+
+        int val = jsonObject.optInt("val");
+        System.out.println(val);
+    }
+
+    @Test
+    public void example10(){
+        int j = 0;
+        short s = j==0?(short) 1:5;
+        System.out.println(s);
+    }
+
+    @Test
+    public void example11(){
+        String str = "11";
+        System.out.println(StringUtils.isBlank(str));
+    }
+
+    //价格格式化
+    @Test
+    public void example12(){
+        String str = "15.005";
+        System.out.println(String.format("%.2f",Double.valueOf(str)));
+
+        class content{
+            private int num;
+
+            public int getNum() {
+                return num;
+            }
+
+            public void setNum(int num) {
+                this.num = num;
+            }
+        }
+
+        content content = new content();
+        content.setNum(10);
+        System.out.println(content.getNum());
     }
 }
