@@ -91,3 +91,90 @@ Status GetElem(LinkList L, int i,ElemType *e){
 	*e = p->data; //取第i个节点的数据
 	return OK;
 }
+
+//在链表中第i个结点位置之前插入新的数据元素e，L的长度+1
+Status ListInsert(LinkList *L, int i, ElemType e){
+	int j = 1;
+	LinkList p,s;
+	p = *L;
+	while(p && j<i){
+		p = p->next;
+		++j;
+	}
+	if(!p || j>i){
+		return ERROR; //结点不存在
+	}
+	s = (LinkList) malloc(sizeof(Node)); //生成新的结点，用来存放数据e
+	s->data = e;
+	s->next = p->next; //插入节点的指针指向前一个节点的后继
+	p->next = s; //前一个节点的指针指向插入节点
+	return OK;
+}
+
+//删除L的第i个结点，并用e返回其值，L的长度减1
+Status ListDelete(LinkList *L, int i, ElemType *e){
+	int j = 1;
+	LinkList p,q;
+	p = *L;
+	while(p->next && j<i){
+		p = p->next;
+		++j;
+	}
+	if(!(p->next) && j>i){
+		return ERROR;
+	}
+	q = p->next; //将要删除的结点赋给q
+	p->next = q->next; //将要删除结点的下一个结点赋值给当前节点的下一个节点
+	*e = q->data; //将要删除结点的数据赋给e
+	free(q); //释放删除节点的内存
+	return OK;
+}
+
+//使用头插法，随机生成n个元素的值，建立带表头结点的单链表L
+void CreateListHead(LinkList *L, int n){
+	LinkList p;
+	*L = (LinkList) malloc(sizeof(Node));
+	(*L)->next = NULL; //建立一个带头结点的单链表
+	for(int i=1;i<n;i++){
+		//生成新结点
+		p = (LinkList) malloc(sizeof(Node));
+		//随机生成100以内的数字
+		p->data = rand()%100+1;
+		//将新的结点插入到表头
+		p->next = (*L)->next;
+		(*L)->next = p;
+	}
+}
+
+//使用尾插法，随机生成n个元素的值，建立带表头结点的单链表L
+void CreateListTail(LinkList *L, int n){
+	LinkList p,r;
+	*L = (LinkList) malloc(sizeof(Node)); //创建一个空的单链表
+	r = *L;
+	for(int i=0;i<n;i++){
+		//生成新的结点
+		p = (LinkList) malloc(sizeof(Node));
+		//随机生成100以内的数字
+		p->data = rand()%100+1;
+		//新节点插入到上一节点的后面
+		r->next = p;
+		//将r重新定义为尾节点
+		r=p;
+	}
+	r->next = NULL;
+}
+
+//单链表的整表删除
+Status ClearList(LinkList *L){
+	LinkList p,q;
+	p = (*L)->next;
+	while(p){
+		q = p->next;
+		free(p);
+		p = q;
+	}
+	(*L)->next = NULL; //头结点指针域置为空
+	return OK;
+}
+
+

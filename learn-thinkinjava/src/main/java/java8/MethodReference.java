@@ -115,6 +115,9 @@ public class MethodReference {
     }
 }
 
+/**
+ * 引用类
+ */
 class Human{
     private String name;
     private int age;

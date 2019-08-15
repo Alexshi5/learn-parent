@@ -8,7 +8,7 @@ import java.util.function.*;
  * Java8的函数式编程
  */
 public class FunctionProgramming {
-    //参考于：https://my.oschina.net/thinwonton/blog/2991303
+    //参考于：https://my.oschina.net/thinwonton/blog/2992371
 
     /**
      * 接口：interface Supplier<T> 提供者
