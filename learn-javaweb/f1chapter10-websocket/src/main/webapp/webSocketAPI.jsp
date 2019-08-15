@@ -5,10 +5,16 @@
 </body>
 </html>
 <script>
-    var connection1 = new WebSocket("ws://localhost:8080/websocket");
-    var connection2 = new WebSocket("wss://localhost:8080/websocket");
-    var connection3 = new WebSocket("wss://localhost:8080/websocket","char:v1");
+    /**
+     * 创建websocket对象
+     */
+    var connection1 = new WebSocket("ws://localhost:8090/websocket");
+    var connection2 = new WebSocket("wss://localhost:8090/websocket");
+    var connection3 = new WebSocket("wss://localhost:8090/websocket","char:v1");
 
+    /**
+     * websocket对象的属性
+     */
     //属性readyState：表示当前WebSocket连接的状态，它的值是CONNECTING(0),OPEN(1),CLOSING(2),CLOSED(3)中的一个
     if(connection1.readyState === WebSocket.OPEN){
         //do something
@@ -17,6 +23,9 @@
     connection1.binaryType = 'arraybuffer';
     //属性bufferdAmount：表示之前的send调用还有多少数据需要发送到服务器
 
+    /**
+     * websocket对象的事件
+     */
     //4种不同的事件
     connection1.onopen = function (event) {  };//握手完成，readyState从CONNECTING变成OPEN时触发
     connection1.onclose = function (event) { //readyState从CLOSING变成CLOSED时触发
@@ -35,6 +44,9 @@
         //如果消息是一个二进制消息，并且binaryType被设置为arraybuffer，那么该属性的值将是一个ArrayBuffer
     };
 
+    /**
+     * websocket对象的方法
+     */
     //两个方法：send()和close()
     //方法close：接受一个可选的关闭代码作为它的第一个参数（默认为1000），一个可选的字符串reason作为它的第二个参数（默认为空）
     connection1.close();

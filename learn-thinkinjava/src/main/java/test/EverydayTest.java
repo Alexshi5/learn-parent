@@ -230,8 +230,9 @@ public class EverydayTest {
 
     @Test
     public void example11(){
-        String str = "11";
-        System.out.println(StringUtils.isBlank(str));
+        float f = 5.20f;
+        float v = f * 589.3f / 100;
+        System.out.println(v);
     }
 
     //价格格式化
