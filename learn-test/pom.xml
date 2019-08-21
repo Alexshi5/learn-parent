@@ -17,6 +17,7 @@
     <modules>
         <module>test-ssm</module>
         <module>test-fbsep</module>
+        <module>test-security</module>
         <module>test-docker</module>
         <module>test-springboot</module>
     </modules>

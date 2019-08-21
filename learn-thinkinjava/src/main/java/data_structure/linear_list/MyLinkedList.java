@@ -147,6 +147,7 @@ public class MyLinkedList<E> implements Serializable {
     }
 
     public static void main(String[] args) {
+
         MyLinkedList<Integer> myLinkedList = new MyLinkedList<>();
         myLinkedList.addLast(0);
         System.out.println("集合中元素个数：" + myLinkedList.size);
@@ -155,7 +156,7 @@ public class MyLinkedList<E> implements Serializable {
             System.out.print(myLinkedList.getElem(i));
         }
 
-        //循环添加元素
+        //循环使用尾插法添加元素
         System.out.println();
         for(int j = 0; j < 10; j++){
             myLinkedList.addLast(j);

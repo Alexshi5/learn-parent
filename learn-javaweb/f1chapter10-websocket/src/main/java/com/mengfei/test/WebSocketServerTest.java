@@ -89,12 +89,6 @@ public class WebSocketServerTest {
                     if(session1 != null){
                         session1.getBasicRemote().sendText(JSON.toJSONString(message));
                     }
-
-                    message.setContent("有什么可以帮到你？");
-                    session.getBasicRemote().sendText(JSON.toJSONString(message));
-                    if(session1 != null){
-                        session1.getBasicRemote().sendText(JSON.toJSONString(message));
-                    }
                 }
             }
         }catch (Exception e){

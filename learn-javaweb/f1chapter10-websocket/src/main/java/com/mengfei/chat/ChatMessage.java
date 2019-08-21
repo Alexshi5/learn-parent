@@ -1,5 +1,6 @@
 package com.mengfei.chat;
 
+import java.io.Serializable;
 import java.util.Date;
 
 /**
@@ -7,8 +8,9 @@ import java.util.Date;
  * date 2018/12/29
  * description 一个简单的聊天消息POJO
  */
-public class ChatMessage
+public class ChatMessage implements Serializable
 {
+    private static final long serialVersionUID = -4005959472462241726L;
     //当前时区的时间
     private Date timestamp;
     //消息类型
