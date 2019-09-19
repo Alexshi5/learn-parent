@@ -7,6 +7,7 @@ import org.junit.Test;
 
 import java.lang.reflect.Method;
 import java.util.*;
+import java.util.regex.Pattern;
 
 public class EverydayTest {
     public static void main(String[] args) {
@@ -239,7 +240,7 @@ public class EverydayTest {
     @Test
     public void example12(){
         String str = "15.005";
-        System.out.println(String.format("%.2f",Double.valueOf(str)));
+        System.out.println(String.format("%.0f",Double.valueOf(str)));
 
         class content{
             private int num;
@@ -256,5 +257,21 @@ public class EverydayTest {
         content content = new content();
         content.setNum(10);
         System.out.println(content.getNum());
+    }
+
+    @Test
+    public void example13(){
+        float money = 500.56f;
+        float f = 1.3f;
+        System.out.println(money * f /100);
+    }
+
+    //测试正则
+    @Test
+    public void example14(){
+        String regex = "[a-zA-Z_0-9]+";
+        String code = "_125agRf2_";
+        boolean matches = Pattern.matches(regex, code);
+        System.out.println(matches);
     }
 }
