@@ -82,7 +82,7 @@
         <!-- jdk的补充工具jar包 -->
         <commons-lang3.version>3.6</commons-lang3.version>
         <!-- 输入输出流 -->
-        <commons-io.version>2.6</commons-io.version>
+        <commons-io.version>2.7</commons-io.version>
         <!-- 封装了各种网络协议的jar包 -->
         <commons-net.version>3.6</commons-net.version>
         <!-- 文件上传 -->
