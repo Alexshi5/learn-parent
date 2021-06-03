@@ -90,7 +90,7 @@
         <!-- jackson工具 -->
         <jackson.version>2.9.2</jackson.version>
         <!-- 应用程序之间的通信jar包-->
-        <httpclient.version>4.3.5</httpclient.version>
+        <httpclient.version>4.5.13</httpclient.version>
         <!-- 时间格式化组件-->
         <joda-time.version>2.9.9</joda-time.version>
         <!-- redis客户端 -->
