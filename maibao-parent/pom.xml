@@ -54,7 +54,7 @@
         <!-- 单元测试 -->
         <junit.version>4.12</junit.version>
         <!-- spring -->
-        <spring.version>5.0.0.RELEASE</spring.version>
+        <spring.version>5.2.20.RELEASE</spring.version>
         <!-- spring的切面依赖jar包 -->
         <aspectj.version>1.8.11</aspectj.version>
         <!-- mybatis 如果版本太高，使用pagehelper3.4.2-fix时会出现参数不匹配的问题，因为pagehelper3.4.2-fix使用的mybatis版本是3.2.8-->
